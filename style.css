@@ -61,3 +61,10 @@ footer {
   background-color: #fce4ec;
   color: #555;
 }
+#hero {
+  background-image: url('0509-Cover.jpg');
+  background-size: contain;  /* Thu nhỏ ảnh vừa đủ */
+  background-position: top left;  /* Căn ảnh về góc trên trái */
+  background-repeat: no-repeat;
+  height: 100vh;
+}
