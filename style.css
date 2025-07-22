@@ -16,7 +16,7 @@ header {
 .header {
   background-image: url('Hinhcover.jpg'); 
   background-size: cover;
-  background-position: center top;
+  background-position: center top; /* Ưu tiên hiện phần đầu */
   background-repeat: no-repeat;
   height: 250px;
   position: relative;
