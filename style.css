@@ -14,11 +14,11 @@ header {
   text-align: center;
 }
 .header {
-  background-image: url('0509-Cover.jpg'); 
+  background-image: url('Hinhcover.jpg'); 
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  height: 300px; /* hoặc tùy chỉnh theo nhu cầu */
+  height: 250px;
   position: relative;
   display: flex;
   align-items: center;
