@@ -13,6 +13,17 @@ header {
   padding: 2rem 1rem;
   text-align: center;
 }
+.header {
+  background-image: url('0509-Cover.jpg'); 
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  height: 300px; /* hoặc tùy chỉnh theo nhu cầu */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .intro, .services, .cta {
   padding: 2rem 1rem;
@@ -60,11 +71,4 @@ footer {
   font-size: 0.9rem;
   background-color: #fce4ec;
   color: #555;
-}
-#hero {
-  background-image: url('0509-Cover.jpg');
-  background-size: contain;  /* Thu nhỏ ảnh vừa đủ */
-  background-position: top left;  /* Căn ảnh về góc trên trái */
-  background-repeat: no-repeat;
-  height: 100vh;
 }
