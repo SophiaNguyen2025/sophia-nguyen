@@ -333,9 +333,9 @@ img, video {
   background-color: #0056b3;
   transform: translateY(-2px);
 }
-
-}
 .no-underline {
   text-decoration: none;
   color: inherit; /* Giữ nguyên màu chữ xung quanh */
+}
+
 }
