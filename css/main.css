@@ -310,21 +310,31 @@ img, video {
   float: none !important;
   align-self: center !important;
 }
-
+.back-container {
+  text-align: center;
+  margin: 40px 0;
 }
+
 .back-button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background-color: #007bff;
   color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .back-button:hover {
   background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+}
 }
 .no-underline {
   text-decoration: none;
