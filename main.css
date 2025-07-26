@@ -1,4 +1,3 @@
-/* --- CSS GỐC GIỮ NGUYÊN KHÔNG ĐỔI --- */
 body {
   font-family: "Segoe UI", sans-serif;
   margin: 0;
@@ -6,19 +5,184 @@ body {
   line-height: 1.6;
   background-color: #fefefe;
   color: #333;
-  width: 100%;
-  overflow-x: hidden;
 }
 
-/* ... (toàn bộ phần CSS gốc không đổi của chị ở trên vẫn giữ nguyên) ... */
+header {
+  background-color: #f48fb1;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
 
-/* --- FIX NÚT ĐẶT LỊCH ĐỨNG YÊN TRÊN FOOTER, GIỮ CỐ ĐỊNH DƯỚI TRANG --- */
-.schedule-button {
+/* ==== ẢNH COVER ==== */
+.header {
+  background-image: url('Hinhcover.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==== NỘI DUNG TRÊN ẢNH COVER ==== */
+.header .cta-text {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* ==== NÚT ZALO ==== */
+.zalo-button {
   position: fixed;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 20px;
   z-index: 999;
+  background-color: #00bcd4;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.zalo-button:hover {
+  background-color: #0097a7;
+}
+
+.intro, .services, .cta {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+h2 {
+  color: #006666;
+}
+
+.card {
+  background: #fff0f6;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid #ec407a;
+  border-radius: 8px;
+}
+
+.cta {
+  text-align: center;
+  background: #fff5f8;
+  border-top: 1px solid #f8bbd0;
+  border-bottom: 1px solid #f8bbd0;
+  padding: 2rem 1rem;
+}
+
+.button {
+  display: inline-block;
+  background-color: #d81b60;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.button:hover {
+  background-color: #ad1457;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #fce4ec;
+  color: #555;
+}
+
+/* ==== MENU ==== */
+nav ul {
+  display: flex;
+  justify-content: center;
+  background-color: #004d66;
+  padding: 15px 0;
+  list-style: none;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background: #007799;
+}
+
+/* ==== SECTION ==== */
+.section {
+  margin-bottom: 30px;
+  padding: 25px;
+}
+
+.section:nth-child(even) {
+  background-color: #ffeef4;
+}
+
+/* ==== RESPONSIVE MOBILE ==== */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+
+  .header {
+    height: 200px;
+    background-position: center center;
+  }
+
+  .header .cta-text {
+    font-size: 1.3rem;
+    padding: 8px 16px;
+  }
+
+  .intro, .services, .cta {
+    padding: 1.5rem 1rem;
+  }
+
+  .zalo-button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
+/* ==== FIX ẢNH COVER BỊ LỆCH ==== */
+.header {
+  background-position: center center !important;
+}
+
+/* ==== NÚT "ĐẶT LỊCH CÙNG SOPHIA" GIỮA MÀN HÌNH ==== */
+.schedule-button {
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 1000;
   background-color: #ff4081;
   color: white;
   padding: 1rem 2rem;
@@ -34,49 +198,77 @@ body {
   background-color: #e91e63;
 }
 
+/* ==== HIỆU ỨNG PULSE ==== */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 64, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0); }
+}
+
+/* ==== RESPONSIVE MOBILE CHO NÚT LỊCH ==== */
 @media (max-width: 768px) {
   .schedule-button {
     font-size: 14px;
     padding: 0.75rem 1.5rem;
   }
 }
-
-/* --- THÊM BIỂU TƯỢNG ZALO + MESSENGER CỐ ĐỊNH GÓC PHẢI DƯỚI --- */
-.floating-icons {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* ==== COVER CĂN GIỮA ==== */
+.header {
+  background-position: center center !important;
+  background-size: cover;
 }
 
-.floating-icons a {
+/* ==== NÚT ĐẶT LỊCH Ở CUỐI TRANG ==== */
+.schedule-button {
+  display: block;
+  width: fit-content;
+  margin: 2rem auto;
+  background-color: #ff4081;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s infinite;
+  transition: background 0.3s;
+}
+
+.schedule-button:hover {
+  background-color: #e91e63;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 64, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0); }
+}
+
+/* ==== FIX GIAO DIỆN MOBILE ==== */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.container, .content, .section, .wrapper, .main {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+/* Nếu có sử dụng khối lưới chia cột */
+.row, .columns {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #0084ff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
+  align-items: center;
 }
 
-.floating-icons a:hover {
-  transform: scale(1.1);
-}
-
-.floating-icons img {
-  width: 28px;
-  height: 28px;
-}
-
-.floating-icons .zalo {
-  background-color: #0068ff;
-}
-
-.floating-icons .messenger {
-  background-color: #0084ff;
+img, video {
+  max-width: 100%;
+  height: auto;
 }
