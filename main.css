@@ -1,123 +1,147 @@
-/* ==== CƠ BẢN ==== */
 body {
   font-family: "Segoe UI", sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background-color: #fff; /* Nền trắng sạch sẽ */
+  background-color: #fefefe;
   color: #333;
 }
 
-/* ==== HEADER ==== */
 header {
   background-color: #f48fb1;
   color: white;
-  padding: 40px 20px;
   text-align: center;
+  padding: 2rem 1rem;
 }
 
+/* ==== ẢNH COVER ==== */
 .header {
   background-image: url('Hinhcover.jpg');
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
   height: 250px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ==== NỘI DUNG TRÊN ẢNH COVER ==== */
+.header .cta-text {
   color: white;
   font-size: 1.8rem;
   font-weight: bold;
+  background-color: rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
 }
 
-/* ==== NAVIGATION ==== */
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  background-color: #004d66;
-  flex-wrap: wrap;
-}
-
-nav ul li {
-  margin: 5px 10px;
-}
-
-nav ul li a {
+/* ==== NÚT ZALO ==== */
+.zalo-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #00bcd4;
   color: white;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
   text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 4px;
   transition: background 0.3s;
 }
 
-nav ul li a:hover {
-  background-color: #007799;
+.zalo-button:hover {
+  background-color: #0097a7;
 }
 
-/* ==== PHẦN NỘI DUNG ==== */
-.intro, .services, .cta, .section {
-  padding: 30px 20px;
-  max-width: 900px;
-  margin: 0 auto;
+.intro, .services, .cta {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: auto;
 }
 
-.section:nth-child(even) {
-  background-color: #fff5f8;
-}
-
-/* ==== TIÊU ĐỀ ==== */
 h2 {
   color: #006666;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
 }
 
-/* ==== THẺ CARD ==== */
 .card {
   background: #fff0f6;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   border-left: 4px solid #ec407a;
   border-radius: 8px;
 }
 
-/* ==== CALL TO ACTION ==== */
 .cta {
-  background-color: #fff0f5;
   text-align: center;
-  border: 1px solid #f8bbd0;
-  border-radius: 10px;
+  background: #fff5f8;
+  border-top: 1px solid #f8bbd0;
+  border-bottom: 1px solid #f8bbd0;
+  padding: 2rem 1rem;
 }
 
-/* ==== BUTTON ==== */
 .button {
   display: inline-block;
   background-color: #d81b60;
   color: white;
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   text-decoration: none;
-  border-radius: 5px;
-  margin-top: 15px;
-  font-weight: bold;
+  border-radius: 4px;
+  margin-top: 1rem;
 }
 
 .button:hover {
   background-color: #ad1457;
 }
 
-/* ==== FOOTER ==== */
 footer {
+  text-align: center;
+  padding: 2rem 1rem;
   background-color: #fce4ec;
   color: #555;
-  text-align: center;
-  padding: 30px 10px;
-  font-size: 0.9rem;
 }
 
-/* ==== RESPONSIVE ==== */
+/* ==== MENU ==== */
+nav ul {
+  display: flex;
+  justify-content: center;
+  background-color: #004d66;
+  padding: 15px 0;
+  list-style: none;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background: #007799;
+}
+
+/* ==== SECTION ==== */
+.section {
+  margin-bottom: 30px;
+  padding: 25px;
+}
+
+.section:nth-child(even) {
+  background-color: #ffeef4;
+}
+
+/* ==== RESPONSIVE MOBILE ==== */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -125,15 +149,25 @@ footer {
   }
 
   nav ul li {
-    margin: 8px 0;
+    margin: 5px 0;
   }
 
   .header {
-    height: 180px;
-    font-size: 1.4rem;
+    height: 200px;
+    background-position: center center;
+  }
+
+  .header .cta-text {
+    font-size: 1.3rem;
+    padding: 8px 16px;
   }
 
   .intro, .services, .cta {
-    padding: 20px;
+    padding: 1.5rem 1rem;
+  }
+
+  .zalo-button {
+    padding: 10px 16px;
+    font-size: 14px;
   }
 }
