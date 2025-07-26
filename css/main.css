@@ -326,4 +326,8 @@ img, video {
 .back-button:hover {
   background-color: #0056b3;
 }
+.no-underline {
+  text-decoration: none;
+  color: inherit; /* Giữ nguyên màu chữ xung quanh */
+}
 
