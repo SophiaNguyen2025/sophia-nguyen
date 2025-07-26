@@ -272,10 +272,32 @@ img, video {
   max-width: 100%;
   height: auto;
 }
-#booking-button {
+#cta-button {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
+}
+.floating-icons a.zalo {
+  text-indent: -9999px; /* Ẩn chữ nhưng vẫn giữ liên kết */
+  overflow: hidden;
+}
+.floating-icons a.messenger img {
+  width: 40px;
+  height: 40px;
+}
+.floating-icons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.floating-icons a img {
+  width: 40px;
+  height: 40px;
 }
