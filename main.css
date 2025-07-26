@@ -310,8 +310,6 @@ img, video {
   float: none !important;
   align-self: center !important;
 }
-
-}
 .back-container {
   text-align: center;
   margin: 40px 0;
@@ -335,9 +333,9 @@ img, video {
   background-color: #0056b3;
   transform: translateY(-2px);
 }
-
-}
-a.no-underline {
-  text-decoration: none !important;
+.no-underline {
+  text-decoration: none;
   color: inherit; /* Giữ nguyên màu chữ xung quanh */
+}
+
 }
