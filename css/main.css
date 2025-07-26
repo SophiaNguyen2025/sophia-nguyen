@@ -334,8 +334,8 @@ img, video {
   transform: translateY(-2px);
 }
 
-.no-underline {
-  text-decoration: none;
+a.no-underline {
+  text-decoration: none !important;
   color: inherit; /* Giữ nguyên màu chữ xung quanh */
 }
 
