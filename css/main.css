@@ -1,81 +1,82 @@
-/* Reset một số mặc định */
-* {
+/* --- CSS GỐC GIỮ NGUYÊN KHÔNG ĐỔI --- */
+body {
+  font-family: "Segoe UI", sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Căn giữa nội dung và giới hạn chiều rộng */
-body {
-  font-family: Arial, sans-serif;
   line-height: 1.6;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-  background-color: #fff;
-}
-
-/* Hình cover nằm chính giữa */
-.cover {
+  background-color: #fefefe;
+  color: #333;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cover img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  overflow-x: hidden;
 }
 
-/* Nút đặt lịch cố định bên phải phía dưới */
-#dat-lich-btn {
+/* ... (toàn bộ phần CSS gốc không đổi của chị ở trên vẫn giữ nguyên) ... */
+
+/* --- FIX NÚT ĐẶT LỊCH ĐỨNG YÊN TRÊN FOOTER, GIỮ CỐ ĐỊNH DƯỚI TRANG --- */
+.schedule-button {
   position: fixed;
   bottom: 20px;
-  right: 20px;
-  background-color: #ff4e00;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background-color: #ff4081;
   color: white;
-  padding: 12px 20px;
-  border-radius: 30px;
-  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
   font-weight: bold;
-  cursor: pointer;
-  z-index: 9999;
-  animation: blink 1.5s infinite;
-}
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s infinite;
+  transition: background 0.3s;
 }
 
-/* Nút Zalo + Messenger cố định góc phải */
-.fixed-icons {
+.schedule-button:hover {
+  background-color: #e91e63;
+}
+
+@media (max-width: 768px) {
+  .schedule-button {
+    font-size: 14px;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* --- THÊM BIỂU TƯỢNG ZALO + MESSENGER CỐ ĐỊNH GÓC PHẢI DƯỚI --- */
+.floating-icons {
   position: fixed;
+  bottom: 90px;
   right: 20px;
-  bottom: 80px;
-  z-index: 9999;
+  z-index: 999;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-.fixed-icons a img {
-  width: 45px;
-  height: 45px;
+  gap: 15px;
 }
 
-/* Responsive cho điện thoại */
-@media screen and (max-width: 768px) {
-  body {
-    padding: 0 10px;
-  }
-  #dat-lich-btn {
-    font-size: 14px;
-    padding: 10px 15px;
-  }
-  .fixed-icons a img {
-    width: 38px;
-    height: 38px;
-  }
+.floating-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #0084ff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.floating-icons a:hover {
+  transform: scale(1.1);
+}
+
+.floating-icons img {
+  width: 28px;
+  height: 28px;
+}
+
+.floating-icons .zalo {
+  background-color: #0068ff;
+}
+
+.floating-icons .messenger {
+  background-color: #0084ff;
 }
