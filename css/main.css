@@ -272,3 +272,10 @@ img, video {
   max-width: 100%;
   height: auto;
 }
+#booking-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
