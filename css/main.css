@@ -334,8 +334,6 @@ img, video {
   transform: translateY(-2px);
 }
 
-}
-}
 .no-underline {
   text-decoration: none;
   color: inherit; /* Giữ nguyên màu chữ xung quanh */
