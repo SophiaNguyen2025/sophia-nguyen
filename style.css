@@ -471,4 +471,49 @@ nav {
   color: #555;
   font-size: 14px;
 }
+.post-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
 
+    .post-card {
+      background: #ffffff;
+      border: 1px solid #dbeafe;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    .post-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .post-card h3 {
+      color: #0f172a;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .post-card p {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .post-card a {
+      text-decoration: none;
+      color: #0284c7;
+      font-weight: bold;
+    }
