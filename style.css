@@ -377,7 +377,7 @@ img, video {
 
 }
 nav {
-  background-color: #fff;
+  background-color: #006699; /* màu nền xanh của menu */
   padding: 10px;
 }
 
@@ -393,7 +393,7 @@ nav {
 
 .navbar a {
   text-decoration: none;
-  color: #333;
+  color: #fff; /* chữ màu trắng cho thanh menu chính */
   padding: 8px 12px;
   display: block;
 }
@@ -409,14 +409,15 @@ nav {
   z-index: 1;
 }
 
-.dropdown-content li {
-  white-space: nowrap;
+.dropdown-content a {
+  color: #333; /* chữ đen cho mục xổ xuống */
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown-content a:hover {
-  background-color: #f0f0f0;
-}
