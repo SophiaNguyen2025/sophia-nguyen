@@ -478,11 +478,9 @@ nav ul li a.active::after {
   height: 50px;         /* Logo nhỏ gọn */
   margin-bottom: 10px;
 }
-
 .footer-nav {
   margin-bottom: 10px;
 }
-
 .footer-nav a {
   margin: 0 6px;
   color: #d86b82;
