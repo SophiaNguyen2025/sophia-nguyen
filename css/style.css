@@ -408,3 +408,17 @@ nav ul li a.active::after {
 }
 
 }
+/* Màu nền và chữ khi hover hoặc active */
+.navbar li a:hover,
+.navbar li a.active {
+  background-color: #f0f0f0; /* Nền khi hover hoặc đang active */
+  color: #0077cc; /* Màu chữ khi hover hoặc đang active */
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+/* Cho dropdown menu: active ở thẻ cha */
+.navbar li.dropdown > a.active {
+  background-color: #e6f7ff;
+  color: #005b99;
+}
