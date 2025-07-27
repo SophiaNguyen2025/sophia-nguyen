@@ -24,7 +24,7 @@
     </li>
 
     <li class="dropdown">
-      <a href="sharing.html class="active"">Góc chia sẻ</a>
+      <a href="sharing.html">Góc chia sẻ</a>
       <ul class="dropdown-content">
         <li><a href="sharing-daotao.html">Đào tạo kỹ năng</a></li>
         <li><a href="sharing-tamly.html">Tâm lý – Tình cảm</a></li>
@@ -79,14 +79,21 @@
     Mọi thông tin được bảo mật theo đạo đức nghề nghiệp. <br>
     Cảm ơn bạn đã ghé thăm 💗</p>
   </footer>
-   <script>
+  <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const current = window.location.pathname.split("/").pop() || "index.html";
+    let current = window.location.pathname.split("/").pop();
+
+    // Nếu URL là root domain ("/") thì coi như index.html
+    if (!current || current === "") {
+      current = "index.html";
+    }
+
     const links = document.querySelectorAll(".navbar a");
 
     links.forEach(function (link) {
       const href = link.getAttribute("href");
-      if (href === current || (current === "index.html" && href === "index.html")) {
+
+      if (href === current) {
         link.classList.add("active");
       }
     });
