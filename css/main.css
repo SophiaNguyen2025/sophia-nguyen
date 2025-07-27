@@ -475,8 +475,12 @@ nav ul li a.active::after {
 }
 
 .footer-logo {
-  height: 50px;         /* Logo nhỏ gọn */
-  margin-bottom: 10px;
+  height: 80px !important;   /* Tăng size rõ rệt + ép luôn nếu bị đè */
+  width: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
 }
 .footer-nav {
   margin-bottom: 10px;
