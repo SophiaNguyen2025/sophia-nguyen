@@ -467,7 +467,7 @@ nav ul li a.active::after {
   color: #005b99;
 }
 .site-footer {
-  background-color: #fbeee0;
+  background-color: #f8d6df;
   padding: 20px 10px;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
@@ -485,7 +485,7 @@ nav ul li a.active::after {
 
 .footer-nav a {
   margin: 0 6px;
-  color: #e26d5a;
+  color: #d86b82;
   text-decoration: none;
   font-size: 14px;
 }
@@ -497,7 +497,7 @@ nav ul li a.active::after {
 }
 
 .footer-social img {
-  height: 20px;        /* Icon nhỏ lại nè */
+  height: 36px;        /* Icon nhỏ lại nè */
   margin: 0 4px;
 }
 
