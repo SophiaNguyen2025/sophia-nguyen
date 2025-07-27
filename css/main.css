@@ -383,4 +383,73 @@ nav {
 .dropdown-content a:hover {
   background-color: #f0f0f0;
 }
+/* === MENU STICKY DÍNH TRÊN ĐẦU === */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white; /* Chỉnh theo màu của trang chị */
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* đổ bóng nhẹ nhàng */
+}
+
+/* === ĐẨY BODY XUỐNG ĐỂ KHÔNG BỊ CHE MẤT NỘI DUNG === */
+body {
+  padding-top: 70px; /* Điều chỉnh tùy độ cao thanh menu */
+}
+
+/* === STYLE CHUNG CHO MENU ITEMS === */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Canh giữa menu */
+  gap: 20px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* === HOVER: GẠCH CHÂN + ĐỔI MÀU === */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  width: 0%;
+  height: 2px;
+  background-color: #d35400; /* Màu cam thương hiệu chị */
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #d35400;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* === ACTIVE: TRANG HIỆN TẠI === */
+nav ul li a.active {
+  color: #d35400;
+  font-weight: bold;
+}
+
+nav ul li a.active::after {
+  width: 100%;
+}
 
