@@ -10,7 +10,7 @@
   <header>
     <nav>
   <ul class="navbar">
-    <li><a href="index.html" class="active">Trang chủ</a></li>
+    <li><a href="index.html">Trang chủ</a></li>
     <li><a href="about.html">Giới thiệu</a></li>
 
     <li class="dropdown">
@@ -107,18 +107,24 @@
   </footer>
     <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const current = window.location.pathname.split("/").pop() || "index.html";
+    let current = window.location.pathname.split("/").pop();
+
+    // Nếu URL là root domain ("/") thì coi như index.html
+    if (!current || current === "") {
+      current = "index.html";
+    }
+
     const links = document.querySelectorAll(".navbar a");
 
     links.forEach(function (link) {
       const href = link.getAttribute("href");
-      if (href === current || (current === "index.html" && href === "index.html")) {
+
+      if (href === current) {
         link.classList.add("active");
       }
     });
   });
 </script>
-
     </body>
 </div>
 </html>
