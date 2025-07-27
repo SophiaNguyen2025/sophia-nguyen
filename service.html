@@ -106,24 +106,27 @@ Không phán xét bất cứ điều gì – chỉ lắng nghe và đồng hành
 </footer>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    let current = window.location.pathname.split("/").pop();
-
-    // Nếu URL là root domain ("/") thì coi như index.html
-    if (!current || current === "") {
-      current = "index.html";
+    let current = window.location.pathname;
+    if (current === "/" || current === "") {
+      current = "/index.html";
     }
 
-    const links = document.querySelectorAll(".navbar a");
-
-    links.forEach(function (link) {
-      const href = link.getAttribute("href");
-
-      if (href === current) {
+    document.querySelectorAll(".navbar a").forEach(function (link) {
+      const linkPath = new URL(link.href).pathname;
+      if (linkPath === current) {
         link.classList.add("active");
+
+        // Nếu nằm trong dropdown thì tô luôn cha nó
+        const dropdown = link.closest(".dropdown-content");
+        if (dropdown) {
+          const parentLink = dropdown.parentElement.querySelector("a");
+          if (parentLink) parentLink.classList.add("active");
+        }
       }
     });
   });
 </script>
+
 
 </body>
 </html>
