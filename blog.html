@@ -92,12 +92,9 @@
     if (!current || current === "") {
       current = "index.html";
     }
-
     const links = document.querySelectorAll(".navbar a");
-
     links.forEach(function (link) {
       const href = link.getAttribute("href");
-
       if (href === current) {
         link.classList.add("active");
       }
