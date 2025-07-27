@@ -456,4 +456,12 @@ nav {
   height: 36px;        /* Icon nhỏ lại nè */
   margin: 0 4px;
 }
+.navbar a.active {
+  background-color: #ffffff;
+  color: #0a4a5a;
+  border-bottom: 4px solid #00bcd4;
+  padding: 6px 12px;
+  border-radius: 6px 6px 0 0;
+  font-weight: bold;
+}
 
