@@ -420,3 +420,37 @@ nav {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.site-footer {
+  background-color: #fbeee0;
+  padding: 20px 10px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #444;
+}
+
+.footer-logo {
+  height: 50px;         /* Logo nhỏ gọn */
+  margin-bottom: 10px;
+}
+
+.footer-nav {
+  margin-bottom: 10px;
+}
+
+.footer-nav a {
+  margin: 0 6px;
+  color: #e26d5a;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-slogan {
+  font-style: italic;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer-social img {
+  height: 20px;        /* Icon nhỏ lại nè */
+  margin: 0 4px;
+}
