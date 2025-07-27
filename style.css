@@ -420,4 +420,32 @@ nav {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.fancy-quote {
+  font-style: italic;
+  background: #f0f8ff;
+  border-left: 5px solid #00b4d8;
+  margin: 1em 0;
+  padding: 1em 1.5em;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+.fancy-quote::before {
+  content: "“";
+  font-size: 4rem;
+  color: #00b4d8;
+  position: absolute;
+  top: -20px;
+  left: 10px;
+}
+
+.fancy-quote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  color: #555;
+  font-weight: bold;
+}
 
