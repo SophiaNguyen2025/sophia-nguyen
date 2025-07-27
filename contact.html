@@ -34,7 +34,7 @@
     </li>
 
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html class="active"">Liên hệ</a></li>
+    <li><a href="contact.html">Liên hệ</a></li>
   </ul>
 </nav>
 
@@ -61,18 +61,23 @@
   </footer>
  <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const current = window.location.pathname.split("/").pop() || "index.html";
+    let current = window.location.pathname.split("/").pop();
+
+    // Nếu URL là root domain ("/") thì coi như index.html
+    if (!current || current === "") {
+      current = "index.html";
+    }
+
     const links = document.querySelectorAll(".navbar a");
 
     links.forEach(function (link) {
       const href = link.getAttribute("href");
-      if (href === current || (current === "index.html" && href === "index.html")) {
+
+      if (href === current) {
         link.classList.add("active");
       }
     });
   });
 </script>
-
-
 </body>
 </html>
