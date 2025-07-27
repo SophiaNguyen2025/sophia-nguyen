@@ -91,15 +91,17 @@ Nếu bạn đang tìm kiếm một người không chỉ đưa ra lời khuyên
     Cảm ơn bạn đã ghé thăm 💗
   </footer>
   <script>
-  const current = location.pathname.split("/").pop() || "index.html";
-  const links = document.querySelectorAll(".navbar a");
+  document.addEventListener("DOMContentLoaded", function () {
+    const current = window.location.pathname.split("/").pop() || "index.html";
+    const links = document.querySelectorAll(".navbar a");
 
-  links.forEach(link => {
-    if (link.getAttribute("href") === current) {
-      link.classList.add("active");
-    }
+    links.forEach(function (link) {
+      const href = link.getAttribute("href");
+      if (href === current || (current === "index.html" && href === "index.html")) {
+        link.classList.add("active");
+      }
+    });
   });
 </script>
-
 </body>
 </html>
