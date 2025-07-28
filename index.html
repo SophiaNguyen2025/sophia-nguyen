@@ -6,6 +6,7 @@
   <title>Sophia Nguyễn – Đồng hành & Sẻ chia</title>
   <link rel="stylesheet" href="main.css?v3">
 </head>
+  <button id="backToTop" title="Về đầu trang">⬆️</button>
 <body>
   <div class="page-wrapper">
     <header>
@@ -145,5 +146,18 @@
       });
     });
   </script>
+  <script>
+  // Hiện nút khi cuộn xuống
+  window.onscroll = function() {
+    document.getElementById("backToTop").style.display =
+      (document.documentElement.scrollTop > 200) ? "block" : "none";
+  };
+
+  // Cuộn về đầu trang
+  document.getElementById("backToTop").onclick = function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+</script>
+
 </body>
 </html>
