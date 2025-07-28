@@ -158,6 +158,24 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 </script>
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.querySelector("header"); // hoặc ".navbar" tùy class của chị
+
+  window.addEventListener("scroll", function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      // người dùng cuộn xuống
+      navbar.style.transform = "translateY(-100%)";
+    } else {
+      // người dùng cuộn lên
+      navbar.style.transform = "translateY(0)";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+</script>
 
 </body>
 </html>
