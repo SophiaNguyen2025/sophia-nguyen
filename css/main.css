@@ -493,3 +493,12 @@ nav ul li a.active::after {
   border-radius: 6px 6px 0 0;
   font-weight: bold;
 }
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
