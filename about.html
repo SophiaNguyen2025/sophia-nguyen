@@ -130,5 +130,18 @@ Nếu bạn đang tìm kiếm một người không chỉ đưa ra lời khuyên
     });
   });
 </script>
+  <button id="backToTop" title="Về đầu trang">⬆️</button>
+  <script>
+  // Hiện nút khi cuộn xuống
+  window.onscroll = function() {
+    document.getElementById("backToTop").style.display =
+      (document.documentElement.scrollTop > 200) ? "block" : "none";
+  };
+
+  // Cuộn về đầu trang
+  document.getElementById("backToTop").onclick = function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+</script>
 </body>
 </html>
