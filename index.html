@@ -158,19 +158,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 </script>
-<script>
-let prevScrollPos = window.pageYOffset;
-window.onscroll = function () {
-  const currentScrollPos = window.pageYOffset;
-  const header = document.querySelector("header");
 
-  if (prevScrollPos > currentScrollPos) {
-    header.style.top = "0"; // hiện lại khi cuộn lên
-  } else {
-    header.style.top = "-100px"; // ẩn khi cuộn xuống
-  }
-  prevScrollPos = currentScrollPos;
-};
-</script>
 </body>
 </html>
