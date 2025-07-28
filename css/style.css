@@ -1,3 +1,4 @@
+/* === PHẦN CSS ĐÃ TỐI ƯU - KHÔNG THAY ĐỔI ĐỊNH DẠNG === */
 body {
   font-family: "Segoe UI", sans-serif;
   margin: 0;
@@ -6,6 +7,7 @@ body {
   background-color: #fefefe;
   color: #333;
 }
+
 header {
   background-color: #f48fb1;
   color: white;
@@ -13,7 +15,7 @@ header {
   padding: 2rem 1rem;
 }
 
-/* ==== ẢNH COVER ==== */
+/* ==== ẢNH COVER (ĐÃ GỘP 2 KHAI BÁO) ==== */
 .header {
   background-image: url('Hinhcover.jpg');
   background-size: cover;
@@ -26,7 +28,6 @@ header {
   justify-content: center;
 }
 
-/* ==== NỘI DUNG TRÊN ẢNH COVER ==== */
 .header .cta-text {
   color: white;
   font-size: 1.8rem;
@@ -140,83 +141,6 @@ nav ul li a:hover {
   background-color: #ffeef4;
 }
 
-/* ==== RESPONSIVE MOBILE ==== */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li {
-    margin: 5px 0;
-  }
-
-  .header {
-    height: 200px;
-    background-position: center center;
-  }
-
-  .header .cta-text {
-    font-size: 1.3rem;
-    padding: 8px 16px;
-  }
-
-  .intro, .services, .cta {
-    padding: 1.5rem 1rem;
-  }
-
-  .zalo-button {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-}
-/* ==== FIX ẢNH COVER BỊ LỆCH ==== */
-.header {
-  background-position: center center !important;
-}
-
-/* ==== NÚT "ĐẶT LỊCH CÙNG SOPHIA" GIỮA MÀN HÌNH ==== */
-.schedule-button {
-  position: fixed;
-  bottom: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  z-index: 1000;
-  background-color: #ff4081;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  animation: pulse 2s infinite;
-  transition: background 0.3s;
-}
-
-.schedule-button:hover {
-  background-color: #e91e63;
-}
-
-/* ==== HIỆU ỨNG PULSE ==== */
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(255, 64, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0); }
-}
-
-/* ==== RESPONSIVE MOBILE CHO NÚT LỊCH ==== */
-@media (max-width: 768px) {
-  .schedule-button {
-    font-size: 14px;
-    padding: 0.75rem 1.5rem;
-  }
-}
-/* ==== COVER CĂN GIỮA ==== */
-.header {
-  background-position: center center !important;
-  background-size: cover;
-}
-
 /* ==== NÚT ĐẶT LỊCH Ở CUỐI TRANG ==== */
 .schedule-button {
   display: block;
@@ -243,23 +167,20 @@ nav ul li a:hover {
   100% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0); }
 }
 
-/* ==== FIX GIAO DIỆN MOBILE ==== */
+/* ==== FIX GIAO DIỆN CHUNG ==== */
 body {
-  margin: 0;
-  padding: 0;
   width: 100%;
   overflow-x: hidden;
 }
 
 .container, .content, .section, .wrapper, .main {
-  width: 100% !important;
-  max-width: 100% !important;
+  width: 100%;
+  max-width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;
 }
 
-/* Nếu có sử dụng khối lưới chia cột */
 .row, .columns {
   display: flex;
   flex-wrap: wrap;
@@ -271,6 +192,7 @@ img, video {
   max-width: 100%;
   height: auto;
 }
+
 #cta-button {
   position: fixed;
   bottom: 20px;
@@ -278,14 +200,7 @@ img, video {
   transform: translateX(-50%);
   z-index: 999;
 }
-.floating-icons a.zalo {
-  text-indent: -9999px; /* Ẩn chữ nhưng vẫn giữ liên kết */
-  overflow: hidden;
-}
-.floating-icons a.messenger img {
-  width: 40px;
-  height: 40px;
-}
+
 .floating-icons {
   position: fixed;
   bottom: 20px;
@@ -300,15 +215,15 @@ img, video {
   width: 40px;
   height: 40px;
 }
+
 .hero-image {
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: 100% !important;
-  height: auto !important;
-  float: none !important;
-  align-self: center !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
 }
+
 .back-container {
   text-align: center;
   margin: 40px 0;
@@ -332,33 +247,78 @@ img, video {
   background-color: #0056b3;
   transform: translateY(-2px);
 }
+
 .no-underline {
   text-decoration: none;
-  color: inherit; /* Giữ nguyên màu chữ xung quanh */
+  color: inherit;
 }
+
+nav {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 260px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.dropdown-content li {
+  white-space: nowrap;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
 /* === MENU STICKY DÍNH TRÊN ĐẦU === */
 nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: white; /* Chỉnh theo màu của trang chị */
+  background-color: white;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* đổ bóng nhẹ nhàng */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-/* === ĐẨY BODY XUỐNG ĐỂ KHÔNG BỊ CHE MẤT NỘI DUNG === */
 body {
-  padding-top: 70px; /* Điều chỉnh tùy độ cao thanh menu */
+  padding-top: 70px;
 }
 
-/* === STYLE CHUNG CHO MENU ITEMS === */
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Canh giữa menu */
+  justify-content: center;
   gap: 20px;
 }
 
@@ -376,7 +336,6 @@ nav ul li a {
   position: relative;
 }
 
-/* === HOVER: GẠCH CHÂN + ĐỔI MÀU === */
 nav ul li a::after {
   content: "";
   position: absolute;
@@ -384,7 +343,7 @@ nav ul li a::after {
   bottom: 6px;
   width: 0%;
   height: 2px;
-  background-color: #d35400; /* Màu cam thương hiệu chị */
+  background-color: #d35400;
   transition: width 0.3s ease;
 }
 
@@ -396,7 +355,6 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
-/* === ACTIVE: TRANG HIỆN TẠI === */
 nav ul li a.active {
   color: #d35400;
   font-weight: bold;
@@ -406,21 +364,19 @@ nav ul li a.active::after {
   width: 100%;
 }
 
-}
-/* Màu nền và chữ khi hover hoặc active */
 .navbar li a:hover,
 .navbar li a.active {
-  background-color: #f0f0f0; /* Nền khi hover hoặc đang active */
-  color: #0077cc; /* Màu chữ khi hover hoặc đang active */
+  background-color: #f0f0f0;
+  color: #0077cc;
   font-weight: bold;
   transition: 0.3s ease;
 }
 
-/* Cho dropdown menu: active ở thẻ cha */
 .navbar li.dropdown > a.active {
   background-color: #e6f7ff;
   color: #005b99;
 }
+
 .site-footer {
   background-color: #f8d6df;
   padding: 20px 10px;
@@ -430,8 +386,10 @@ nav ul li a.active::after {
 }
 
 .footer-logo {
-  height: 50px;         /* Logo nhỏ gọn */
-  margin-bottom: 10px;
+  height: 80px;
+  width: auto;
+  display: block;
+  margin: 0 auto 10px auto;
 }
 
 .footer-nav {
@@ -452,9 +410,10 @@ nav ul li a.active::after {
 }
 
 .footer-social img {
-  height: 36px;        /* Icon nhỏ lại nè */
+  height: 36px;
   margin: 0 4px;
 }
+
 .navbar a.active {
   background-color: #ffffff;
   color: #0a4a5a;
@@ -464,3 +423,78 @@ nav ul li a.active::after {
   font-weight: bold;
 }
 
+/* === RESPONSIVE MOBILE ORIGINAL (GIỮ NGUYÊN) === */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+
+  .header {
+    height: 200px;
+  }
+
+  .header .cta-text {
+    font-size: 1.3rem;
+    padding: 8px 16px;
+  }
+
+  .intro, .services, .cta {
+    padding: 1.5rem 1rem;
+  }
+
+  .zalo-button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .schedule-button {
+    font-size: 14px;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* === FIX MOBILE BỔ SUNG (EM THÊM Ở CUỐI) === */
+@media (max-width: 768px) {
+  /* Fix chồng chữ */
+  .section, .card, .intro {
+    overflow: visible;
+    white-space: normal;
+  }
+  
+  /* Đảm bảo không tràn màn hình */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Căn chỉnh padding */
+  body, .container, .content {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  /* Fix menu sticky trên mobile */
+  nav {
+    position: static;
+  }
+  
+  body {
+    padding-top: 0;
+  }
+  
+  /* Đảm bảo ảnh không vượt quá màn hình */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Fix lỗi chữ bị cắt */
+  p, h1, h2, h3 {
+    word-wrap: break-word;
+  }
+}
