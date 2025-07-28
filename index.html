@@ -159,22 +159,18 @@
   };
 </script>
 <script>
-  let lastScrollTop = 0;
+let prevScrollPos = window.pageYOffset;
+window.onscroll = function () {
+  const currentScrollPos = window.pageYOffset;
   const header = document.querySelector("header");
 
-  window.addEventListener("scroll", function () {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop) {
-      // Cuộn xuống → ẩn header
-      header.style.top = "-100px";
-    } else {
-      // Cuộn lên → hiện header
-      header.style.top = "0";
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  }, false);
+  if (prevScrollPos > currentScrollPos) {
+    header.style.top = "0"; // hiện lại khi cuộn lên
+  } else {
+    header.style.top = "-100px"; // ẩn khi cuộn xuống
+  }
+  prevScrollPos = currentScrollPos;
+};
 </script>
-
-
 </body>
 </html>
