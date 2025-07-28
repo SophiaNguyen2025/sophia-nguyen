@@ -480,7 +480,6 @@ nav ul li a.active::after {
   display: block;
   margin: 0 auto 10px auto;
 }
-}
 .footer-nav {
   margin-bottom: 10px;
 }
