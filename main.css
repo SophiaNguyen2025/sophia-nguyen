@@ -570,16 +570,21 @@ button:hover, .btn:hover, a.button:hover {
   bottom: 40px;
   right: 30px;
   z-index: 999;
-  font-size: 18px;
-  background-color: #f4a6b5;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  font-weight: bold;
+  background-color: #f1778a; /* màu hồng nổi bật hơn */
   color: white;
   border: none;
   border-radius: 50%;
-  padding: 12px 16px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #backToTop:hover {
-  background-color: #d9788d;
+  background-color: #d1546a;
+  transform: translateY(-3px);
 }
+
