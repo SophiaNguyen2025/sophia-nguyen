@@ -588,7 +588,10 @@ button:hover, .btn:hover, a.button:hover {
   transform: translateY(-3px);
 }
 header {
-  transition: transform 0.3s ease-in-out;
-  z-index: 9999; /* đảm bảo nằm trên cùng */
+  position: relative; /* Không fixed */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
+
 
