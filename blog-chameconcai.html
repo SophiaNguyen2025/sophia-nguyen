@@ -48,16 +48,11 @@
      <h1>Sophia Nguyễn – Đồng hành & Sẻ chia</h1>
     <div class="sharing">Tận Tâm – Lắng Nghe – Thấu Cảm – Không Phán Xét</div>
   </header>
-  </header>
-
-  <img class="hero-image" src="0001.png" alt="Ảnh nền nhẹ nhàng">
+    <img class="hero-image" src="0001.png" alt="Ảnh nền nhẹ nhàng">
   
-    <div class="container">
-    <div class="section">
-      <h1>Blog - nơi chia sẻ những điều Sophia tâm đắc</h1>
+   <h1>Blog - nơi chia sẻ những điều Sophia tâm đắc</h1>
       
-    </section>
- <div class="container">
+   
     <div class="section">
       <div class="post-card">
         <img src="OIP2.jpg" alt="ba mẹ con cái">
@@ -67,14 +62,24 @@
     </div>
 
       <!-- Chị có thể chèn thêm phản hồi ở đây -->
-    </section>
-
     </div>
-  </main>
+
   <footer>
     <p>© 2025 – Sophia Nguyễn <br>
     Mọi thông tin được bảo mật theo đạo đức nghề nghiệp. <br>
     Cảm ơn bạn đã ghé thăm 💗</p>
   </footer>
-</body>
+    <button id="backToTop" title="Về đầu trang">⬆️</button>
+  <script>
+  // Hiện nút khi cuộn xuống
+  window.onscroll = function() {
+    document.getElementById("backToTop").style.display =
+      (document.documentElement.scrollTop > 200) ? "block" : "none";
+  };
+
+  // Cuộn về đầu trang
+  document.getElementById("backToTop").onclick = function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+</script>
 </html>
