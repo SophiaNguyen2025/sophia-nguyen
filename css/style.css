@@ -508,21 +508,12 @@ nav ul li a.active::after {
   border-radius: 6px 6px 0 0;
   font-weight: bold;
 }
-/* Cấu trúc layout bao trang */
 body {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-/* Phần nội dung chính sẽ chiếm hết phần còn lại */
 main {
   flex: 1;
-}
-
-/* Đảm bảo footer ở dưới cùng */
-footer {
-  background-color: #f8f8f8; /* màu nền tuỳ chị chọn */
-  padding: 20px;
-  text-align: center;
 }
