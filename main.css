@@ -131,13 +131,20 @@ nav ul li a:hover {
   background: #007799;
 }
 .special-service-box {
-  background-color: #fff0f6;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  margin: 2rem auto;
   max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff0f5;
+  border: 2px solid #f8bbd0;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(255, 105, 135, 0.3);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.special-service-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(255, 105, 135, 0.4);
 }
 
 /* ==== SECTION ==== */
@@ -502,12 +509,18 @@ nav ul li a.active::after {
   border-radius: 6px 6px 0 0;
   font-weight: bold;
 }
-html,body {
+html, body {
+  height: auto !important;
   min-height: 100vh;
+  display: block !important;
+}
+
+body {
   display: flex;
   flex-direction: column;
 }
 
-main {
-  flex: 1;
+.site-footer {
+  margin-top: auto;
+  position: relative;
 }
