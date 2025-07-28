@@ -587,4 +587,8 @@ button:hover, .btn:hover, a.button:hover {
   background-color: #d1546a;
   transform: translateY(-3px);
 }
+header {
+  transition: transform 0.3s ease-in-out;
+  z-index: 9999; /* đảm bảo nằm trên cùng */
+}
 
