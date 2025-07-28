@@ -385,7 +385,7 @@ nav {
   background-color: #f0f0f0;
 }
 /* === MENU STICKY DÍNH TRÊN ĐẦU === */
-nav {
+header nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -523,4 +523,21 @@ body {
 .site-footer {
   margin-top: auto;
   position: relative;
+}
+.explore-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  background-color: #ff4081;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  box-shadow: 0 6px 20px rgba(255, 64, 129, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.explore-button:hover {
+  background-color: #e73370;
+  transform: translateY(-2px);
 }
