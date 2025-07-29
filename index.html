@@ -189,6 +189,95 @@ function updateCornerClock() {
 setInterval(updateCornerClock, 1000);
 updateCornerClock();
 </script>
+<!-- 💬 Nút nổi "Gửi lời nhắn" -->
+<style>
+#message-tab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #59C3C3;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 999;
+  font-family: 'Segoe UI', sans-serif;
+}
+#form-popup {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+  width: 280px;
+}
+#form-popup input, #form-popup textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: 'Segoe UI', sans-serif;
+}
+#form-popup button {
+  background: #59C3C3;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#thanks-message {
+  display: none;
+  color: green;
+  margin-top: 10px;
+  font-weight: bold;
+}
+</style>
+
+<div id="message-tab" onclick="toggleForm()">💬 Gửi lời nhắn cho Sophia</div>
+
+<div id="form-popup">
+  <form action="https://formspree.io/f/xwpqbyla" method="POST" onsubmit="showThanks(event)">
+    <input type="text" name="name" placeholder="Họ tên" required>
+    <input type="email" name="email" placeholder="Email của bạn" required>
+    <textarea name="message" rows="4" placeholder="Lời nhắn..." required></textarea>
+    <button type="submit">Gửi</button>
+    <div id="thanks-message">💌 Cảm ơn bạn đã gửi lời nhắn!</div>
+  </form>
+</div>
+
+<script>
+function toggleForm() {
+  var form = document.getElementById('form-popup');
+  form.style.display = (form.style.display === 'none' || form.style.display === '') ? 'block' : 'none';
+}
+function showThanks(event) {
+  event.preventDefault();
+  const form = event.target;
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      form.reset();
+      document.getElementById('thanks-message').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('form-popup').style.display = 'none';
+        document.getElementById('thanks-message').style.display = 'none';
+      }, 2500);
+    }
+  });
+}
+</script>
 
 </body>
 </html>
