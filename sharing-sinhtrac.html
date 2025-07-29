@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinh trắc vân tay| Góc chia sẻ </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="about.html">Giới thiệu</a></li>
+        <li><a href="sharing.html">Góc chia sẻ</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Liên hệ</a></li>
+    </ul>
+  </nav>
+  <header class="page-header">
+    <h1>Những case định hướng </h1>
+    <p>Bằng kiến thức cùng với các công cụ hỗ trợ, Sophia đã giúp cho rất nhiều khách hàng tìm thấy được sự hạnh phúc trong con đường sự nghiệp của mình.</p>
+  </header>
+<div class="service-container">
+    <a href="index.html" class="back-button">← Quay về trang chủ</a>
+</div>
+       <div class="container">
+    <h2> Lời nhắn gửi yêu thương từ các khách hàng </h2>
+       </div>
+ <div class="testimonial-card">
+  <img src="fb03.jpg" alt="Tin nhắn khách hàng">
+  <p class="caption">– Zoe Bùi, tháng 6/2024</p>
+</div>
+         
+<div class="testimonial-card">
+  <img src="fb02.jpg" alt="Tin nhắn khách hàng">
+  <p class="caption">– Ngọc Quý, tháng 3/2025</p>
+</div>
+      <div class="testimonial-card">
+  <img src="fb01.jpg" alt="Tin nhắn khách hàng">
+  <p class="caption">– Ly Hồ, tháng 6/2022</p>
+</div>
+
+     <<footer class="site-footer">
+  <div>
+    <img src="hinhremovenen.png" alt="Sophia Logo" class="footer-logo">
+  </div>
+
+  <nav class="footer-nav">
+    <a href="index.html">Trang chủ</a> |
+    <a href="about.html">Giới thiệu</a> |
+    <a href="service.html">Dịch vụ</a> |
+    <a href="sharing.html">Góc chia sẻ</a> |
+      <a href="blog.html">Blog </a> |
+    <a href="contact.html">Liên hệ</a>
+  </nav>
+  <p class="footer-slogan">“Lắng nghe để hiểu, đồng hành để chữa lành”</p>
+  <div class="footer-social">
+    <a href="https://facebook.com/Sophiadiemhang1982" target="_blank">
+      <img src="OIP3.jpg" alt="Facebook">
+    </a>
+    <a href="https://zalo.me/0977092182" target="_blank">
+      <img src="OIP4.jpg" alt="Zalo">
+    </a>
+  </div>
+</footer>
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let current = window.location.pathname;
+    if (current === "/" || current === "") {
+      current = "/index.html";
+    }
+
+    document.querySelectorAll(".navbar a").forEach(function (link) {
+      const linkPath = new URL(link.href).pathname;
+      if (linkPath === current) {
+        link.classList.add("active");
+
+        // Nếu nằm trong dropdown thì tô luôn cha nó
+        const dropdown = link.closest(".dropdown-content");
+        if (dropdown) {
+          const parentLink = dropdown.parentElement.querySelector("a");
+          if (parentLink) parentLink.classList.add("active");
+        }
+      }
+    });
+  });
+</script>
+  </footer>
+  
+</body>
+ </html>
