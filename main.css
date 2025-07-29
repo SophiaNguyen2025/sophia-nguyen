@@ -594,10 +594,8 @@ header {
 }
 
 .category-grid {
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 32px;
-  margin-top: 20px;
   justify-items: center;
 }
 
