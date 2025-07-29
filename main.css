@@ -585,7 +585,9 @@ button:hover, .btn:hover, a.button:hover {
   background-color: #d1546a;
   transform: translateY(-3px);
 }
-
+.center-me {
+  text-align: center;
+}
 header {
   position: relative; /* Không fixed */
   top: 0;
