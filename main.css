@@ -396,7 +396,7 @@ header nav {
 
 /* === ĐẨY BODY XUỐNG ĐỂ KHÔNG BỊ CHE MẤT NỘI DUNG === */
 body {
-  padding-top: 70px; /* Điều chỉnh tùy độ cao thanh menu */
+  padding-top: 0px; /* Điều chỉnh tùy độ cao thanh menu */
 }
 
 /* === STYLE CHUNG CHO MENU ITEMS === */
