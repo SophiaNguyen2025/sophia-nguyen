@@ -594,11 +594,17 @@ header {
 }
 
 .category-grid {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 32px;
+  padding: 20px;
   justify-items: center;
 }
-
+.grid-item {
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
 .category-card {
   display: flex;
   flex-direction: column;
@@ -630,6 +636,7 @@ header {
 
 .category-content h3 {
   margin
+  }
 .container {
   max-width: 1200px;
   margin: 0 auto;
