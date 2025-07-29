@@ -97,11 +97,86 @@
        </div>
   </div>
     </div>
-
     <div class="cta-button">
       <a href="https://zalo.me/0977092182" class="schedule-button">Đặt lịch cùng Sophia</a>
     </div>
   </div> <!-- ĐÓNG LẠI page-wrapper -->
+<style>
+    .clock-container {
+      width: 150px;
+      height: 150px;
+      border: 6px solid #A8D8EA;
+      border-radius: 50%;
+      position: relative;
+      margin: auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .clock-center {
+      width: 12px;
+      height: 12px;
+      background: #555;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+    .hand {
+      width: 50%;
+      height: 2px;
+      background: #333;
+      position: absolute;
+      top: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: all 0.05s ease-in-out;
+    }
+    .hour { height: 4px; background: #222; z-index: 3; }
+    .minute { background: #444; z-index: 2; }
+    .second { background: #E27D60; z-index: 1; }
+  </style>
+
+  <div class="clock-container">
+    <div class="hand hour" id="hour-hand"></div>
+    <div class="hand minute" id="minute-hand"></div>
+    <div class="hand second" id="second-hand"></div>
+    <div class="clock-center"></div>
+  </div>
+
+  <script>
+    function rotateHands() {
+      const now = new Date();
+      const second = now.getSeconds();
+      const minute = now.getMinutes();
+      const hour = now.getHours();
+
+      document.getElementById('second-hand').style.transform =
+        `rotate(${second * 6}deg)`;
+      document.getElementById('minute-hand').style.transform =
+        `rotate(${minute * 6 + second * 0.1}deg)`;
+      document.getElementById('hour-hand').style.transform =
+        `rotate(${hour * 30 + minute * 0.5}deg)`;
+    }
+    setInterval(rotateHands, 1000);
+    rotateHands();
+  </script>
+   <div style="text-align: center; margin-top: 20px;">
+  <div id="clock" style="font-size: 18px; font-weight: bold;"></div>
+  <div style="margin-top: 10px;">
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://sophianguyen.com.vn&count_bg=%23A8D8EA&title_bg=%2359C3C3&icon=eye.svg&icon_color=%23FFFFFF&title=Số+lượt+truy+cập&edge_flat=false"/>
+  </div>
+</div>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString();
+  document.getElementById('clock').textContent = '🕒 Bây giờ là: ' + timeStr;
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
 
   <footer class="site-footer">
     <div>
