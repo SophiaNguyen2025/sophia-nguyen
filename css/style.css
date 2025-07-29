@@ -475,7 +475,7 @@ nav ul li a.active::after {
 }
 
 .footer-logo {
-  height: 80px !important;   /* Tăng size rõ rệt + ép luôn nếu bị đè */
+  height: 150px !important;   /* Tăng size rõ rệt + ép luôn nếu bị đè */
   width: auto;
   display: block;
   margin: 0 auto 10px auto;
@@ -492,8 +492,8 @@ nav ul li a.active::after {
 
 .footer-slogan {
   font-style: italic;
-  margin-bottom: 10px;
-  font-size: 14px;
+  margin-bottom: 14px;
+  font-size: 18px;
 }
 
 .footer-social img {
