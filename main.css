@@ -590,7 +590,7 @@ button:hover, .btn:hover, a.button:hover {
 header {
   position: relative; /* Không fixed */
   top: 0;
-  width: 100%;
+  /* width: 100%;*/
   z-index: 1000;
 }
 
