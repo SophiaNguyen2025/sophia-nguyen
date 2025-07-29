@@ -62,15 +62,58 @@
       
     </div>
 
-      <!-- Chị có thể chèn thêm phản hồi ở đây -->
-    </section>
+  <footer class="site-footer">
+  <div>
+    <img src="hinhremovenen.png" alt="Sophia Logo" class="footer-logo">
+  </div>
 
-    </div>
-  </main>
-  <footer>
-    <p>© 2025 – Sophia Nguyễn <br>
-    Mọi thông tin được bảo mật theo đạo đức nghề nghiệp. <br>
-    Cảm ơn bạn đã ghé thăm 💗</p>
-  </footer>
-</body>
+  <nav class="footer-nav">
+    <a href="index.html">Trang chủ</a> |
+    <a href="about.html">Giới thiệu</a> |
+    <a href="service.html">Dịch vụ</a> |
+    <a href="sharing.html">Góc chia sẻ</a> |
+    <a href="blog.html">Blog </a> |
+    <a href="contact.html">Liên hệ</a>
+  </nav>
+  <p class="footer-slogan">“Lắng nghe để hiểu, đồng hành để chữa lành”</p>
+  <div class="footer-social">
+    <a href="https://facebook.com/Sophiadiemhang1982" target="_blank">
+      <img src="OIP3.jpg" alt="Facebook"></a>
+    <a href="https://zalo.me/0977092182" target="_blank">
+      <img src="OIP4.jpg" alt="Zalo">
+    </a>
+  </div>
+</footer>
+<!-- ✨ Đồng hồ chữ nhật nằm góc trên bên phải -->
+<style>
+#corner-clock {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  background-color: #A8D8EA;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  z-index: 999;
+  font-family: 'Segoe UI', sans-serif;
+}
+</style>
+
+<div id="corner-clock">🕒 Loading...</div>
+
+<script>
+function updateCornerClock() {
+  const now = new Date();
+  const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+  const time = now.toLocaleTimeString();
+  const date = now.toLocaleDateString('vi-VN', options);
+  document.getElementById('corner-clock').textContent = `🕒 ${time} | ${date}`;
+}
+setInterval(updateCornerClock, 1000);
+updateCornerClock();
+</script>
+
 </html>
