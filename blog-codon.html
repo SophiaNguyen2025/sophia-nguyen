@@ -48,29 +48,62 @@
      <h1>Sophia Nguyễn – Đồng hành & Sẻ chia</h1>
     <div class="sharing">Tận Tâm – Lắng Nghe – Thấu Cảm – Không Phán Xét</div>
   </header>
-  </header>
 
   <img class="hero-image" src="0001.png" alt="Ảnh nền nhẹ nhàng">
   
-    <div class="container">
-    <div class="section">
+   
       <h1>Blog - nơi chia sẻ những điều Sophia tâm đắc</h1>
-      
-    </section>
- <div class="container">
-    <div class="section">
-      
+         
+       <div class="post-card">
+        <img src="codon.jpg" alt="ba mẹ con cái">
+        <h3>Cô đơn giữa thành công </h3>
+        <p>Có một dạng cô đơn rất dễ bị người ta bỏ qua — đó là sự cô đơn của những người thành đạt...</p>
+        <a href="blog/bai4.html">Xem thêm →</a>
     </div>
+   
+   <footer class="site-footer">
+  <div>
+    <img src="hinhremovenen.png" alt="Sophia Logo" class="footer-logo">
+  </div>
 
-      <!-- Chị có thể chèn thêm phản hồi ở đây -->
-    </section>
+  <nav class="footer-nav">
+    <a href="index.html">Trang chủ</a> |
+    <a href="about.html">Giới thiệu</a> |
+    <a href="service.html">Dịch vụ</a> |
+    <a href="sharing.html">Góc chia sẻ</a> |
+      <a href="blog.html">Blog </a> |
+    <a href="contact.html">Liên hệ</a>
+  </nav>
+  <p class="footer-slogan">“Lắng nghe để hiểu, đồng hành để chữa lành”</p>
+  <div class="footer-social">
+    <a href="https://facebook.com/Sophiadiemhang1982" target="_blank">
+      <img src="OIP3.jpg" alt="Facebook">
+    </a>
+    <a href="https://zalo.me/0977092182" target="_blank">
+      <img src="OIP4.jpg" alt="Zalo">
+    </a>
+  </div>
+</footer>
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let current = window.location.pathname;
+    if (current === "/" || current === "") {
+      current = "/index.html";
+    }
 
-    </div>
-  </main>
-  <footer>
-    <p>© 2025 – Sophia Nguyễn <br>
-    Mọi thông tin được bảo mật theo đạo đức nghề nghiệp. <br>
-    Cảm ơn bạn đã ghé thăm 💗</p>
-  </footer>
-</body>
-</html>
+    document.querySelectorAll(".navbar a").forEach(function (link) {
+      const linkPath = new URL(link.href).pathname;
+      if (linkPath === current) {
+        link.classList.add("active");
+
+        // Nếu nằm trong dropdown thì tô luôn cha nó
+        const dropdown = link.closest(".dropdown-content");
+        if (dropdown) {
+          const parentLink = dropdown.parentElement.querySelector("a");
+          if (parentLink) parentLink.classList.add("active");
+        }
+      }
+    });
+  });
+</script>
+ </html>
