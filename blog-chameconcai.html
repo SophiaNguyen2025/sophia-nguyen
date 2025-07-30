@@ -64,7 +64,7 @@
     </div>
    </div>
   
-  <footer class="site-footer">
+<footer class="site-footer">
   <div>
     <img src="hinhremovenen.png" alt="Sophia Logo" class="footer-logo">
   </div>
@@ -74,7 +74,7 @@
     <a href="about.html">Giới thiệu</a> |
     <a href="service.html">Dịch vụ</a> |
     <a href="sharing.html">Góc chia sẻ</a> |
-      <a href="blog.html">Blog </a> |
+    <a href="blog.html">Blog </a> |
     <a href="contact.html">Liên hệ</a>
   </nav>
   <p class="footer-slogan">“Đồng hành để thấu hiểu - Sẻ chia để thành công”</p>
@@ -84,12 +84,34 @@
     <a href="https://zalo.me/0977092182" target="_blank">
       <img src="OIP4.jpg" alt="Zalo"></a>
   </div>
-     <div class="marquee">
+        <div class="marquee">
   <p>Cảm ơn bạn đã ghé thăm Sophia. Chúc bạn luôn may mắn, hạnh phúc & bình an.</p>
 </div>
 </footer>
-  
-    <button id="backToTop" title="Về đầu trang">⬆️</button>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let current = window.location.pathname;
+    if (current === "/" || current === "") {
+      current = "/index.html";
+    }
+
+    document.querySelectorAll(".navbar a").forEach(function (link) {
+      const linkPath = new URL(link.href).pathname;
+
+      if (linkPath === current) {
+        link.classList.add("active");
+
+        // Đánh dấu luôn cha nếu trong dropdown
+        const dropdown = link.closest(".dropdown-content");
+        if (dropdown) {
+          const parentLink = dropdown.parentElement.querySelector("a");
+          if (parentLink) parentLink.classList.add("active");
+        }
+      }
+    });
+  });
+</script>
+  <button id="backToTop" title="Về đầu trang">⬆️</button>
   <script>
   // Hiện nút khi cuộn xuống
   window.onscroll = function() {
@@ -133,5 +155,6 @@ function updateCornerClock() {
 setInterval(updateCornerClock, 1000);
 updateCornerClock();
 </script>
+
 </body>
 </html>
