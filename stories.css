@@ -655,6 +655,7 @@ header {
   0%   { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
+
 .true-stories-section {
   margin: 80px auto;
   max-width: 700px;
@@ -699,7 +700,8 @@ header {
 }
 
 .story-box {
-  background-color: #ffffff;
+  background-color: linear-gradient(to right, #fce4ec, #f8bbd0, #ec407a);
+;
   padding: 25px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
