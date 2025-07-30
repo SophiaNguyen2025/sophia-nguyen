@@ -668,12 +668,20 @@ header {
   margin: 0 auto;
   padding: 40px 20px;
 }
+
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  align-items: start;
 }
-
+.service-img img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
 .service-box {
   background: #fdfdfd;
   border-radius: 12px;
