@@ -1,0 +1,22 @@
+.true-stories-section {
+  margin: 80px auto;
+  max-width: 700px;
+  padding: 40px 20px;
+  background-color: #fef7e5;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.true-stories-swiper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.true-stories-swiper .swiper-slide {
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: #444;
+  padding: 20px;
+  text-align: center;
+}
