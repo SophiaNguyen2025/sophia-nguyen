@@ -152,7 +152,7 @@ nav ul li a:hover {
   border-radius: 20px;
   width: 320px;
   text-align: center;
-  color: #fff;
+  color: #222;
   font-weight: bold;
   z-index: 1;
   background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
@@ -203,6 +203,13 @@ nav ul li a:hover {
 .explore-button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(255,255,255,0.7);
+}
+
+@media (max-width: 768px) {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 
