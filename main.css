@@ -131,23 +131,24 @@ nav ul li a:hover {
   background: #007799;
 }
 .special-service-box {
-  max-width: 600px;
-  margin: 40px auto;
   padding: 20px;
   border-radius: 12px;
-  background: #fffef8;
+  background: #fffbe6;
   color: #222;
-  font-weight: bold;
-  text-align: center;
   position: relative;
   z-index: 1;
-  box-shadow: 0 0 12px rgba(255, 183, 77, 0.3);
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.6); /* ánh sáng vàng nhạt */
+  min-height: 250px; /* đồng bộ chiều cao tối thiểu */
+  transition: all 0.3s ease;
   border: 2px dashed #f9a825;
   animation: shake 2s infinite;
 }
-.special-service-box {
-  aspect-ratio: 1 / 1;
-  overflow: hidden; /* tránh tràn */
+box-shadow:
+  0 0 10px rgba(255, 204, 0, 0.4),
+  0 0 20px rgba(255, 204, 0, 0.6),
+  0 0 30px rgba(255, 204, 0, 0.2);
 }
 
 .special-service-box::before {
