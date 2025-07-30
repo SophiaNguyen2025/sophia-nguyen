@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sophia Nguyễn – Đồng hành & Sẻ chia</title>
   <link rel="stylesheet" href="main.css?v3">
+  <!-- SwiperJS styles -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<!-- File CSS riêng cho câu chuyện -->
+<link rel="stylesheet" href="stories.css">
+
 <p class="welcome-message">
   “Bạn không cần phải mạnh mẽ suốt cả hành trình.”<br>
   “Dù bạn đang ổn hay không ổn – tôi ở đây, lắng nghe bằng cả sự hiện diện và thấu cảm.”
@@ -124,7 +129,24 @@
  </div>
     </div>
   </div>
-  
+  <!-- BẮT ĐẦU: PHẦN CÂU CHUYỆN THẬT -->
+<section class="true-stories-section">
+  <div class="swiper true-stories-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <p>“Ngày trước, tôi từng nghĩ mình mạnh mẽ lắm… cho đến khi lần đầu bước vào buổi tham vấn.”</p>
+      </div>
+      <div class="swiper-slide">
+        <p>“Cảm ơn vì đã không phán xét tôi khi tôi kể ra điều đó...”</p>
+      </div>
+      <div class="swiper-slide">
+        <p>“Lần đầu tiên tôi thấy nhẹ lòng, là khi người đối diện lắng nghe mà không chen ngang.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- KẾT THÚC: PHẦN CÂU CHUYỆN THẬT -->
+
     <div class="cta-button">
       <a href="https://zalo.me/0977092182" class="schedule-button">Đặt lịch cùng Sophia</a>
     </div>
@@ -345,6 +367,19 @@ function showThanks(event) {
     }
   });
 }
+</script>
+<!-- SwiperJS scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.true-stories-swiper', {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    speed: 800,
+    effect: 'fade'
+  });
 </script>
 
 </body>
