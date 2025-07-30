@@ -52,3 +52,13 @@
 .story-box:hover {
   transform: translateY(-8px);
 }
+.read-more-btn {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0077cc;
+  font-weight: bold;
+  text-decoration: none;
+}
+.read-more-btn:hover {
+  text-decoration: underline;
+}
