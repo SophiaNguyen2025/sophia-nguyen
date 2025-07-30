@@ -107,7 +107,41 @@
   <p>Cảm ơn bạn đã ghé thăm Sophia. Chúc bạn luôn may mắn, hạnh phúc & bình an.</p>
 </div>
     </footer>
-  
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let current = window.location.pathname;
+    if (current === "/" || current === "") {
+      current = "/index.html";
+    }
+    document.querySelectorAll(".navbar a").forEach(function (link) {
+      const linkPath = new URL(link.href).pathname;
+
+      if (linkPath === current) {
+        link.classList.add("active");
+
+        // Đánh dấu luôn cha nếu trong dropdown
+        const dropdown = link.closest(".dropdown-content");
+        if (dropdown) {
+          const parentLink = dropdown.parentElement.querySelector("a");
+          if (parentLink) parentLink.classList.add("active");
+        }
+      }
+    });
+  });
+</script>
+  <button id="backToTop" title="Về đầu trang">⬆️</button>
+  <script>
+  // Hiện nút khi cuộn xuống
+  window.onscroll = function() {
+    document.getElementById("backToTop").style.display =
+      (document.documentElement.scrollTop > 200) ? "block" : "none";
+  };
+
+  // Cuộn về đầu trang
+  document.getElementById("backToTop").onclick = function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+</script>
       <!-- ✨ Đồng hồ chữ nhật nằm góc trên bên phải -->
 <style>
 #corner-clock {
