@@ -130,40 +130,40 @@ nav ul li a {
 nav ul li a:hover {
   background: #007799;
 }
-..special-service-box{
-  padding: 20px;
+.special-service-box {
+  width: fit-content;
+  max-width: 90%;
+  margin: 40px auto;
+  padding: 20px 30px;
   border-radius: 12px;
-  background: #fffbe6;
+  background: #fffaf0;
   color: #222;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(255, 190, 0, 0.4);
+  border: 2px dashed #ffa726;
   position: relative;
   z-index: 1;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(255, 153, 0, 0.4);
+  animation: shake 2s infinite;
+  text-align: center;
 }
 
 .special-service-box::before {
   content: "";
   position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  background: linear-gradient(270deg, #ff9800, #ff4081, #3f51b5);
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(270deg, #ffd54f, #ff8a65, #4fc3f7);
   background-size: 600% 600%;
   z-index: -1;
-  border-radius: 15px;
-  animation: borderMove 5s linear infinite;
+  border-radius: 16px;
+  animation: borderMove 6s linear infinite;
 }
 
 @keyframes borderMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
-}
-.special-service-box{
-  background-color: #fff4e5;
-  border: 2px dashed #f57c00;
-  padding: 20px;
-  animation: shake 2s infinite;
 }
 
 @keyframes shake {
