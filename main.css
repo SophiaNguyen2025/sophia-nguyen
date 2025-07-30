@@ -139,7 +139,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: auto;
   background: #fdfdfd;
   margin: 0;
   padding: 0;
