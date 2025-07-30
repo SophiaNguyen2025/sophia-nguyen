@@ -130,52 +130,66 @@ nav ul li a {
 nav ul li a:hover {
   background: #007799;
 }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .special-service-box {
   position: relative;
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 16px;
   background: #fffbe6;
   color: #222;
   font-weight: bold;
   text-align: center;
-  z-index: 0;
+  z-index: 1;
   min-height: 250px;
   transition: all 0.3s ease;
-  overflow: hidden; /* tránh tràn viền */
+  overflow: hidden;
+  border: 2px dashed transparent; /* để có nền chấm chấm */
 }
 
-/* Viền chuyển màu */
+/* viền gradient chuyển màu */
 .special-service-box::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 12px;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 18px;
   padding: 2px;
   background: linear-gradient(
     270deg,
-    #ff9a9e,
-    #fad0c4,
     #fbc2eb,
-    #a18cd1,
-    #b9fbc0
+    #a6c1ee,
+    #b9fbc0,
+    #fad0c4,
+    #fbc2eb
   );
   background-size: 600% 600%;
   z-index: -1;
-  animation: borderMove 6s linear infinite;
+
+  /* mask để tạo hiệu ứng “viền ngoài” */
   -webkit-mask: 
     linear-gradient(#fff 0 0) content-box, 
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  animation: borderMove 8s linear infinite;
 }
 
-/* Animation viền */
+/* chuyển màu */
 @keyframes borderMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 /* ==== SECTION ==== */
