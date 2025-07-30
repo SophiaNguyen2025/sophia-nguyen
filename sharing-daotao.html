@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -45,11 +44,10 @@
   </div>
   <!-- Chị muốn thêm bao nhiêu ảnh thì copy block gallery-item này là được -->
 </div>
- <footer class="site-footer">
+   <footer class="site-footer">
   <div>
     <img src="hinhremovenen.png" alt="Sophia Logo" class="footer-logo">
   </div>
-
   <nav class="footer-nav">
     <a href="index.html">Trang chủ</a> |
     <a href="about.html">Giới thiệu</a> |
@@ -58,17 +56,54 @@
     <a href="blog.html">Blog </a> |
     <a href="contact.html">Liên hệ</a>
   </nav>
-  <p class="footer-slogan">“Lắng nghe để hiểu, đồng hành để chữa lành”</p>
+  <p class="footer-slogan">“Đồng hành để thấu hiểu - Sẻ chia để thành công”</p>
   <div class="footer-social">
-    <a href="https://facebook.com/Sophiadiemhang1982"target="_blank">
-      <img src="OIP3.jpg" alt="Facebook">
-    </a>
+    <a href="https://facebook.com/Sophiadiemhang1982" target="_blank">
+      <img src="OIP3.jpg" alt="Facebook"></a>
     <a href="https://zalo.me/0977092182" target="_blank">
-      <img src="OIP4.jpg" alt="Zalo">
-    </a>
+      <img src="OIP4.jpg" alt="Zalo"></a>
   </div>
+        <div class="marquee">
+  <p>Cảm ơn bạn đã ghé thăm Sophia. Chúc bạn luôn may mắn, hạnh phúc & bình an.</p>
+</div>
 </footer>
-<!-- ✨ Đồng hồ chữ nhật nằm góc trên bên phải -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let current = window.location.pathname;
+    if (current === "/" || current === "") {
+      current = "/index.html";
+    }
+
+    document.querySelectorAll(".navbar a").forEach(function (link) {
+      const linkPath = new URL(link.href).pathname;
+
+      if (linkPath === current) {
+        link.classList.add("active");
+
+        // Đánh dấu luôn cha nếu trong dropdown
+        const dropdown = link.closest(".dropdown-content");
+        if (dropdown) {
+          const parentLink = dropdown.parentElement.querySelector("a");
+          if (parentLink) parentLink.classList.add("active");
+        }
+      }
+    });
+  });
+</script>
+  <button id="backToTop" title="Về đầu trang">⬆️</button>
+  <script>
+  // Hiện nút khi cuộn xuống
+  window.onscroll = function() {
+    document.getElementById("backToTop").style.display =
+      (document.documentElement.scrollTop > 200) ? "block" : "none";
+  };
+
+  // Cuộn về đầu trang
+  document.getElementById("backToTop").onclick = function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+</script>
+  <!-- ✨ Đồng hồ chữ nhật nằm góc trên bên phải -->
 <style>
 #corner-clock {
   position: fixed;
@@ -85,7 +120,6 @@
   font-family: 'Segoe UI', sans-serif;
 }
 </style>
-
 <div id="corner-clock">🕒 Loading...</div>
 
 <script>
@@ -99,28 +133,6 @@ function updateCornerClock() {
 setInterval(updateCornerClock, 1000);
 updateCornerClock();
 </script>
-
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    let current = window.location.pathname;
-    if (current === "/" || current === "") {
-      current = "/index.html";
-    }
-
-    document.querySelectorAll(".navbar a").forEach(function (link) {
-      const linkPath = new URL(link.href).pathname;
-      if (linkPath === current) {
-        link.classList.add("active");
-
-        // Nếu nằm trong dropdown thì tô luôn cha nó
-        const dropdown = link.closest(".dropdown-content");
-        if (dropdown) {
-          const parentLink = dropdown.parentElement.querySelector("a");
-          if (parentLink) parentLink.classList.add("active");
-        }
-      }
-    });
-  });
-</script>
 </body>
- </html>
+</html>
+
