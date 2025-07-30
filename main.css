@@ -145,6 +145,10 @@ nav ul li a:hover {
   border: 2px dashed #f9a825;
   animation: shake 2s infinite;
 }
+.special-service-box {
+  aspect-ratio: 1 / 1;
+  overflow: hidden; /* tránh tràn */
+}
 
 .special-service-box::before {
   content: "";
