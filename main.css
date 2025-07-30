@@ -131,33 +131,39 @@ nav ul li a:hover {
   background: #007799;
 }
 .special-service-box {
-  width: fit-content;
-  max-width: 90%;
+  max-width: 600px;
   margin: 40px auto;
-  padding: 20px 30px;
+  padding: 20px;
   border-radius: 12px;
-  background: #fffaf0;
+  background: #fffef8;
   color: #222;
   font-weight: bold;
-  box-shadow: 0 0 15px rgba(255, 190, 0, 0.4);
-  border: 2px dashed #ffa726;
+  text-align: center;
   position: relative;
   z-index: 1;
+  box-shadow: 0 0 12px rgba(255, 183, 77, 0.3);
+  border: 2px dashed #f9a825;
   animation: shake 2s infinite;
-  text-align: center;
 }
 
 .special-service-box::before {
   content: "";
   position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  background: linear-gradient(270deg, #ffd54f, #ff8a65, #4fc3f7);
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 15px;
+  background: linear-gradient(
+    270deg,
+    #ff9a9e,
+    #fad0c4,
+    #fbc2eb,
+    #a18cd1,
+    #b9fbc0
+  );
   background-size: 600% 600%;
   z-index: -1;
-  border-radius: 16px;
   animation: borderMove 6s linear infinite;
 }
 
@@ -172,7 +178,6 @@ nav ul li a:hover {
   50% { transform: translateX(2px); }
   75% { transform: translateX(-2px); }
 }
-
 
 /* ==== SECTION ==== */
 .section {
