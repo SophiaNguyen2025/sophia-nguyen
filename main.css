@@ -135,62 +135,53 @@ nav ul li a:hover {
   margin: 0 auto;
   padding: 20px;
 }
-
 .special-service-box {
   position: relative;
   padding: 20px;
-  border-radius: 16px;
+  border-radius: 12px;
   background: #fffbe6;
   color: #222;
   font-weight: bold;
-  text-align: center;
-  z-index: 1;
-  min-height: 250px;
-  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+  margin: 40px auto;
+  max-width: 700px;
   overflow: hidden;
-  border: 2px dashed transparent; /* để có nền chấm chấm */
+  z-index: 1;
 }
 
-/* viền gradient chuyển màu */
+/* Viền sáng đổi màu */
 .special-service-box::before {
   content: "";
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: 18px;
+  inset: 0;
   padding: 2px;
-  background: linear-gradient(
-    270deg,
-    #fbc2eb,
-    #a6c1ee,
-    #b9fbc0,
-    #fad0c4,
-    #fbc2eb
-  );
-  background-size: 600% 600%;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2ffd8, #ff9a9e);
+  background-size: 400% 400%;
+  animation: glowingBorder 10s linear infinite;
   z-index: -1;
-
-  /* mask để tạo hiệu ứng “viền ngoài” */
-  -webkit-mask: 
+  mask: 
     linear-gradient(#fff 0 0) content-box, 
     linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
   mask-composite: exclude;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  animation: borderMove 8s linear infinite;
+  -webkit-mask-composite: destination-out;
 }
 
-/* chuyển màu */
-@keyframes borderMove {
+/* Animation cho viền sáng */
+@keyframes glowingBorder {
   0% {
     background-position: 0% 50%;
   }
-  100% {
+  50% {
     background-position: 100% 50%;
   }
+  100% {
+    background-position: 0% 50%;
+  }
 }
+
+
+
 
 /* ==== SECTION ==== */
 .section {
