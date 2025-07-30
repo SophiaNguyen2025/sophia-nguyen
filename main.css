@@ -130,22 +130,49 @@ nav ul li a {
 nav ul li a:hover {
   background: #007799;
 }
-.special-service-box {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fef3c7;
-  border: 2px solid #fef3c7;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(255, 105, 135, 0.3);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+..special-service-box{
+  padding: 20px;
+  border-radius: 12px;
+  background: #fffbe6;
+  color: #222;
+  position: relative;
+  z-index: 1;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.4);
 }
 
-.special-service-box:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 30px rgba(255, 105, 135, 0.4);
+.special-service-box::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(270deg, #ff9800, #ff4081, #3f51b5);
+  background-size: 600% 600%;
+  z-index: -1;
+  border-radius: 15px;
+  animation: borderMove 5s linear infinite;
 }
+
+@keyframes borderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.special-service-box{
+  background-color: #fff4e5;
+  border: 2px dashed #f57c00;
+  padding: 20px;
+  animation: shake 2s infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+}
+
 
 /* ==== SECTION ==== */
 .section {
