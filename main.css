@@ -135,26 +135,32 @@ nav ul li a:hover {
   margin: 0 auto;
   padding: 20px;
 }
-.special-service-box {
-  position: relative;
-  margin: 40px auto;
-  padding: 30px 20px;
-  width: 90%;
-  max-width: 600px;
-  border-radius: 16px;
-  font-weight: bold;
-  z-index: 1;
-  text-align: center;
-
-  /* Gradient đổi màu nhẹ cho nền box bên trong */
-  background: linear-gradient(135deg, #fffbe6, #ffeec2, #fffbe6);
-  background-size: 400% 400%;
-  animation: bgAnimation 8s ease infinite;
-
-  /* Viền nhấp nháy chấm chấm đổi màu */
-  box-shadow: 0 0 0 4px transparent, 0 0 10px 2px rgba(255, 204, 0, 0.8);
+/* Để bao box nằm giữa và responsive */
+.special-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #fdfcfb;
 }
 
+/* Box dịch vụ với viền và nền chuyển màu */
+.special-service-box {
+  position: relative;
+  padding: 40px 30px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fffbe6, #fff5cc);
+  color: #222;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Viền chuyển màu dạng nhấp nháy chạy quanh box */
 .special-service-box::before {
   content: "";
   position: absolute;
@@ -162,52 +168,50 @@ nav ul li a:hover {
   left: -4px;
   right: -4px;
   bottom: -4px;
-  border-radius: 20px;
-  padding: 2px;
+  border-radius: 24px;
+  padding: 4px;
   background: conic-gradient(
     from 0deg,
-    #ff9a9e,
-    #fad0c4,
-    #fbc2eb,
-    #a6c1ee,
-    #ff9a9e
+    #ff4d4f,
+    #ffa940,
+    #fadb14,
+    #52c41a,
+    #1890ff,
+    #722ed1,
+    #eb2f96,
+    #ff4d4f
   );
-  background-size: 200% 200%;
-  animation: rotateBorder 4s linear infinite;
+  animation: spin 4s linear infinite;
   z-index: -1;
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: destination-out;
 }
 
-@keyframes rotateBorder {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+/* Nút căn giữa */
+.special-service-box explore-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: none;
+  background: linear-gradient(90deg, #ffb347, #ffcc33);
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.special-service-box explore-button:hover {
+  background: linear-gradient(90deg, #ffcc33, #ffb347);
+}
+
+/* Hiệu ứng xoay cho viền */
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
   }
 }
 
-@keyframes bgAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Đảm bảo nút nằm chính giữa */
-.explore-button {
-  display: inline-block;
-  margin: 20px auto 0;
-}
 
 
 /* Nút căn giữa */
