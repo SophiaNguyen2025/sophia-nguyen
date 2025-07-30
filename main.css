@@ -214,19 +214,23 @@ body {
 .explore-button:hover {
   background-color: #555;
 }
-
 .special-service-box {
-  max-width: 700px;
-  margin: 0 auto;
+  width: 90%;
+  margin: 60px auto 0 auto;
   padding: 20px;
   border-radius: 12px;
   background: #fffbe6;
   color: #222;
   font-weight: bold;
-  box-shadow: 0 0 10px rgba(255, 200, 0, 0.4);
+  box-shadow: 0 0 10px rgba(255, 200, 0, 0.3);
   position: relative;
-  z-index: 0;
-  box-sizing: border-box;
+  z-index: 10;
+
+  /* Fix lỗi bị đè lên hình và lệch phải */
+  display: block;
+  max-width: 700px;
+  left: 0;
+  right: 0;
 }
 
 @media (max-width: 768px) {
