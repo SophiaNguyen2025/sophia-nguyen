@@ -144,7 +144,12 @@ body {
   background: #fdfdfd;
   font-family: 'Segoe UI', sans-serif;
 }
-
+.special-service-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* Hiệu ứng viền chấm chấm lấp lánh */
 .special-service-box {
   position: relative;
