@@ -137,28 +137,41 @@ nav ul li a:hover {
 }
 .special-service-box {
   position: relative;
-  padding: 20px;
-  border-radius: 12px;
-  background: #fffbe6;
+  padding: 30px 20px;
+  border-radius: 16px;
+  background: #fffdf7;
   color: #222;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
-  margin: 40px auto;
+  font-weight: 500;
+  box-shadow: 0 0 12px rgba(255, 204, 0, 0.2);
+  margin: 50px auto;
   max-width: 700px;
   overflow: hidden;
+  text-align: center;
   z-index: 1;
 }
 
-/* Viền sáng đổi màu */
+/* Viền có gradient chuyển màu + hiệu ứng dot chấm */
 .special-service-box::before {
   content: "";
   position: absolute;
   inset: 0;
   padding: 2px;
   border-radius: inherit;
-  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2ffd8, #ff9a9e);
-  background-size: 400% 400%;
-  animation: glowingBorder 10s linear infinite;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff9a9e,
+    #ff9a9e 10px,
+    #fad0c4 10px,
+    #fad0c4 20px,
+    #fbc2eb 20px,
+    #fbc2eb 30px,
+    #a1c4fd 30px,
+    #a1c4fd 40px,
+    #c2ffd8 40px,
+    #c2ffd8 50px
+  );
+  background-size: 300% 300%;
+  animation: glowingDots 10s linear infinite;
   z-index: -1;
   mask: 
     linear-gradient(#fff 0 0) content-box, 
@@ -167,20 +180,31 @@ nav ul li a:hover {
   -webkit-mask-composite: destination-out;
 }
 
-/* Animation cho viền sáng */
-@keyframes glowingBorder {
+@keyframes glowingDots {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    background-position: 0% 0%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 100% 100%;
   }
 }
 
+/* Nút căn giữa */
+.discover-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 24px;
+  border-radius: 24px;
+  background: #ffd6e0;
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
 
+.explore-button:hover {
+  background: #ffc2d1;
+}
 
 
 /* ==== SECTION ==== */
