@@ -137,41 +137,43 @@ nav ul li a:hover {
 }
 .special-service-box {
   position: relative;
+  margin: 40px auto;
   padding: 30px 20px;
+  width: 90%;
+  max-width: 600px;
   border-radius: 16px;
-  background: #fffdf7;
-  color: #222;
-  font-weight: 500;
-  box-shadow: 0 0 12px rgba(255, 204, 0, 0.2);
-  margin: 50px auto;
-  max-width: 700px;
-  overflow: hidden;
-  text-align: center;
+  font-weight: bold;
   z-index: 1;
+  text-align: center;
+
+  /* Gradient đổi màu nhẹ cho nền box bên trong */
+  background: linear-gradient(135deg, #fffbe6, #ffeec2, #fffbe6);
+  background-size: 400% 400%;
+  animation: bgAnimation 8s ease infinite;
+
+  /* Viền nhấp nháy chấm chấm đổi màu */
+  box-shadow: 0 0 0 4px transparent, 0 0 10px 2px rgba(255, 204, 0, 0.8);
 }
 
-/* Viền có gradient chuyển màu + hiệu ứng dot chấm */
 .special-service-box::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 20px;
   padding: 2px;
-  border-radius: inherit;
-  background: repeating-linear-gradient(
-    45deg,
+  background: conic-gradient(
+    from 0deg,
     #ff9a9e,
-    #ff9a9e 10px,
-    #fad0c4 10px,
-    #fad0c4 20px,
-    #fbc2eb 20px,
-    #fbc2eb 30px,
-    #a1c4fd 30px,
-    #a1c4fd 40px,
-    #c2ffd8 40px,
-    #c2ffd8 50px
+    #fad0c4,
+    #fbc2eb,
+    #a6c1ee,
+    #ff9a9e
   );
-  background-size: 300% 300%;
-  animation: glowingDots 10s linear infinite;
+  background-size: 200% 200%;
+  animation: rotateBorder 4s linear infinite;
   z-index: -1;
   mask: 
     linear-gradient(#fff 0 0) content-box, 
@@ -180,14 +182,33 @@ nav ul li a:hover {
   -webkit-mask-composite: destination-out;
 }
 
-@keyframes glowingDots {
+@keyframes rotateBorder {
   0% {
-    background-position: 0% 0%;
+    transform: rotate(0deg);
   }
   100% {
-    background-position: 100% 100%;
+    transform: rotate(360deg);
   }
 }
+
+@keyframes bgAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Đảm bảo nút nằm chính giữa */
+.explore-button {
+  display: inline-block;
+  margin: 20px auto 0;
+}
+
 
 /* Nút căn giữa */
 .discover-btn {
