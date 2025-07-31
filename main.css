@@ -673,7 +673,15 @@ marquee {
   background-color: #f3f3f3; /* Màu nền nhẹ nhàng */
   padding: 10px 0;
 }
-
+.marquee {
+  background: linear-gradient(to right, #1a1a1a, #2f2f2f);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  animation: scroll-left 15s linear infinite;
+}
 .marquee p {
   display: inline-block;
   white-space: nowrap;
