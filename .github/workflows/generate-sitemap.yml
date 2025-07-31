@@ -28,4 +28,6 @@ jobs:
           mv sitemap.xml .
       - name: Upload sitemap.xml to the root
         run: cp _site/sitemap.xml ./sitemap.xml
+        name: Run sitemap generator
+        run: python .github/scripts/sitemap.py
 
