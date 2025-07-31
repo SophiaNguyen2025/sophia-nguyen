@@ -2,27 +2,40 @@ name: Generate Sitemap
 
 on:
   push:
-    paths:
-      - '**.html'
     branches:
-      - roots  # ✅ Đảm bảo dùng đúng tên branch
-  workflow_dispatch:
+      - main
 
 jobs:
-  generate:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          python-version: '3.x'
+          node-version: 18
 
-      - name: Run sitemap generator
-        run: python .github/scripts/sitemap.py
-       name: Move sitemap to root
-      run: mv sitemap.xml ./  # 👈 Di chuyển sitemap về thư mục root của repo
+      - name: Install sitemap-generator-cli
+        run: npm install -g sitemap-generator-cli
 
+      - name: Generate sitemap
+        run: |
+          mkdir -p ./public
+          npx sitemap-generator-cli https://sophianguyen.com.vn \
+            --strip-querystring \
+            --max-depth 0 \
+            --output ./public/sitemap.xml \
+            --filepath ./public/sitemap.xml
 
+      - name: Move sitemap to root
+        run: cp ./public/sitemap.xml ./sitemap.xml
+
+      - name: Commit sitemap
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "Update sitemap.xml" || echo "No changes to commit"
+          git push
