@@ -853,9 +853,9 @@ header {
 
 /* MÀU RIÊNG TỪNG BOX */
 .box-pink   { background: linear-gradient(135deg, #ffe0f0, #ffd6ec)!important;; }
-.box-purple { background: linear-gradient(135deg, #e0d4ff, #d8ccff!important;); }
+.box-purple { background: linear-gradient(135deg, #ffe0c7, #ff9d76)!important;; }
 .box-blue   { background: linear-gradient(135deg, #d4f1ff, #c1ecff)!important;; }
-.box-green  { background: linear-gradient(135deg, #d9fce2, #c2f6cf!important;); }
+.box-green  { background: linear-gradient(135deg, #e0f7fa, #c2f6cf)!important;; }
 .box-yellow { background: linear-gradient(135deg, #fff5d1, #ffeebe)!important;; }
 .box-orange { background: linear-gradient(135deg, #ffe0cc, #ffd4b3)!important;; }
 
