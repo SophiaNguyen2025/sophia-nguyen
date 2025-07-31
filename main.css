@@ -701,6 +701,10 @@ header {
   object-fit: contain;
   margin-bottom: 8px;
 }
+.service-box {
+  min-height: 150px;
+  padding: 16px;
+}
 
 .service-content h3 {
   margin: 0px;
@@ -760,7 +764,7 @@ header {
 }
 
 .six-box-grid .box {
-  background: #fffbe6;
+  background: transparent;
   border-radius: 16px;
   padding: 24px;
   text-align: center;
