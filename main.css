@@ -667,177 +667,56 @@ header {
   margin: 0 auto;
   padding: 40px 20px;
 }
-
-.services-grid {
+.about-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  align-items: start;
-}
-.service-img img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-}
-.service-box {
-  background: #fdfdfd;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.06);
-  padding: 12px;
-  text-align: center;
-  transition: transform 0.2s;
-}
-.service-box {
-  height: auto;
-}
-.service-box:hover {
-  transform: translateY(-4px);
-}
-
-.service-box img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 8px;
-}
-.service-box {
-  min-height: 150px;
-  padding: 16px;
-}
-
-.service-content h3 {
-  margin: 0px;
-  font-size: 1.1rem;
-  color: #333;
-}
-.special-service-box {
-  padding: 8px 20px 16px 20px;
-  line-height: 1.6;
-}
-
-.special-service-box h3,
-.special-service-box p {
-  margin-top: 0;
-}
-
-
-.service-content p {
-  font-size: 0.95rem;
-  color: #666;
-}
-.marquee {
-  width: 100%;
-  overflow: hidden;
-  background-color: #f3f3f3; /* Màu nền nhẹ nhàng */
-  padding: 10px 0;
-}
-
-.marquee p {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee 15s linear infinite;
-  font-style: italic;
-  color: #444;
-  font-size: 16px;
-}
-
-@keyframes marquee {
-  0%   { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-.welcome-message {
-  color: #4B3869;
-  font-size: 1.4rem;
-  font-weight: 500;
-  text-align: center;
-  margin-top: 10px;
-  line-height: 1.6;
-}
-.six-box-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   padding: 40px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.six-box-grid .box {
-  background: transparent;
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  font-weight: normal;
-  color: #333;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.six-box-grid .box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.six-box-grid h3 {
-  font-size: 20px;
-  margin-bottom: 12px;
-  color: #b86b00;
-}
-
-.six-box-grid p {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 0px;
-}
-
-.six-box-grid .btn {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: transparent;
-  color: #333;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.six-box-grid .btn:hover {
-  background-color: transparent;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .six-box-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.about-services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  background-color: transparent; /* nền ngoài trong suốt */
 }
 
 .about-box {
-  border-radius: 16px;
-  padding: 24px;
+  padding: 20px;
+  border-radius: 12px;
   color: #222;
-  font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  background: #f9f9f9;
-  min-height: 240px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-height: 160px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  word-wrap: break-word;
+  transition: transform 0.3s;
 }
 
 .about-box:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+}
+
+/* Mỗi box 1 màu khác nhau */
+.about-box.box1 {
+  background-color: #fffbe6; /* vàng nhạt */
+}
+
+.about-box.box2 {
+  background-color: #e6f7ff; /* xanh nhạt */
+}
+
+.about-box.box3 {
+  background-color: #ffe6f0; /* hồng pastel */
+}
+
+.about-box.box4 {
+  background-color: #e6fff0; /* xanh mint */
+}
+
+.about-box.box5 {
+  background-color: #f0e6ff; /* tím nhạt */
+}
+
+.about-box.box6 {
+  background-color: #fff0e6; /* cam nhạt */
 }
 
 /* CHỖ CHÈN HÌNH ẢNH TRONG BOX NGẮN */
@@ -850,13 +729,4 @@ header {
   background-size: cover;
   background-position: center;
 }
-
-/* MÀU RIÊNG TỪNG BOX */
-.box-pink   { background: linear-gradient(135deg, #ffe0f0, #ffd6ec)!important;; }
-.box-purple { background: linear-gradient(135deg, #ffe0c7, #ff9d76)!important;; }
-.box-blue   { background: linear-gradient(135deg, #d4f1ff, #c1ecff)!important;; }
-.box-green  { background: linear-gradient(135deg, #e0f7fa, #c2f6cf)!important;; }
-.box-yellow { background: linear-gradient(135deg, #fff5d1, #ffeebe)!important;; }
-.box-orange { background: linear-gradient(135deg, #ffe0cc, #ffd4b3)!important;; }
-
 
