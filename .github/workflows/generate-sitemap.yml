@@ -25,5 +25,5 @@ jobs:
 
       - name: Move sitemap to publish folder
         run: |
-          mkdir -p _site
-          mv sitemap.xml _site/
+          mv sitemap.xml .
+
