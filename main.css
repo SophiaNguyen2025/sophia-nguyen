@@ -798,6 +798,24 @@ header {
     grid-template-columns: 1fr;
   }
 }
+.box1 {
+  background-color: #ffe6f0;
+}
+.box2 {
+  background-color: #fff8dc;
+}
+.box3 {
+  background-color: #e0f7fa;
+}
+.box4 {
+  background-color: #f3e5f5;
+}
+.box5 {
+  background-color: #ffebee;
+}
+.box6 {
+  background-color: #e8f5e9;
+}
 
 
 
