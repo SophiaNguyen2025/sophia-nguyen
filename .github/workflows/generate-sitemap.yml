@@ -4,11 +4,12 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Generate sitemap.xml
@@ -16,8 +17,8 @@ jobs:
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
           find . -name "*.html" -not -path "./.git/*" | while read filename; do
-            url="https://sophianguyen.com.vn/${filename#./}"
-            echo "  <url><loc>$url</loc></url>" >> sitemap.xml
+            clean_path="${filename#./}"
+            echo "  <url><loc>https://sophianguyen.com.vn/${clean_path}</loc></url>" >> sitemap.xml
           done
           echo '</urlset>' >> sitemap.xml
 
@@ -26,5 +27,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add sitemap.xml
-          git commit -m "Auto-generate sitemap.xml" || echo "No changes"
+          git diff --cached --quiet || git commit -m "Auto-generate sitemap.xml"
           git push
