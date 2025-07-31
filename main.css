@@ -689,7 +689,9 @@ header {
   text-align: center;
   transition: transform 0.2s;
 }
-
+.service-box {
+  height: auto;
+}
 .service-box:hover {
   transform: translateY(-4px);
 }
