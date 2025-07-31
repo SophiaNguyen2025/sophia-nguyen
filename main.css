@@ -714,11 +714,11 @@ marquee {
 }
 
 /* 6 MÀU NỀN KHÁC NHAU */
-.box-pink    { background: linear-gradient(135deg, #f8a5c2, #f78fb3); }
-.box-purple  { background: linear-gradient(135deg, #a29bfe, #6c5ce7); }
-.box-blue    { background: linear-gradient(135deg, #74b9ff, #0984e3); }
+.box-pink    { background: linear-gradient(135deg, #fffbe6, #f78fb3); }
+.box-purple  { background: linear-gradient(135deg, #a29bfe, #f0e6ff); }
+.box-blue    { background: linear-gradient(135deg, #ffe6f0, #0984e3); }
 .box-green   { background: linear-gradient(135deg, #55efc4, #00b894); }
-.box-orange  { background: linear-gradient(135deg, #fab1a0, #e17055); }
+.box-orange  { background: linear-gradient(135deg, #e6fff0, #e17055); }
 .box-yellow  { background: linear-gradient(135deg, #55efc4, #fdcb6e); }
 
 /* ẢNH NỀN TRONG BOX */
