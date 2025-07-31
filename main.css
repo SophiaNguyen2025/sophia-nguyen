@@ -740,6 +740,64 @@ header {
   margin-top: 10px;
   line-height: 1.6;
 }
+.six-box-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.six-box-grid .box {
+  background: #fffbe6;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  font-weight: normal;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.six-box-grid .box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.six-box-grid h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #b86b00;
+}
+
+.six-box-grid p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.six-box-grid .btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #f2c94c;
+  color: #333;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.six-box-grid .btn:hover {
+  background-color: #ffd600;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .six-box-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 
 
