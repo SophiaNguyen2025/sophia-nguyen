@@ -719,7 +719,7 @@ marquee {
 .box-blue    { background: linear-gradient(135deg, #74b9ff, #0984e3); }
 .box-green   { background: linear-gradient(135deg, #55efc4, #00b894); }
 .box-orange  { background: linear-gradient(135deg, #fab1a0, #e17055); }
-.box-yellow  { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); }
+.box-yellow  { background: linear-gradient(135deg, #55efc4, #fdcb6e); }
 
 /* ẢNH NỀN TRONG BOX */
 .about-img {
