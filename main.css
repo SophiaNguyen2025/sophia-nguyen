@@ -155,7 +155,7 @@ nav ul li a:hover {
   color: #222;
   font-weight: bold;
   z-index: 1;
-  background: linear-gradient(135deg, #d4fc79, #96e6a1)
+  background: linear-gradient(135deg, #9c27b0, #7b1fa2)
   background-size: 400% 400%;
   animation: gradientBG 8s ease infinite;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
