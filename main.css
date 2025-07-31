@@ -687,47 +687,45 @@ marquee {
   0%   { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
-.about-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+/* GRID LAYOUT: 3 CỘT, 2 HÀNG */
+.six-box-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
   padding: 40px 20px;
-  gap: 20px;
+  background-color: transparent;
 }
 
+/* BOX CHUNG */
 .about-box {
-  width: 100%;
-  max-width: 800px;
   padding: 20px;
-  border-radius: 12px;
-  color: #222;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s;
+  border-radius: 16px;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
 }
 
 .about-box:hover {
   transform: translateY(-5px);
 }
 
-/* Mỗi box 1 màu nền pastel nhẹ */
-.about-box.box1 { background-color: #fffbe6; }  /* vàng nhạt */
-.about-box.box2 { background-color: #e6f7ff; }  /* xanh nhạt */
-.about-box.box3 { background-color: #ffe6f0; }  /* hồng pastel */
-.about-box.box4 { background-color: #e6fff0; }  /* xanh mint */
-.about-box.box5 { background-color: #f0e6ff; }  /* tím nhạt */
-.about-box.box6 { background-color: #fff0e6; }  /* cam nhạt */
+/* 6 MÀU NỀN KHÁC NHAU */
+.box-pink    { background: linear-gradient(135deg, #f8a5c2, #f78fb3); }
+.box-purple  { background: linear-gradient(135deg, #a29bfe, #6c5ce7); }
+.box-blue    { background: linear-gradient(135deg, #74b9ff, #0984e3); }
+.box-green   { background: linear-gradient(135deg, #55efc4, #00b894); }
+.box-orange  { background: linear-gradient(135deg, #fab1a0, #e17055); }
+.box-yellow  { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); }
 
-
-/* CHỖ CHÈN HÌNH ẢNH TRONG BOX NGẮN */
+/* ẢNH NỀN TRONG BOX */
 .about-img {
-  width: 100%;
-  height: 120px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  margin-top: 16px;
+  margin-top: 20px;
+  height: 160px;
   background-size: cover;
   background-position: center;
+  border-radius: 12px;
 }
-
