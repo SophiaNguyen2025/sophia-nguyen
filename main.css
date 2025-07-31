@@ -102,6 +102,16 @@ footer {
   background-color: #fce4ec;
   color: #555;
 }
+.footer-menu {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.menu-item {
+  flex: 1;
+  text-align: center;
+}
 
 /* ==== MENU ==== */
 nav ul {
@@ -562,6 +572,7 @@ nav ul li a.active::after {
   height: 36px;        /* Icon nhỏ lại nè */
   margin: 0 4px;
 }
+
 .navbar a.active {
   background-color: #ffffff;
   color: #0a4a5a;
