@@ -831,8 +831,8 @@ header {
   height: 120px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 12px;
-  margin-top: 16px;
-  background-size: cover;
+ background-size: **contain**;     /* hoặc thử cover */
+  background-repeat: no-repeat;
   background-position: center;
 }
 
