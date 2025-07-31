@@ -716,7 +716,7 @@ marquee {
 /* 6 MÀU NỀN KHÁC NHAU */
 .box-pink    { background: linear-gradient(135deg, #0f3443, #34e89e); }
 .box-purple  { background: linear-gradient(135deg, #a29bfe, #f0e6ff); }
-.box-blue    { bbackground: linear-gradient(135deg,#2b5876, #4e4376);}
+.box-blue    { background: linear-gradient(135deg, #2b5876, #4e4376);}
 .box-green   { background: linear-gradient(135deg, #581845, #900c3f); }
 .box-orange  { background: linear-gradient(135deg, #232526, #414345); }
 .box-yellow  { background: linear-gradient(135deg, #3e1f0d, #a5673f); }
