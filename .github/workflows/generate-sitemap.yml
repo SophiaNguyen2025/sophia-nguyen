@@ -20,6 +20,8 @@ jobs:
 
       - name: Run sitemap generator
         run: python .github/scripts/sitemap.py
-        - name: Move sitemap to root
-  run: mv sitemap.xml ./path/to/your/root/folder
+       - name: Move sitemap to root
+        run: |
+         mv sitemap.xml ./docs
+
 
