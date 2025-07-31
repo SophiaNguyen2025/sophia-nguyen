@@ -317,7 +317,6 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
-
 .container, .content, .section, .wrapper, .main {
   width: 100% !important;
   max-width: 100% !important;
