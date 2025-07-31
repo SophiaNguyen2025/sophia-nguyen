@@ -828,10 +828,12 @@ header {
 /* CHỖ CHÈN HÌNH ẢNH TRONG BOX NGẮN */
 .about-img {
   width: 100%;
-  height: 250px;
+  height: 120px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 12px;
- background-position: center;
+  margin-top: 16px;
+  background-size: cover;
+  background-position: center;
 }
 
 /* MÀU RIÊNG TỪNG BOX */
