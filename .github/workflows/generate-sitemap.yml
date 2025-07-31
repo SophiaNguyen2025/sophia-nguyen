@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - '**.html'
+    branches:
+      - roots  # ✅ Đảm bảo dùng đúng tên branch
   workflow_dispatch:
 
 jobs:
@@ -20,8 +22,7 @@ jobs:
 
       - name: Run sitemap generator
         run: python .github/scripts/sitemap.py
-       - name: Move sitemap to root
-        run: |
-         mv sitemap.xml ./docs
+       name: Move sitemap to root
+      run: mv sitemap.xml ./  # 👈 Di chuyển sitemap về thư mục root của repo
 
 
