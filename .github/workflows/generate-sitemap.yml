@@ -1,9 +1,8 @@
 name: Generate Sitemap
-
 on:
   push:
     branches:
-      - main
+      - root
 jobs:
   build:
     runs-on: ubuntu-latest
