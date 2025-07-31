@@ -13,21 +13,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Generate sitemap.xml
-        run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
-          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
-          find . -name "*.html" -not -path "./.git/*" | while read file; do
-            clean_path="${file#./}"
-            echo "  <url><loc>https://sophianguyen.com.vn/${clean_path}</loc></url>" >> sitemap.xml
-          done
-          echo '</urlset>' >> sitemap.xml
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
 
-      - name: Move sitemap to publish folder
-        run: |
-          mv sitemap.xml .
-      - name: Upload sitemap.xml to the root
-        run: cp _site/sitemap.xml ./sitemap.xml
-        name: Run sitemap generator
+      - name: Run sitemap generator
         run: python .github/scripts/sitemap.py
-
