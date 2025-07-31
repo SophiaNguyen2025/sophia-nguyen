@@ -2,30 +2,28 @@ name: Generate Sitemap
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - '**.html'
+  workflow_dispatch:
 
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Generate sitemap.xml
         run: |
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
-          find . -name "*.html" -not -path "./.git/*" | while read filename; do
-            clean_path="${filename#./}"
+          find . -name "*.html" -not -path "./.git/*" | while read file; do
+            clean_path="${file#./}"
             echo "  <url><loc>https://sophianguyen.com.vn/${clean_path}</loc></url>" >> sitemap.xml
           done
           echo '</urlset>' >> sitemap.xml
 
-      - name: Commit sitemap.xml
+      - name: Move sitemap to publish folder
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add sitemap.xml
-          git diff --cached --quiet || git commit -m "Auto-generate sitemap.xml"
-          git push
+          mkdir -p _site
+          mv sitemap.xml _site/
