@@ -667,26 +667,23 @@ header {
   margin: 0 auto;
   padding: 40px 20px;
 }
-.about-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+.about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 40px 20px;
-  background-color: transparent; /* nền ngoài trong suốt */
+  gap: 20px;
 }
 
 .about-box {
+  width: 100%;
+  max-width: 800px;
   padding: 20px;
   border-radius: 12px;
   color: #222;
   font-weight: bold;
   text-align: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  min-height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  word-wrap: break-word;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s;
 }
 
@@ -694,30 +691,14 @@ header {
   transform: translateY(-5px);
 }
 
-/* Mỗi box 1 màu khác nhau */
-.about-box.box1 {
-  background-color: #fffbe6; /* vàng nhạt */
-}
+/* Mỗi box 1 màu nền pastel nhẹ */
+.about-box.box1 { background-color: #fffbe6; }  /* vàng nhạt */
+.about-box.box2 { background-color: #e6f7ff; }  /* xanh nhạt */
+.about-box.box3 { background-color: #ffe6f0; }  /* hồng pastel */
+.about-box.box4 { background-color: #e6fff0; }  /* xanh mint */
+.about-box.box5 { background-color: #f0e6ff; }  /* tím nhạt */
+.about-box.box6 { background-color: #fff0e6; }  /* cam nhạt */
 
-.about-box.box2 {
-  background-color: #e6f7ff; /* xanh nhạt */
-}
-
-.about-box.box3 {
-  background-color: #ffe6f0; /* hồng pastel */
-}
-
-.about-box.box4 {
-  background-color: #e6fff0; /* xanh mint */
-}
-
-.about-box.box5 {
-  background-color: #f0e6ff; /* tím nhạt */
-}
-
-.about-box.box6 {
-  background-color: #fff0e6; /* cam nhạt */
-}
 
 /* CHỖ CHÈN HÌNH ẢNH TRONG BOX NGẮN */
 .about-img {
