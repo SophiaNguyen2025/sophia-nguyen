@@ -691,7 +691,7 @@ marquee {
 /* GRID LAYOUT: 3 CỘT, 2 HÀNG */
 .six-box-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 cột cố định */
   gap: 24px;
   padding: 40px 20px;
   background-color: transparent;
