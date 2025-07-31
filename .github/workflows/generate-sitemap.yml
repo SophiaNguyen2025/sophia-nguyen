@@ -26,4 +26,6 @@ jobs:
       - name: Move sitemap to publish folder
         run: |
           mv sitemap.xml .
+      - name: Upload sitemap.xml to the root
+        run: cp _site/sitemap.xml ./sitemap.xml
 
