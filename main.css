@@ -825,14 +825,6 @@ header {
   transform: translateY(-4px);
 }
 
-/* MÀU RIÊNG TỪNG BOX */
-.box-pink   { background: linear-gradient(135deg, #ffe0f0, #ffd6ec); }
-.box-purple { background: linear-gradient(135deg, #e0d4ff, #d8ccff); }
-.box-blue   { background: linear-gradient(135deg, #d4f1ff, #c1ecff); }
-.box-green  { background: linear-gradient(135deg, #d9fce2, #c2f6cf); }
-.box-yellow { background: linear-gradient(135deg, #fff5d1, #ffeebe); }
-.box-orange { background: linear-gradient(135deg, #ffe0cc, #ffd4b3); }
-
 /* CHỖ CHÈN HÌNH ẢNH TRONG BOX NGẮN */
 .about-img {
   width: 100%;
@@ -844,6 +836,12 @@ header {
   background-position: center;
 }
 
-
+/* MÀU RIÊNG TỪNG BOX */
+.box-pink   { background: linear-gradient(135deg, #ffe0f0, #ffd6ec); }
+.box-purple { background: linear-gradient(135deg, #e0d4ff, #d8ccff); }
+.box-blue   { background: linear-gradient(135deg, #d4f1ff, #c1ecff); }
+.box-green  { background: linear-gradient(135deg, #d9fce2, #c2f6cf); }
+.box-yellow { background: linear-gradient(135deg, #fff5d1, #ffeebe); }
+.box-orange { background: linear-gradient(135deg, #ffe0cc, #ffd4b3); }
 
 
