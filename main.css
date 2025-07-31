@@ -783,4 +783,22 @@ marquee {
     transform: translateY(0);
   }
 }
+.story-box {
+  padding: 20px;
+  border-radius: 16px;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
 
+.story-box:hover {
+  transform: translateY(-5px);
+}
+
+/* 3 MÀU NỀN KHÁC NHAU */
+.box-pink    { background: linear-gradient(135deg, #3e1f0d, #3e1f0d); }
+.box-yellow  { background: linear-gradient(135deg, #581845, #f0e6ff); }
+.box-green   { background: linear-gradient(135deg, #2b5876, #4e4376);}
