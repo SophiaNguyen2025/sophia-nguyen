@@ -667,6 +667,26 @@ header {
   margin: 0 auto;
   padding: 40px 20px;
 }
+marquee {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f3f3f3; /* Màu nền nhẹ nhàng */
+  padding: 10px 0;
+}
+
+.marquee p {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 15s linear infinite;
+  font-style: italic;
+  color: #444;
+  font-size: 16px;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
 .about-section {
   display: flex;
   flex-direction: column;
