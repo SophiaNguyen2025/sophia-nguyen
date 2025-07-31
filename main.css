@@ -798,24 +798,52 @@ header {
     grid-template-columns: 1fr;
   }
 }
-.box1 {
-  background-color: #ffe6f0;
+.about-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.box2 {
-  background-color: #fff8dc;
+
+.about-box {
+  border-radius: 16px;
+  padding: 24px;
+  color: #222;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background: #f9f9f9;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
 }
-.box3 {
-  background-color: #e0f7fa;
+
+.about-box:hover {
+  transform: translateY(-4px);
 }
-.box4 {
-  background-color: #f3e5f5;
+
+/* MÀU RIÊNG TỪNG BOX */
+.box-pink   { background: linear-gradient(135deg, #ffe0f0, #ffd6ec); }
+.box-purple { background: linear-gradient(135deg, #e0d4ff, #d8ccff); }
+.box-blue   { background: linear-gradient(135deg, #d4f1ff, #c1ecff); }
+.box-green  { background: linear-gradient(135deg, #d9fce2, #c2f6cf); }
+.box-yellow { background: linear-gradient(135deg, #fff5d1, #ffeebe); }
+.box-orange { background: linear-gradient(135deg, #ffe0cc, #ffd4b3); }
+
+/* CHỖ CHÈN HÌNH ẢNH TRONG BOX NGẮN */
+.about-img {
+  width: 100%;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  margin-top: 16px;
+  background-size: cover;
+  background-position: center;
 }
-.box5 {
-  background-color: #ffebee;
-}
-.box6 {
-  background-color: #e8f5e9;
-}
+
 
 
 
