@@ -468,7 +468,7 @@ header nav {
 }
 /* === ĐẨY BODY XUỐNG ĐỂ KHÔNG BỊ CHE MẤT NỘI DUNG === */
 body {
-  padding-top: 0px; /* Điều chỉnh tùy độ cao thanh menu */
+  padding-top: 100px; /* Điều chỉnh tùy độ cao thanh menu */
 }
 
 /* === STYLE CHUNG CHO MENU ITEMS === */
@@ -561,6 +561,14 @@ nav ul li a.active::after {
   text-decoration: none;
   font-size: 14px;
 }
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  position: static !important;
+}
 
 .footer-slogan {
   font-style: italic;
@@ -571,6 +579,11 @@ nav ul li a.active::after {
 .footer-social img {
   height: 36px;        /* Icon nhỏ lại nè */
   margin: 0 4px;
+}
+.site-footer .footer-nav {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
 }
 
 .navbar a.active {
