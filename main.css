@@ -865,5 +865,12 @@ marquee {
   width: 100%;
   margin: 2rem auto;
 }
-
-
+body.index .grid-item,
+body.index .category-item {
+  background: #f8f9fa !important; /* Màu mới */
+  color: #333 !important;
+}
+body.survey .survey-table {
+  background: #f8f9fa !important;
+  color: #333 !important;
+}
