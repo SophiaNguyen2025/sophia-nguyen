@@ -3,11 +3,11 @@
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background-color: #fefefe;
+  background-color: #d4f1f4;
   color: #333;
 }
 header {
-  background-color: #d4f1f4;
+  background-color:#0a4a5a;
   color: puprle;
   text-align: center;
   padding: 2rem 1rem;
@@ -30,7 +30,7 @@ header {
   color: white;
   font-size: 1.8rem;
   font-weight: bold;
-  background-color: rgba(0,0,0,0.4);
+  background-color:#0a4a5a;
   padding: 10px 20px;
   border-radius: 8px;
   text-align: center;
@@ -67,7 +67,7 @@ h2 {
 }
 
 .card {
-  background: #fff0f6;
+  background: #ffeef4;
   padding: 1rem;
   margin: 1rem 0;
   border-left: 4px solid #ec407a;
@@ -170,12 +170,6 @@ nav ul li a:hover {
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
-/* Hiệu ứng chạy màu nền */
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
 /* Viền chấm chấm sáng chạy xung quanh */
 .special-service-box::before {
@@ -200,7 +194,7 @@ nav ul li a:hover {
 .explore-button {
   margin-top: 20px;
   padding: 12px 24px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color:#d86b82;
   color: #333;
   font-weight: bold;
   border: none;
@@ -430,7 +424,7 @@ nav {
 
 .navbar a {
   text-decoration: none;
-  color: #333;
+  color: #0a4a5a;
   padding: 8px 12px;
   display: block;
 }
@@ -535,7 +529,7 @@ nav ul li a.active::after {
 
 /* Cho dropdown menu: active ở thẻ cha */
 .navbar li.dropdown > a.active {
-  background-color: #e6f7ff;
+  background-color: #0a4a5a;
   color: #005b99;
 }
 .site-footer {
@@ -587,7 +581,7 @@ nav ul li a.active::after {
 }
 
 .navbar a.active {
-  background-color: #ffffff;
+  background-color: #0a4a5a;
   color: #0a4a5a;
   border-bottom: 4px solid #00bcd4;
   padding: 6px 12px;
@@ -613,7 +607,7 @@ body {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.8rem 1.6rem;
-  background-color: #ff4081;
+  background-color: #d86b82;
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -623,7 +617,7 @@ body {
 }
 
 .explore-button:hover {
-  background-color: #e73370;
+  background-color:#d86b82;
   transform: translateY(-2px);
 }
 /* Khoảng cách giữa các đoạn văn bản */
@@ -790,7 +784,7 @@ marquee {
   animation: fadeInUp 1.2s ease-out forwards;
   text-align: center;
   font-size: 18px;
-  color: #444;
+  color: #333;
   font-style: italic;
   margin: 30px auto;
   max-width: 700px;
