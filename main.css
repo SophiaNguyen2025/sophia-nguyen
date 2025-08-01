@@ -813,3 +813,16 @@ marquee {
 .box-pink    { background: linear-gradient(135deg, #3e1f0d, #3e1f0d); }
 .box-yellow  { background: linear-gradient(135deg, #581845, #f0e6ff); }
 .box-green   { background: linear-gradient(135deg, #2b5876, #4e4376);}
+.grid-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cột lúc màn hình lớn */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Khi màn hình nhỏ hơn 768px (tablet/điện thoại) thì chỉ 1 cột */
+@media (max-width: 768px) {
+  .grid-box {
+    grid-template-columns: 1fr; /* 1 cột cho dễ đọc */
+  }
+}
