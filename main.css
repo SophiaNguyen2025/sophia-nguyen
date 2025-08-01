@@ -228,7 +228,7 @@ nav ul li a:hover {
 }
 
 .section:nth-child(even) {
-  background-color: #ffeef4;
+  background-color: transparent;
 }
 
 /* ==== RESPONSIVE MOBILE ==== */
