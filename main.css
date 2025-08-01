@@ -574,7 +574,7 @@ nav ul li a.active::after {
 }
 .home-image {
   width: 100%;
-  max-width: 350px;
+  max-width: 450px;
   height: 300px;
   object-fit: cover;
   border-radius: 12px;
