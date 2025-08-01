@@ -732,12 +732,12 @@ marquee {
 }
 
 /* 6 MÀU NỀN KHÁC NHAU */
-.box-pink    { background: linear-gradient(135deg, #0f3443, #34e89e); }
-.box-purple  { background: linear-gradient(135deg, #a29bfe, #f0e6ff); }
-.box-blue    { background: linear-gradient(135deg, #2b5876, #4e4376);}
-.box-green   { background: linear-gradient(135deg, #581845, #900c3f); }
-.box-orange  { background: linear-gradient(135deg, #232526, #414345); }
-.box-yellow  { background: linear-gradient(135deg, #3e1f0d, #a5673f); }
+.box-pink    { background: #0f3443; }
+.box-purple  { background: #a29bfe; }
+.box-blue    { background: #4e4376;}
+.box-green   { background: #900c3f; }
+.box-orange  { background: #232526; }
+.box-yellow  { background: #3e1f0d; }
 
 /* ẢNH NỀN TRONG BOX */
 .about-img {
@@ -811,8 +811,8 @@ marquee {
 
 /* 3 MÀU NỀN KHÁC NHAU */
 .box-pink    { background: #C6EBE8; }
-.box-yellow  { background: #581845; }
-.box-green   { background: #4e4376);}
+.box-yellow  { background: #F6C3C3; }
+.box-green   { background: #DCCDE8;}
 
 .six-box-grid {
   display: grid;
