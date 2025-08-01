@@ -7,7 +7,7 @@
   color: #333;
 }
 header {
-  background-color: #f48fb1;
+  background-color: #d4f1f4;
   color: white;
   text-align: center;
   padding: 2rem 1rem;
@@ -42,7 +42,7 @@ header {
   bottom: 20px;
   right: 20px;
   z-index: 999;
-  background-color: #00bcd4;
+  background-color: (#DCCDE8);
   color: white;
   padding: 12px 20px;
   border-radius: 50px;
@@ -99,7 +99,7 @@ h2 {
 footer {
   text-align: center;
   padding: 2rem 1rem;
-  background-color: #fce4ec;
+  background-color:#d4f1f4;
   color: #555;
 }
 .footer-menu {
@@ -810,9 +810,9 @@ marquee {
 }
 
 /* 3 MÀU NỀN KHÁC NHAU */
-.box-pink    { background: linear-gradient(135deg, #3e1f0d, #3e1f0d); }
-.box-yellow  { background: linear-gradient(135deg, #581845, #f0e6ff); }
-.box-green   { background: linear-gradient(135deg, #2b5876, #4e4376);}
+.box-pink    { background: #C6EBE8; }
+.box-yellow  { background: #581845; }
+.box-green   { background: #4e4376);}
 
 .six-box-grid {
   display: grid;
