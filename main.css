@@ -831,4 +831,11 @@ marquee {
     grid-template-columns: 1fr; /* Mobile nhỏ: 1 box mỗi hàng */
   }
 }
+.home-image {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
 
