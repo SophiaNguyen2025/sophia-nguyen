@@ -855,3 +855,9 @@ marquee {
   margin-left: auto;
   margin-right: auto;
 }
+@media (max-width: 768px) {
+  .home-image {
+    max-width: 90%;
+    height: auto;
+  }
+}
