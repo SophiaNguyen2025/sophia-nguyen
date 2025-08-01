@@ -850,6 +850,7 @@ marquee {
   max-width: 450px;
   height: 300px;
   object-fit: cover;
+  aspect-ratio: 3 / 2;
   border-radius: 12px;
   display: block;
   margin-left: auto;
