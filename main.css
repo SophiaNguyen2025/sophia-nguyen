@@ -380,7 +380,7 @@ nav {
 
 /* === ĐẨY BODY XUỐNG ĐỂ KHÔNG BỊ CHE MẤT NỘI DUNG === */
 body {
-  padding-top: 0px; /* Điều chỉnh tùy độ cao thanh menu */
+  padding-top: 80px; /* Điều chỉnh tùy độ cao thanh menu */
 }
 
 /* === STYLE CHUNG CHO MENU ITEMS === */
