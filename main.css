@@ -7,7 +7,7 @@
   color: #333;
 }
 header {
-  background-color: #d4f1f4;
+  background-color:#DCCDE8;
   color: white;
   text-align: center;
   padding: 2rem 1rem;
@@ -228,7 +228,7 @@ nav ul li a:hover {
 }
 
 .section:nth-child(even) {
-  background-color: transparent;
+  background-color: #DCCDE8;
 }
 
 /* ==== RESPONSIVE MOBILE ==== */
