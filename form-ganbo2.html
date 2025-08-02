@@ -209,30 +209,63 @@
     </div>
 
     <script>
-      function submitQuiz() {
-        let score = { A: 0, B: 0, C: 0, D: 0 };
-        for (let i = 1; i <= 10; i++) {
-          let answer = document.querySelector(`input[name="Q${i}"]:checked`);
-          if (answer) score[answer.value]++;
-        }
+    <script>
+  let formSubmitted = false;
 
-        let max = Math.max(score.A, score.B, score.C, score.D);
-        let result = '';
+  // Khi gửi thông tin
+  document.getElementById("quiz-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // chặn gửi mặc định
 
-        if (score.A === max)
-          result = "💚 <strong>Phong cách Gắn bó An toàn:</strong> Bạn có khả năng yêu thương lành mạnh, biết tin tưởng và duy trì ranh giới tích cực.";
-        else if (score.B === max)
-          result = "💛 <strong>Phong cách Gắn bó Lo âu:</strong> Bạn thường lo lắng bị bỏ rơi, khao khát được yêu thương và cần cảm giác an toàn thường xuyên.";
-        else if (score.C === max)
-          result = "💙 <strong>Phong cách Gắn bó Tránh né:</strong> Bạn có xu hướng giữ khoảng cách, sợ bị kiểm soát và khó mở lòng trong các mối quan hệ.";
-        else if (score.D === max)
-          result = "❤️ <strong>Phong cách Gắn bó Bất an – Lẫn lộn:</strong> Bạn nhạy cảm, dễ tổn thương và thường có phản ứng cảm xúc mạnh, mâu thuẫn giữa cần và sợ yêu.";
-
-        document.getElementById("output").innerHTML = result;
-        document.getElementById("result").style.display = 'block';
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    const form = event.target;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        formSubmitted = true; // ✅ đánh dấu đã gửi
+        alert("Gửi thông tin thành công! Bây giờ bạn có thể xem kết quả.");
+      } else {
+        alert("Gửi thông tin thất bại. Vui lòng thử lại.");
       }
-    </script>
+    })
+    .catch(error => {
+      alert("Lỗi kết nối. Vui lòng thử lại sau.");
+    });
+  });
+
+  // Khi bấm xem kết quả
+  function submitQuiz() {
+    if (!formSubmitted) {
+      alert("⚠️ Bạn cần gửi thông tin trước khi xem kết quả.");
+      return;
+    }
+
+    let score = { A: 0, B: 0, C: 0, D: 0 };
+    for (let i = 1; i <= 10; i++) {
+      let answer = document.querySelector(`input[name="Q${i}"]:checked`);
+      if (answer) score[answer.value]++;
+    }
+
+    let max = Math.max(score.A, score.B, score.C, score.D);
+    let result = '';
+
+    if (score.A === max)
+      result = "💚 <strong>Phong cách Gắn bó An toàn:</strong> Bạn có khả năng yêu thương lành mạnh, biết tin tưởng và duy trì ranh giới tích cực.";
+    else if (score.B === max)
+      result = "💛 <strong>Phong cách Gắn bó Lo âu:</strong> Bạn thường lo lắng bị bỏ rơi, khao khát được yêu thương và cần cảm giác an toàn thường xuyên.";
+    else if (score.C === max)
+      result = "💙 <strong>Phong cách Gắn bó Tránh né:</strong> Bạn có xu hướng giữ khoảng cách, sợ bị kiểm soát và khó mở lòng trong các mối quan hệ.";
+    else if (score.D === max)
+      result = "❤️ <strong>Phong cách Gắn bó Bất an – Lẫn lộn:</strong> Bạn nhạy cảm, dễ tổn thương và thường có phản ứng cảm xúc mạnh, mâu thuẫn giữa cần và sợ yêu.";
+
+    document.getElementById("output").innerHTML = result;
+    document.getElementById("result").style.display = 'block';
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+</script>
+
   </div>
 </body>
 </html>
