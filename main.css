@@ -885,3 +885,43 @@ body {
 header {
   background-color: #0a4a5a !important;
 }
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cột */
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.service-box {
+  background: #ffffff;
+  border: 2px solid #b6e1e5;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.service-box h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #0a4a5a;
+}
+
+.service-box .price {
+  font-weight: bold;
+  color: #d86b82;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .service-grid {
+    grid-template-columns: 1fr; /* 1 cột khi xem điện thoại */
+  }
+}
