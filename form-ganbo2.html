@@ -265,6 +265,63 @@
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 </script>
+<script>
+  let formSubmitted = false;
+
+  function submitQuiz(event) {
+    event.preventDefault();
+    const form = document.getElementById('quiz-form');
+
+    // Gửi form bằng Formspree
+    const formData = new FormData(form);
+    fetch("https://formspree.io/f/mbjndpzy", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        formSubmitted = true;
+        document.getElementById('thank-you').style.display = 'block';
+      } else {
+        alert("Gửi không thành công. Vui lòng thử lại.");
+      }
+    });
+  }
+
+  function showResult() {
+    if (!formSubmitted) {
+      alert("Vui lòng gửi thông tin trước khi xem kết quả.");
+      return;
+    }
+
+    // Hiện kết quả
+    const answers = [];
+    for (let i = 1; i <= 10; i++) {
+      const answer = document.querySelector(`input[name="q${i}"]:checked`);
+      if (answer) {
+        answers.push(answer.value);
+      }
+    }
+
+    const counts = { A: 0, B: 0, C: 0, D: 0 };
+    answers.forEach(a => counts[a]++);
+
+    let result = '';
+    const max = Math.max(...Object.values(counts));
+    const topStyles = Object.keys(counts).filter(key => counts[key] === max);
+
+    if (topStyles.length === 1) {
+      result = `Phong cách gắn bó của bạn là: ${topStyles[0]}`;
+    } else {
+      result = `Bạn có sự pha trộn giữa các phong cách: ${topStyles.join(', ')}`;
+    }
+
+    document.getElementById('result').innerText = result;
+    document.getElementById('result-box').style.display = 'block';
+  }
+</script>
 
   </div>
 </body>
