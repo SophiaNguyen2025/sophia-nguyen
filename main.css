@@ -6,11 +6,7 @@
   background-color: #d4f1f4;
   color: #333;
   
-  body.custom-background {
-  background-color: #d4f1f4; /* xanh pastel nhẹ nhàng */
-}
-
-}
+  }
 header {
   background-color:#0a4a5a;
   color: white;
@@ -878,4 +874,7 @@ body.index .category-item {
 body.survey .survey-table {
   background: #f8f9fa !important;
   color: #333 !important;
+}
+body.custom-background {
+  background-color: #d4f1f4; /* xanh pastel nhẹ nhàng */
 }
