@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trắc nghiệm đánh giá mức độ stress</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8ff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h2 {
+      text-align: center;
+      color: #7c4dff;
+    }
+    .hidden {
+      display: none;
+    }
+    form, .questionnaire, .result {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 2rem;
+      margin-top: 1rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #7c4dff;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .question {
+      margin-top: 1.5rem;
+    }
+    .progress {
+      height: 16px;
+      background: #e0e0e0;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+      transition: width 0.3s;
+    }
+    .option {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Bài trắc nghiệm: Đánh giá mức độ stress (Người trưởng thành)</h2>
+
+    <!-- Form thông tin cá nhân -->
+    <form id="userForm" action="https://formspree.io/f/mkgzvjwy" method="POST">
+      <label>Họ và tên:
+        <input type="text" name="name" required />
+      </label>
+      <label>Email:
+        <input type="email" name="email" required />
+      </label>
+      <label>Số điện thoại:
+        <input type="tel" name="phone" required />
+      </label>
+      <button type="submit">Bắt đầu bài trắc nghiệm</button>
+    </form>
+
+    <!-- Phần câu hỏi -->
+    <div id="quizSection" class="questionnaire hidden">
+      <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+      <div id="quizContent"></div>
+      <button id="submitQuiz" class="hidden">Xem kết quả</button>
+    </div>
+
+    <!-- Kết quả -->
+    <div id="resultSection" class="result hidden">
+      <h3>Kết quả của bạn:</h3>
+      <p id="resultText"></p>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "1. Bạn cảm thấy khó tập trung vào công việc hay học tập.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "2. Bạn cảm thấy lo lắng hoặc căng thẳng quá mức.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "3. Bạn bị đau đầu, đau bụng hoặc các triệu chứng thể chất khác.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "4. Bạn khó ngủ hoặc ngủ không sâu giấc.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "5. Bạn cảm thấy không thể kiểm soát được mọi việc.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "6. Bạn hay nổi nóng hoặc dễ bị kích động.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "7. Bạn cảm thấy mệt mỏi dù không làm việc nhiều.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "8. Bạn có cảm giác bất lực hoặc chán nản.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "9. Bạn dễ cáu gắt với người khác.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "10. Bạn thấy khó khăn trong việc đưa ra quyết định.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "11. Bạn cảm thấy bị quá tải với các trách nhiệm hàng ngày.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "12. Bạn hay có suy nghĩ tiêu cực hoặc bi quan.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "13. Bạn ít quan tâm đến sở thích hay hoạt động yêu thích.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "14. Bạn cảm thấy cô đơn hoặc không ai hiểu mình.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "15. Bạn cảm thấy mất động lực làm việc hay học tập.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "16. Bạn có thay đổi lớn về khẩu vị hoặc cân nặng.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "17. Bạn dùng các chất kích thích (cà phê, thuốc lá, rượu...) nhiều hơn bình thường.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "18. Bạn cảm thấy lo âu về tương lai gần.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "19. Bạn cảm thấy không đủ thời gian để làm việc gì cả.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] },
+      { q: "20. Bạn cảm thấy mất kết nối với mọi người xung quanh.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Luôn luôn"] }
+    ];
+
+    const form = document.getElementById('userForm');
+    const quizSection = document.getElementById('quizSection');
+    const quizContent = document.getElementById('quizContent');
+    const progressBar = document.getElementById('progressBar');
+    const submitBtn = document.getElementById('submitQuiz');
+    const resultSection = document.getElementById('resultSection');
+    const resultText = document.getElementById('resultText');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(() => {
+        form.classList.add('hidden');
+        showQuestions();
+      });
+    });
+
+    function showQuestions() {
+      questions.forEach((item, index) => {
+        const qDiv = document.createElement('div');
+        qDiv.classList.add('question');
+        qDiv.innerHTML = `<p><strong>${item.q}</strong></p>`;
+        item.a.forEach((option, i) => {
+          qDiv.innerHTML += `
+            <label class="option">
+              <input type="radio" name="q${index}" value="${i}" required /> ${option}
+            </label>
+          `;
+        });
+        quizContent.appendChild(qDiv);
+      });
+      quizSection.classList.remove('hidden');
+      submitBtn.classList.remove('hidden');
+    }
+
+    submitBtn.addEventListener('click', function() {
+      const answers = document.querySelectorAll('input[type="radio"]:checked');
+      if (answers.length < questions.length) {
+        alert("Bạn cần trả lời hết tất cả câu hỏi.");
+        return;
+      }
+      let total = 0;
+      answers.forEach(a => total += parseInt(a.value));
+      const score = total;
+      let message = "";
+      if (score <= 20) message = "Mức độ stress của bạn rất thấp. Bạn đang kiểm soát cảm xúc tốt.";
+      else if (score <= 40) message = "Bạn có dấu hiệu stress nhẹ. Nên nghỉ ngơi và chăm sóc bản thân nhiều hơn.";
+      else if (score <= 60) message = "Bạn đang trong tình trạng stress trung bình. Cần điều chỉnh lối sống và tìm hỗ trợ.";
+      else message = "Mức độ stress cao. Bạn nên tìm đến chuyên gia tâm lý để được hỗ trợ kịp thời.";
+
+      resultText.textContent = message;
+      resultSection.classList.remove('hidden');
+      window.scrollTo({ top: resultSection.offsetTop, behavior: 'smooth' });
+
+      progressBar.style.width = '100%';
+    });
+
+    document.addEventListener('change', () => {
+      const checked = document.querySelectorAll('input[type="radio"]:checked').length;
+      const percent = Math.round((checked / questions.length) * 100);
+      progressBar.style.width = percent + '%';
+    });
+  </script>
+</body>
+</html>
