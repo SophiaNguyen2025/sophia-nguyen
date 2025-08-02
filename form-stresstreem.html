@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khảo sát trầm cảm học đường – Sophia Nguyễn</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      color: #222;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2e6fd8;
+      font-size: 28px;
+    }
+
+    .note {
+      background-color: #e3f2fd;
+      padding: 10px 15px;
+      border-left: 4px solid #2e6fd8;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .question-block {
+      margin-bottom: 15px;
+    }
+
+    .options label {
+      font-weight: normal;
+      display: block;
+      margin-left: 20px;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #2e6fd8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #1d4fb1;
+    }
+
+    #result {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #f1f8e9;
+      border-left: 4px solid #689f38;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Khảo sát trầm cảm học đường (CES-DC)</h1>
+
+  <div class="note">
+    <strong>Lưu ý:</strong> Bài khảo sát này dành cho người dưới 18 tuổi. Vui lòng trả lời trung thực để kết quả có ý nghĩa nhất.
+  </div>
+
+  <form id="survey-form" action="https://formspree.io/f/mkgzvjwy" method="POST">
+    <label for="name">Họ và tên:</label>
+    <input type="text" id="name" name="Họ tên" required />
+
+    <label for="age">Tuổi:</label>
+    <input type="number" id="age" name="Tuổi" min="6" max="18" required />
+
+    <!-- 20 câu hỏi -->
+    <div id="questions"></div>
+
+    <button type="submit">Gửi khảo sát</button>
+  </form>
+
+  <div id="result" class="hidden"></div>
+
+  <script>
+    const questions = [
+      "1. Con thấy buồn.",
+      "2. Con thấy mọi thứ đều không vui.",
+      "3. Con khó ngủ.",
+      "4. Con cảm thấy không muốn ăn.",
+      "5. Con thấy cô đơn.",
+      "6. Con thấy sợ hãi.",
+      "7. Con cảm thấy không thể làm được gì cả.",
+      "8. Con cảm thấy không được ba mẹ yêu thương.",
+      "9. Con không thể tập trung vào việc học.",
+      "10. Con thấy mọi người xung quanh không hiểu mình.",
+      "11. Con cảm thấy mình không có giá trị.",
+      "12. Con thấy dễ nổi giận hoặc cáu gắt.",
+      "13. Con cảm thấy không có ai lắng nghe mình.",
+      "14. Con không còn thích làm những việc mình từng thích.",
+      "15. Con cảm thấy bị bỏ rơi.",
+      "16. Con nghĩ rằng mọi chuyện sẽ chẳng bao giờ khá hơn.",
+      "17. Con không tin vào bản thân mình.",
+      "18. Con cảm thấy mọi thứ vượt quá sức chịu đựng.",
+      "19. Con không có hứng thú với tương lai.",
+      "20. Con cảm thấy mình không xứng đáng được yêu thương."
+    ];
+
+    const answers = ["A. Luôn luôn", "B. Thường xuyên", "C. Thỉnh thoảng", "D. Không bao giờ"];
+
+    const container = document.getElementById("questions");
+
+    questions.forEach((q, idx) => {
+      const block = document.createElement("div");
+      block.className = "question-block";
+      const label = document.createElement("label");
+      label.textContent = q;
+      block.appendChild(label);
+
+      const options = document.createElement("div");
+      options.className = "options";
+
+      answers.forEach((opt, i) => {
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "Câu " + (idx + 1);
+        radio.value = opt.charAt(0);
+        radio.required = true;
+        const lbl = document.createElement("label");
+        lbl.appendChild(radio);
+        lbl.append(" " + opt);
+        options.appendChild(lbl);
+      });
+
+      block.appendChild(options);
+      container.appendChild(block);
+    });
+
+    const form = document.getElementById("survey-form");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      const scoreMap = { A: 3, B: 2, C: 1, D: 0 };
+      let total = 0;
+
+      for (let i = 1; i <= 20; i++) {
+        const val = data.get("Câu " + i);
+        total += scoreMap[val];
+      }
+
+      let feedback = "";
+      if (total >= 16) {
+        feedback = `Kết quả: Tổng điểm ${total}. Có dấu hiệu trầm cảm. Bạn nên trò chuyện với người đáng tin cậy hoặc chuyên gia tâm lý để được hỗ trợ.`;
+      } else {
+        feedback = `Kết quả: Tổng điểm ${total}. Không có dấu hiệu trầm cảm đáng kể. Tiếp tục duy trì tinh thần tích cực nhé!`;
+      }
+
+      // Gửi form đi
+      await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      // Hiện kết quả
+      form.classList.add("hidden");
+      result.classList.remove("hidden");
+      result.textContent = feedback;
+    });
+  </script>
+
+</body>
+</html>
