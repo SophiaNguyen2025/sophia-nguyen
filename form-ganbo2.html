@@ -322,6 +322,77 @@
     document.getElementById('result-box').style.display = 'block';
   }
 </script>
+<form id="quiz-form" action="https://formspree.io/f/{form_id}" method="POST">
+  <!-- các trường thông tin và câu hỏi ở đây -->
+  <button type="submit">Gửi thông tin</button>
+</form>
+
+<button id="view-result-button">Xem kết quả</button>
+
+<div id="quiz-result" style="display:none"></div>
+
+<script>
+  let formSubmitted = false;
+
+  // Hàm tính điểm & hiển thị kết quả
+  function calculateResult() {
+    const answers = document.querySelectorAll('input[type="radio"]:checked');
+    let scores = { A: 0, B: 0, C: 0, D: 0 };
+
+    answers.forEach((answer) => {
+      scores[answer.value]++;
+    });
+
+    const maxScore = Math.max(...Object.values(scores));
+    const topStyles = Object.keys(scores).filter(style => scores[style] === maxScore);
+
+    let result = "";
+    if (topStyles.length === 1) {
+      result = `Phong cách gắn bó của bạn là: ${topStyles[0]}`;
+    } else {
+      result = `Bạn có sự pha trộn giữa các phong cách: ${topStyles.join(", ")}`;
+    }
+
+    document.getElementById("quiz-result").innerText = result;
+    document.getElementById("quiz-result").style.display = "block";
+  }
+
+  // Ngăn form reload và xử lý gửi
+  document.getElementById("quiz-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+
+    // Gửi thủ công bằng fetch
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        formSubmitted = true;
+        alert("Thông tin của bạn đã được gửi thành công!");
+        calculateResult(); // Chỉ hiện kết quả sau khi gửi form thành công
+      } else {
+        alert("Gửi thông tin thất bại. Vui lòng thử lại.");
+      }
+    })
+    .catch(error => {
+      alert("Có lỗi xảy ra. Vui lòng thử lại sau.");
+    });
+  });
+
+  // Nếu người dùng bấm "Xem kết quả" trước khi gửi form
+  document.getElementById("view-result-button").addEventListener("click", function (e) {
+    if (!formSubmitted) {
+      e.preventDefault();
+      alert("Bạn cần gửi thông tin trước khi xem kết quả nhé!");
+    }
+  });
+</script>
 
   </div>
 </body>
