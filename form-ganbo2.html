@@ -70,14 +70,18 @@
 </head>
 <body>
   <div class="container">
- <img src="hinhremovenen.png" alt="Logo Sophia" />
+ <div class = "center" img src="hinhremovenen.png" alt="Logo Sophia" />
     <h1>Trắc nghiệm Phong cách Gắn bó</h1>
     <form action="https://formspree.io/f/mkgzvjwy" method="POST">
       <label for="name">Họ và tên:</label>
       <input type="text" id="name" name="Họ và tên" required>
 
+       <label for="Số điện thoại">Số điện thoại:</label>
+      <input type="number" id="phone" name="Số điện thoại" required>
+      
       <label for="email">Email:</label>
       <input type="email" id="email" name="Email" required>
+      
 
       <!-- Câu 1 -->
       <div class="question">
@@ -169,7 +173,7 @@
         <label><input type="radio" name="Q10" value="C"> Có không gian riêng nhiều hơn.</label>
       </div>
 
-      <button type="submit">Gửi kết quả</button>
+      <button type="submit">Gửi thông tin</button>
        <button type="button" onclick="submitQuiz()">Xem kết quả</button>
   </form>
 
