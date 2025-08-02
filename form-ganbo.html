@@ -88,22 +88,20 @@
 
 <body>
   <div class="container">
-    <h1>Trắc nghiệm Phong cách Gắn bó</h1>
+    <div class="logo">
+      <img src="hinhremovenen.png" alt="Logo Sophia">
+    </div>
 
-    <form id="attachmentForm">
+    <h1>Trắc nghiệm Phong cách Gắn bó</h1>
+    <form id="quiz-form" action="https://formspree.io/f/mkgzvjwy" method="POST">
       <label for="name">Họ và tên:</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" name="Họ và tên" required>
+
+      <label for="Số điện thoại">Số điện thoại:</label>
+      <input type="number" id="phone" name="Số điện thoại" required>
 
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-
-      <div id="questions"></div>
-
-      <button type="submit">Gửi & Xem kết quả</button>
-    </form>
-
-    <div class="result" id="result" style="display:none"></div>
-  </div>
+      <input type="email" id="email" name="Email" required>
 
   <script>
     const questions = [
@@ -148,44 +146,106 @@
         options: ["D. Rất đúng", "C. Hơi đúng", "B. Hơi sai", "A. Rất sai"]
       }
     ];
+[
+  {
+    text: "Tôi thấy khó mở lòng với người mới quen.",
+    options: ["B. Rất đúng", "A. Hơi đúng", "D. Hơi sai", "C. Rất sai"]
+  },
+  {
+    text: "Tôi thường cần thời gian một mình để cảm thấy dễ chịu.",
+    options: ["C. Rất đúng", "B. Hơi đúng", "A. Hơi sai", "D. Rất sai"]
+  },
+  {
+    text: "Tôi cảm thấy mình không đáng để được yêu thương.",
+    options: ["A. Rất đúng", "D. Hơi đúng", "C. Hơi sai", "B. Rất sai"]
+  },
+  {
+    text: "Tôi thường xuyên nghĩ về việc mình sẽ bị từ chối.",
+    options: ["B. Rất đúng", "C. Hơi đúng", "D. Hơi sai", "A. Rất sai"]
+  },
+  {
+    text: "Tôi cảm thấy an toàn khi có ai đó luôn ở bên cạnh.",
+    options: ["D. Rất đúng", "A. Hơi đúng", "B. Hơi sai", "C. Rất sai"]
+  },
+  {
+    text: "Tôi thấy khó chịu nếu ai đó thể hiện tình cảm quá mức.",
+    options: ["C. Rất đúng", "B. Hơi đúng", "A. Hơi sai", "D. Rất sai"]
+  },
+  {
+    text: "Tôi thường phân vân không biết người khác có thật lòng với mình hay không.",
+    options: ["A. Rất đúng", "C. Hơi đúng", "D. Hơi sai", "B. Rất sai"]
+  },
+  {
+    text: "Tôi cảm thấy dễ bị tổn thương trong tình cảm.",
+    options: ["B. Rất đúng", "A. Hơi đúng", "D. Hơi sai", "C. Rất sai"]
+  },
+  {
+    text: "Tôi tin rằng mình có thể tự vượt qua mọi khó khăn mà không cần ai giúp.",
+    options: ["D. Rất đúng", "B. Hơi đúng", "C. Hơi sai", "A. Rất sai"]
+  },
+  {
+    text: "Tôi luôn mong muốn một mối quan hệ ổn định và lâu dài.",
+    options: ["C. Rất đúng", "D. Hơi đúng", "A. Hơi sai", "B. Rất sai"]
+  }
+]
 
-    const questionContainer = document.getElementById("questions");
+    <script>
+  let formSubmitted = false;
 
-    questions.forEach((q, index) => {
-      const div = document.createElement("div");
-      div.className = "question";
-      div.innerHTML = `<h3>Câu ${index + 1}: ${q.text}</h3>` +
-        q.options.map((opt, i) => {
-          return `<label><input type="radio" name="q${index}" value="${opt.charAt(0)}" required> ${opt}</label>`;
-        }).join("");
-      questionContainer.appendChild(div);
+  // Bắt sự kiện gửi form
+  document.getElementById("quiz-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        formSubmitted = true;
+        alert("🟢 Gửi thông tin thành công! Bây giờ bạn có thể xem kết quả.");
+      } else {
+        alert("❌ Gửi thông tin thất bại. Vui lòng thử lại.");
+      }
+    })
+    .catch(error => {
+      alert("⚠️ Lỗi kết nối. Vui lòng thử lại sau.");
     });
+  });
 
-    const form = document.getElementById("attachmentForm");
-    const resultDiv = document.getElementById("result");
+  // Hàm tính kết quả
+  function submitQuiz() {
+    if (!formSubmitted) {
+      alert("⚠️ Bạn cần gửi thông tin trước khi xem kết quả.");
+      return;
+    }
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    let score = { A: 0, B: 0, C: 0, D: 0 };
+    for (let i = 1; i <= 10; i++) {
+      let answer = document.querySelector(`input[name="Q${i}"]:checked`);
+      if (answer) score[answer.value]++;
+    }
 
-      const counts = { A: 0, B: 0, C: 0, D: 0 };
-      questions.forEach((_, i) => {
-        const answer = form[`q${i}`].value;
-        counts[answer]++;
-      });
+    let max = Math.max(score.A, score.B, score.C, score.D);
+    let result = '';
 
-      const maxType = Object.keys(counts).reduce((a, b) => counts[a] >= counts[b] ? a : b);
+    if (score.A === max)
+      result = "💚 <strong>Gắn bó An toàn:</strong> Bạn có khả năng yêu thương lành mạnh, thoải mái và tin tưởng trong tình cảm";
+    else if (score.B === max)
+      result = "💛 <strong>Gắn bó Lo âu:</strong> Bạn thường lo lắng, cần sự khẳng định liên tục, cần cảm giác an toàn thường xuyên.";
+    else if (score.C === max)
+      result = "💙 <strong>Gắn bó Tránh né:</strong> Bạn có xu hướng giữ khoảng cách, ngại thân mật và khó mở lòng trong các mối quan hệ.";
+    else if (score.D === max)
+      result = "❤️ <strong>Gắn bó hỗn loạn:</strong> Bạn nhạy cảm, dễ tổn thương và vừa khao khát vừa sợ gần gũi.";
 
-      const types = {
-        A: "Gắn bó lo âu – thường lo lắng và cần sự khẳng định liên tục.",
-        B: "Gắn bó né tránh – giữ khoảng cách và ngại thân mật.",
-        C: "Gắn bó hỗn loạn – vừa khao khát vừa sợ gần gũi.",
-        D: "Gắn bó an toàn – thoải mái và tin tưởng trong tình cảm."
-      };
-
-      resultDiv.innerHTML = `<h3>Kết quả của bạn:</h3><p><strong>${types[maxType]}</strong></p>`;
-      resultDiv.style.display = "block";
-    });
-  </script>
-</body>
-
-</html>
+    document.getElementById("output").innerHTML = result;
+    document.getElementById("result").style.display = 'block';
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+</script>
+  </div>
+<html>
+        
