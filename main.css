@@ -878,3 +878,14 @@ body.survey .survey-table {
 body.custom-background {
   background-color: #d4f1f4; /* xanh pastel nhẹ nhàng */
 }
+body.pastel-theme header {
+  background-color: #0a4a5a !important;
+  color: white;
+}
+
+body.pastel-theme header h1,
+body.pastel-theme header .contact,
+body.pastel-theme header .welcome-message,
+body.pastel-theme .navbar a {
+  color: white !important;
+}
