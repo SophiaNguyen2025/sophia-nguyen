@@ -2,210 +2,121 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trắc nghiệm phong cách gắn bó</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trắc nghiệm Phong cách Gắn bó</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #fdfbfb, #ebedee);
-      margin: 0;
-      padding: 20px;
-      color: #333;
+      background: linear-gradient(120deg, #fce4ec, #e0f7fa);
+      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
     }
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      background-color: #fff;
-      padding: 30px;
+    .question-box {
+      background: #fff;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: auto;
     }
-    h1, h2 {
-      text-align: center;
-      color: #6b4c9a;
+    .result-box {
+      background: #fff3fc;
+      border-left: 8px solid #ce93d8;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 2rem;
     }
-    .step {
-      display: none;
-    }
-    .step.active {
-      display: block;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    label {
-      display: block;
+    .hidden { display: none; }
+    progress { width: 100%; margin-bottom: 1rem; }
+    .result-title {
       font-weight: bold;
-      margin-bottom: 5px;
-    }
-    input[type="text"], input[type="email"], input[type="tel"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    .question {
-      margin-bottom: 20px;
-    }
-    .question p {
-      font-weight: bold;
-    }
-    .options label {
-      display: block;
-      margin-left: 10px;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #abdfd1;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    button:hover {
-      background-color: #8dcbbf;
-    }
-    .progress {
-      margin-bottom: 20px;
-      padding: 10px;
-      background-color: #f1f1f1;
-      border-radius: 8px;
-      text-align: center;
-      font-weight: bold;
-    }
-    .logo {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .logo img {
-      max-width: 150px;
+      font-size: 1.5rem;
+      color: #6a1b9a;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">
-      <img src="hinhremovenen.png" alt="Logo Sophia Nguyễn">
-    </div>
-    <div class="progress" id="progress">Bước 1: Điền thông tin</div>
+  <main class="question-box">
+    <h2>Trắc nghiệm Phong cách Gắn bó (Người trưởng thành)</h2>
+    <p>Trả lời 20 câu hỏi bên dưới bằng cách chọn Đúng hoặc Sai. Hãy thành thật để có kết quả chính xác nhất.</p>
 
-    <form id="quizForm">
-      <!-- Step 1: Personal Info -->
-      <div class="step active" id="step1">
-        <h2>Thông tin người làm bài</h2>
-        <div class="form-group">
-          <label for="name">Họ tên:</label>
-          <input type="text" id="name" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" required />
-        </div>
-        <div class="form-group">
-          <label for="phone">Số điện thoại:</label>
-          <input type="tel" id="phone" required />
-        </div>
-        <button type="button" onclick="submitInfo()">Gửi thông tin</button>
-      </div>
+    <progress id="progress" value="0" max="20"></progress>
+    <div id="question-container"></div>
 
-      <!-- Step 2: Questions -->
-      <div class="step" id="step2">
-        <h2>Bài trắc nghiệm (20 câu)</h2>
-        <div id="questions"></div>
-        <button type="button" onclick="submitQuiz()">Xem kết quả</button>
-      </div>
-
-      <!-- Step 3: Results -->
-      <div class="step" id="step3">
-        <h2>Kết quả trắc nghiệm</h2>
-        <div id="resultText"></div>
-      </div>
-    </form>
-  </div>
+    <div id="result-container" class="hidden"></div>
+  </main>
 
   <script>
-    const questionsData = [
-      { text: "Tôi cảm thấy không thoải mái khi quá gần gũi với người khác.", category: "tránh né" },
-      { text: "Tôi thường lo sợ người mình yêu sẽ rời bỏ mình.", category: "lo âu" },
-      // Thêm 18 câu nữa ở đây theo lý thuyết gốc Bartholomew & Horowitz (1991)
+    const questions = [
+      { text: "Tôi thấy dễ dàng thân mật với người khác.", group: "secure" },
+      { text: "Tôi không lo lắng việc người khác sẽ bỏ rơi tôi.", group: "secure" },
+      { text: "Tôi thấy thoải mái khi dựa vào người khác và để người khác dựa vào tôi.", group: "secure" },
+      { text: "Tôi không ngại chia sẻ cảm xúc của mình với người tôi tin tưởng.", group: "secure" },
+      { text: "Tôi cảm thấy người khác sẽ ở bên khi tôi cần.", group: "secure" },
+      { text: "Tôi thường lo lắng không biết người yêu có thật sự quan tâm đến tôi không.", group: "anxious" },
+      { text: "Tôi sợ người tôi yêu sẽ không muốn gần gũi với tôi như tôi mong muốn.", group: "anxious" },
+      { text: "Tôi thường lo bị bỏ rơi, dù không có lý do rõ ràng.", group: "anxious" },
+      { text: "Tôi hay cảm thấy không đủ tốt trong các mối quan hệ.", group: "anxious" },
+      { text: "Tôi dễ rơi vào trạng thái cần người kia xác nhận tình cảm liên tục.", group: "anxious" },
+      { text: "Tôi thấy khó chia sẻ cảm xúc thật với người khác.", group: "avoidant" },
+      { text: "Tôi không thích bị ai đó phụ thuộc vào mình.", group: "avoidant" },
+      { text: "Tôi cảm thấy bị gò bó khi người khác quá gần gũi với mình.", group: "avoidant" },
+      { text: "Tôi nghĩ rằng tôi không cần ai để được hạnh phúc.", group: "avoidant" },
+      { text: "Tôi thường tự giải quyết vấn đề thay vì tìm kiếm sự giúp đỡ.", group: "avoidant" },
+      { text: "Tôi vừa muốn gần gũi, vừa sợ bị tổn thương.", group: "fearful" },
+      { text: "Tôi thường nghi ngờ liệu mình có xứng đáng được yêu không.", group: "fearful" },
+      { text: "Tôi sợ bị từ chối nên thường giữ khoảng cách với người khác.", group: "fearful" },
+      { text: "Tôi hay cảm thấy mâu thuẫn giữa mong muốn thân mật và sợ mất tự do.", group: "fearful" },
+      { text: "Tôi tránh những mối quan hệ thân thiết vì sợ bị tổn thương.", group: "fearful" }
     ];
 
-    const scores = { tránh: 0, loau: 0 };
+    let current = 0;
+    let scores = { secure: 0, anxious: 0, avoidant: 0, fearful: 0 };
 
-    function submitInfo() {
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      if (!name || !email || !phone) {
-        alert("Vui lòng điền đầy đủ thông tin trước khi tiếp tục.");
+    const container = document.getElementById("question-container");
+    const resultBox = document.getElementById("result-container");
+    const progressBar = document.getElementById("progress");
+
+    function renderQuestion() {
+      progressBar.value = current;
+      if (current >= questions.length) {
+        showResult();
         return;
       }
-
-      // Gửi thông tin về Formspree (chỉ gửi thông tin cá nhân, không gửi kết quả)
-      fetch("https://formspree.io/f/yourformid", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone })
-      });
-
-      document.getElementById("step1").classList.remove("active");
-      document.getElementById("step2").classList.add("active");
-      document.getElementById("progress").innerText = "Bước 2: Làm bài trắc nghiệm";
-      loadQuestions();
+      const q = questions[current];
+      container.innerHTML = `
+        <p><strong>Câu ${current + 1}/${questions.length}:</strong> ${q.text}</p>
+        <button onclick="answer(true)">Đúng</button>
+        <button onclick="answer(false)">Sai</button>
+      `;
     }
 
-    function loadQuestions() {
-      const container = document.getElementById("questions");
-      container.innerHTML = "";
-      questionsData.forEach((q, index) => {
-        const div = document.createElement("div");
-        div.className = "question";
-        div.innerHTML = `
-          <p>Câu ${index + 1}: ${q.text}</p>
-          <div class="options">
-            <label><input type="radio" name="q${index}" value="1" required /> Đúng</label>
-            <label><input type="radio" name="q${index}" value="0" /> Sai</label>
-          </div>
-        `;
-        container.appendChild(div);
-      });
+    function answer(val) {
+      if (val) scores[questions[current].group]++;
+      current++;
+      renderQuestion();
     }
 
-    function submitQuiz() {
-      let totalAvoidant = 0;
-      let totalAnxious = 0;
-      for (let i = 0; i < questionsData.length; i++) {
-        const radios = document.getElementsByName("q" + i);
-        let answered = false;
-        for (let radio of radios) {
-          if (radio.checked) {
-            answered = true;
-            if (questionsData[i].category === "tránh né") totalAvoidant += parseInt(radio.value);
-            if (questionsData[i].category === "lo âu") totalAnxious += parseInt(radio.value);
-          }
-        }
-        if (!answered) {
-          alert("Vui lòng trả lời đầy đủ tất cả các câu hỏi.");
-          return;
-        }
-      }
+    function showResult() {
+      container.classList.add("hidden");
+      resultBox.classList.remove("hidden");
 
-      document.getElementById("step2").classList.remove("active");
-      document.getElementById("step3").classList.add("active");
-      document.getElementById("progress").innerText = "Bước 3: Kết quả";
+      const topGroup = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+      const descriptions = {
+        secure: `<div class="result-box"><p class="result-title">🌱 Phong cách Gắn bó An toàn</p><p>Bạn có xu hướng tin tưởng, cởi mở và cảm thấy thoải mái trong các mối quan hệ thân mật. Đây là nền tảng tốt cho tình yêu và sự kết nối lành mạnh.</p></div>`,
+        anxious: `<div class="result-box"><p class="result-title">💓 Phong cách Gắn bó Lo âu</p><p>Bạn thường cần sự trấn an từ người khác, lo sợ bị bỏ rơi và có xu hướng bám víu. Có thể bắt nguồn từ thiếu ổn định trong tuổi thơ.</p></div>`,
+        avoidant: `<div class="result-box"><p class="result-title">🛡️ Phong cách Gắn bó Lảng tránh</p><p>Bạn giữ khoảng cách cảm xúc, khó tin tưởng hoặc chia sẻ. Thường bạn tự chủ, nhưng có thể tránh né tổn thương bằng cách né tránh thân mật.</p></div>`,
+        fearful: `<div class="result-box"><p class="result-title">🌪️ Phong cách Gắn bó Sợ hãi/Lưỡng lự</p><p>Bạn có mong muốn kết nối nhưng lại lo sợ bị tổn thương. Có thể trải qua những trải nghiệm mâu thuẫn về tình cảm trong quá khứ.</p></div>`
+      };
 
-      const resultText = document.getElementById("resultText");
-      let style = "";
-      if (totalAvoidant >= 5 && totalAnxious < 5) style = "Gắn bó né tránh";
-      else if (totalAnxious >= 5 && totalAvoidant < 5) style = "Gắn bó lo âu";
-      else if (totalAvoidant >= 5 && totalAnxious >= 5) style = "Gắn bó sợ hãi";
-      else style = "Gắn bó an toàn";
-
-      resultText.innerHTML = `<p><strong>Phong cách gắn bó của bạn:</strong> ${style}</p>
-      <p><em>Kết quả dựa trên mô hình gắn bó người trưởng thành của Bartholomew & Horowitz (1991).</em></p>`;
+      resultBox.innerHTML = `
+        <h3>Kết quả của bạn:</h3>
+        ${descriptions[topGroup]}
+        <br><p><strong>Lưu ý:</strong> Đây chỉ là đánh giá tham khảo. Nếu bạn muốn hiểu sâu hơn, hãy trò chuyện với chuyên gia tâm lý.</p>
+      `;
     }
+
+    renderQuestion();
   </script>
 </body>
 </html>
