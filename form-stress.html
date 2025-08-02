@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đánh giá mức độ stress</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f9f9ff;
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      text-align: center;
+      color: #4a148c;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 5px;
+    }
+
+    .question {
+      margin-top: 30px;
+    }
+
+    .answers label {
+      display: block;
+      margin: 5px 0;
+      padding: 10px;
+      background: #e0f7fa;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .answers input {
+      margin-right: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .progress {
+      height: 20px;
+      background: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(to right, #c5e1a5, #b2dfdb);
+      width: 0%;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .btn {
+      margin-top: 20px;
+      background: #ba68c8;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .result {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #2e7d32;
+      margin-top: 30px;
+      background: #fce4ec;
+      padding: 20px;
+      border-radius: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Đánh giá mức độ stress</h1>
+
+    <!-- Form điền thông tin -->
+    <div id="infoForm">
+      <label>Họ tên:</label>
+      <input type="text" id="name" required />
+
+      <label>Email:</label>
+      <input type="email" id="email" required />
+
+      <label>Số điện thoại:</label>
+      <input type="tel" id="phone" required />
+
+      <button class="btn" onclick="submitInfo()">Bắt đầu trắc nghiệm</button>
+    </div>
+
+    <!-- Phần trắc nghiệm -->
+    <div id="quiz" class="hidden">
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <form id="quizForm">
+        <!-- Câu hỏi sẽ được chèn tự động bằng JavaScript -->
+      </form>
+      <button class="btn" onclick="submitQuiz()">Xem kết quả</button>
+    </div>
+
+    <!-- Kết quả -->
+    <div id="result" class="result hidden"></div>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "1. Tôi cảm thấy dễ cáu gắt hơn bình thường.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "2. Tôi gặp khó khăn khi ngủ hoặc thức dậy giữa đêm.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "3. Tôi cảm thấy lo lắng về những điều nhỏ nhặt.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "4. Tôi cảm thấy áp lực khi làm những việc thường ngày.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "5. Tôi bị đau đầu hoặc đau dạ dày không rõ lý do.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "6. Tôi thấy khó thư giãn và nghỉ ngơi.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "7. Tôi hay quên những việc đơn giản.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "8. Tôi cảm thấy mất động lực với công việc hoặc học tập.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "9. Tôi ăn uống thất thường.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "10. Tôi cảm thấy tim đập nhanh hoặc hồi hộp.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "11. Tôi né tránh giao tiếp xã hội.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "12. Tôi cảm thấy kiệt sức cả về thể chất lẫn tinh thần.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "13. Tôi có cảm giác bị mất kiểm soát cuộc sống.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "14. Tôi khó tập trung vào công việc.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "15. Tôi cảm thấy bất an hoặc sợ hãi không rõ nguyên nhân.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "16. Tôi thấy bản thân dễ khóc hoặc xúc động.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "17. Tôi có hành vi tiêu cực như hút thuốc, uống rượu nhiều hơn.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "18. Tôi có cảm giác mọi thứ trở nên quá tải.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "19. Tôi cảm thấy mình vô dụng hoặc không có giá trị.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] },
+      { q: "20. Tôi thấy khó cảm nhận niềm vui từ những điều mình từng yêu thích.", a: ["Không bao giờ", "Thỉnh thoảng", "Thường xuyên", "Hầu như luôn luôn"] }
+    ];
+
+    function submitInfo() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || !email || !phone) {
+        alert("Vui lòng điền đầy đủ thông tin.");
+        return;
+      }
+
+      document.getElementById("infoForm").classList.add("hidden");
+      document.getElementById("quiz").classList.remove("hidden");
+
+      const quizForm = document.getElementById("quizForm");
+      questions.forEach((item, index) => {
+        const qDiv = document.createElement("div");
+        qDiv.className = "question";
+        qDiv.innerHTML = `<p>${item.q}</p>`;
+        const answersDiv = document.createElement("div");
+        answersDiv.className = "answers";
+
+        item.a.forEach((ans, i) => {
+          const letter = ["A", "B", "C", "D"][i];
+          answersDiv.innerHTML += `
+            <label>
+              <input type="radio" name="q${index}" value="${i}" required />
+              ${letter}. ${ans}
+            </label>
+          `;
+        });
+
+        qDiv.appendChild(answersDiv);
+        quizForm.appendChild(qDiv);
+      });
+    }
+
+    function submitQuiz() {
+      const form = document.getElementById("quizForm");
+      const formData = new FormData(form);
+      if (formData.keys().length < questions.length) {
+        alert("Vui lòng trả lời tất cả câu hỏi.");
+        return;
+      }
+
+      let total = 0;
+      for (let i = 0; i < questions.length; i++) {
+        total += parseInt(formData.get("q" + i));
+      }
+
+      const resultDiv = document.getElementById("result");
+      document.getElementById("quiz").classList.add("hidden");
+      resultDiv.classList.remove("hidden");
+
+      if (total <= 20) {
+        resultDiv.innerText = "💚 Mức độ stress thấp – Bạn đang cân bằng khá tốt. Hãy tiếp tục duy trì!";
+      } else if (total <= 35) {
+        resultDiv.innerText = "💛 Mức độ stress trung bình – Bạn nên dành thời gian chăm sóc bản thân nhiều hơn.";
+      } else {
+        resultDiv.innerText = "❤️ Mức độ stress cao – Bạn đang chịu áp lực lớn, nên tìm người hỗ trợ tâm lý hoặc giảm tải công việc.";
+      }
+    }
+
+    // Thanh tiến trình
+    document.addEventListener("input", () => {
+      const answered = document.querySelectorAll("input[type='radio']:checked").length;
+      const progress = (answered / questions.length) * 100;
+      document.getElementById("progressBar").style.width = `${progress}%`;
+    });
+  </script>
+</body>
+</html>
