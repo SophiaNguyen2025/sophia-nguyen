@@ -288,30 +288,30 @@ nav ul li a:hover {
 
 /* ==== NÚT "ĐẶT LỊCH CÙNG SOPHIA" GIỮA MÀN HÌNH ==== */
 .schedule-button {
-  background-color: #e67e22; /* Cam đất nổi bật */
-  color: white;
-  padding: 16px 30px;
-  border: none;
-  border-radius: 50px; /* Bo tròn nút */
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  justify-content: center;
+  background-color: #ff785a; /* Cam san hô nổi bật */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 14px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .schedule-button:hover {
-  background-color: #cf711c;
+  background-color: #ff5733;
   transform: scale(1.05);
 }
 
-/* Icon Zalo trong nút */
 .schedule-button img {
-  height: 24px;
   width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 
 
