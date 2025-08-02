@@ -288,17 +288,18 @@ nav ul li a:hover {
 
 /* ==== NÚT "ĐẶT LỊCH CÙNG SOPHIA" GIỮA MÀN HÌNH ==== */
 .cta-button {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  background: transparent;
+  padding: 14px 0;
 }
 
 .schedule-button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   background-color: #6A5ACD !important; /* Tím sang */
   color: #e0e0e0;
   font-size: 18px;
@@ -307,12 +308,12 @@ nav ul li a:hover {
   border-radius: 50px;
   text-decoration: none;
   border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
 .schedule-button:hover {
-  background-color: #5a4db8 !important;
+  background-color: #594bbf !important;
   transform: scale(1.05);
 }
 
