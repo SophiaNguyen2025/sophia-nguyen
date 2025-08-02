@@ -7,18 +7,25 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f0f4f8;
+      background: linear-gradient(to right, #f0f8ff, #fce4ec);
       color: #333;
       margin: 0;
       padding: 20px;
     }
     .container {
-      max-width: 700px;
+      max-width: 800px;
       margin: auto;
       background: white;
       padding: 30px;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo img {
+      width: 120px;
     }
     h1 {
       text-align: center;
@@ -33,11 +40,18 @@
       margin: 20px 0;
       padding: 15px;
       border-left: 5px solid #4CAF50;
-      background: #f9f9f9;
+      background: #f1f8e9;
       border-radius: 10px;
+    }
+    .question:nth-child(even) {
+      background: #fce4ec;
+    }
+    .question:nth-child(odd) {
+      background: #e8f5e9;
     }
     .question p {
       margin: 0 0 10px;
+      font-weight: bold;
     }
     .question label {
       display: block;
@@ -45,7 +59,8 @@
       margin-bottom: 8px;
     }
     input[type="text"],
-    input[type="email"] {
+    input[type="email"],
+    input[type="number"] {
       width: 100%;
       padding: 10px;
       margin-top: 8px;
@@ -66,24 +81,35 @@
     button:hover {
       background: #45a049;
     }
+    .result {
+      display: none;
+      background: #ede7f6;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 12px;
+      color: #4a148c;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <div class="container">
- <div class = "center" img src="hinhremovenen.png" alt="Logo Sophia" />
+    <div class="logo">
+      <img src="hinhremovenen.png" alt="Logo Sophia">
+    </div>
+
     <h1>Trắc nghiệm Phong cách Gắn bó</h1>
-    <form action="https://formspree.io/f/mkgzvjwy" method="POST">
+    <form id="quiz-form" action="https://formspree.io/f/mkgzvjwy" method="POST">
       <label for="name">Họ và tên:</label>
       <input type="text" id="name" name="Họ và tên" required>
 
-       <label for="Số điện thoại">Số điện thoại:</label>
+      <label for="Số điện thoại">Số điện thoại:</label>
       <input type="number" id="phone" name="Số điện thoại" required>
-      
+
       <label for="email">Email:</label>
       <input type="email" id="email" name="Email" required>
-      
 
-      <!-- Câu 1 -->
+            <!-- Câu 1 -->
       <div class="question">
         <p>1. Khi tôi cần giúp đỡ, tôi thường:</p>
         <label><input type="radio" name="Q1" value="A"> Tìm đến người thân cận nhất.</label>
@@ -173,52 +199,41 @@
         <label><input type="radio" name="Q10" value="C"> Có không gian riêng nhiều hơn.</label>
       </div>
 
-      <button type="submit">Gửi thông tin</button>
-       <button type="button" onclick="submitQuiz()">Xem kết quả</button>
-  </form>
+            <button type="submit">Gửi kết quả </button>
+      <button type="button" onclick="submitQuiz()">Xem kết quả</button>
+    </form>
 
-  <div class="result" id="result">
-    <h2>Kết quả trắc nghiệm:</h2>
-    <p id="output"></p>
-  </div>
+    <div class="result" id="result">
+      <h2>Kết quả trắc nghiệm:</h2>
+      <p id="output"></p>
+    </div>
 
-  <script>
-    function showQuiz(event) {
-      event.preventDefault();
-      const form = document.getElementById("info-form");
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          form.style.display = 'none';
-          document.getElementById("quiz").style.display = 'block';
-        } else {
-          alert("Gửi thông tin thất bại. Vui lòng thử lại.");
+    <script>
+      function submitQuiz() {
+        let score = { A: 0, B: 0, C: 0, D: 0 };
+        for (let i = 1; i <= 10; i++) {
+          let answer = document.querySelector(`input[name="Q${i}"]:checked`);
+          if (answer) score[answer.value]++;
         }
-      }).catch(error => {
-        alert("Lỗi kết nối.");
-      });
-      return false;
-    }
 
-    function submitQuiz() {
-      let score = { A: 0, B: 0, C: 0, D: 0 };
-      for (let i = 1; i <= 10; i++) {
-        let answer = document.querySelector(`input[name="q${i}"]:checked`);
-        if (answer) score[answer.value]++;
+        let max = Math.max(score.A, score.B, score.C, score.D);
+        let result = '';
+
+        if (score.A === max)
+          result = "💚 <strong>Phong cách Gắn bó An toàn:</strong> Bạn có khả năng yêu thương lành mạnh, biết tin tưởng và duy trì ranh giới tích cực.";
+        else if (score.B === max)
+          result = "💛 <strong>Phong cách Gắn bó Lo âu:</strong> Bạn thường lo lắng bị bỏ rơi, khao khát được yêu thương và cần cảm giác an toàn thường xuyên.";
+        else if (score.C === max)
+          result = "💙 <strong>Phong cách Gắn bó Tránh né:</strong> Bạn có xu hướng giữ khoảng cách, sợ bị kiểm soát và khó mở lòng trong các mối quan hệ.";
+        else if (score.D === max)
+          result = "❤️ <strong>Phong cách Gắn bó Bất an – Lẫn lộn:</strong> Bạn nhạy cảm, dễ tổn thương và thường có phản ứng cảm xúc mạnh, mâu thuẫn giữa cần và sợ yêu.";
+
+        document.getElementById("output").innerHTML = result;
+        document.getElementById("result").style.display = 'block';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       }
-      let result = '';
-      let max = Math.max(score.A, score.B, score.C, score.D);
-      if (score.A === max) result = "💙 **Phong cách Gắn bó Tránh né:** Bạn có xu hướng giữ khoảng cách, sợ bị kiểm soát và khó mở lòng trong các mối quan hệ.";
-      else if (score.B === max) result = 💚 **Phong cách Gắn bó An toàn:** Bạn có khả năng yêu thương lành mạnh, biết tin tưởng và duy trì ranh giới tích cực.";
-      else if (score.C === max) result = "💛 **Phong cách Gắn bó Lo âu:** Bạn thường lo lắng bị bỏ rơi, khao khát được yêu thương và cần cảm giác an toàn thường xuyên.";
-      else if (score.D === max) result = "❤️ **Phong cách Gắn bó Bất an - Lẫn lộn:** Bạn nhạy cảm, dễ tổn thương và thường có phản ứng cảm xúc mạnh, mâu thuẫn giữa cần và sợ yêu.";
-       document.getElementById("output").innerText = result;
-      document.getElementById("result").style.display = 'block';
-    }
-  </script>
+    </script>
+  </div>
 </body>
 </html>
-    
+
