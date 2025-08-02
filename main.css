@@ -5,6 +5,11 @@
   line-height: 1.6;
   background-color: #d4f1f4;
   color: #333;
+  
+  body.custom-background {
+  background-color: #d4f1f4; /* xanh pastel nhẹ nhàng */
+}
+
 }
 header {
   background-color:#0a4a5a;
