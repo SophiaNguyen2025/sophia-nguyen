@@ -291,12 +291,12 @@ nav ul li a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #ff785a; /* Cam san hô nổi bật */
-  color: white;
+  background-color: #6A5ACD; /* Cam san hô nổi bật */
+  color: #e0e0e0 ;
   font-size: 18px;
   font-weight: bold;
-  padding: 14px 24px;
-  border-radius: 50px;
+  padding: 18px 28px;
+  border-radius: 60px;
   text-decoration: none;
   border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -307,14 +307,6 @@ nav ul li a:hover {
   background-color: #ff5733;
   transform: scale(1.05);
 }
-
-.schedule-button img {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-}
-
-
 
 /* ==== HIỆU ỨNG PULSE ==== */
 @keyframes pulse {
