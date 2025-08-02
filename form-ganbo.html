@@ -33,15 +33,32 @@
       font-size: 1.5rem;
       color: #6a1b9a;
     }
+    .form-step { margin-bottom: 2rem; }
   </style>
 </head>
 <body>
   <main class="question-box">
     <h2>Trắc nghiệm Phong cách Gắn bó (Người trưởng thành)</h2>
-    <p>Trả lời 20 câu hỏi bên dưới bằng cách chọn Đúng hoặc Sai. Hãy thành thật để có kết quả chính xác nhất.</p>
+    <div id="form-step" class="form-step">
+      <form id="user-info-form">
+        <label for="name">Họ tên</label>
+        <input type="text" id="name" name="name" required>
 
-    <progress id="progress" value="0" max="20"></progress>
-    <div id="question-container"></div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Số điện thoại</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <button type="submit">Bắt đầu trắc nghiệm</button>
+      </form>
+    </div>
+
+    <div id="quiz-step" class="hidden">
+      <p>Trả lời 20 câu hỏi bên dưới bằng cách chọn Đúng hoặc Sai. Hãy thành thật để có kết quả chính xác nhất.</p>
+      <progress id="progress" value="0" max="20"></progress>
+      <div id="question-container"></div>
+    </div>
 
     <div id="result-container" class="hidden"></div>
   </main>
@@ -73,9 +90,28 @@
     let current = 0;
     let scores = { secure: 0, anxious: 0, avoidant: 0, fearful: 0 };
 
+    const formStep = document.getElementById("form-step");
+    const quizStep = document.getElementById("quiz-step");
     const container = document.getElementById("question-container");
     const resultBox = document.getElementById("result-container");
     const progressBar = document.getElementById("progress");
+
+    document.getElementById("user-info-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      await fetch("https://formspree.io/f/mleqgdgy", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      formStep.classList.add("hidden");
+      quizStep.classList.remove("hidden");
+      renderQuestion();
+    });
 
     function renderQuestion() {
       progressBar.value = current;
@@ -115,8 +151,6 @@
         <br><p><strong>Lưu ý:</strong> Đây chỉ là đánh giá tham khảo. Nếu bạn muốn hiểu sâu hơn, hãy trò chuyện với chuyên gia tâm lý.</p>
       `;
     }
-
-    renderQuestion();
   </script>
 </body>
 </html>
