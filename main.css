@@ -287,25 +287,39 @@ nav ul li a:hover {
 }
 
 /* ==== NÚT "ĐẶT LỊCH CÙNG SOPHIA" GIỮA MÀN HÌNH ==== */
+.cta-button {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
 .schedule-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: #6A5ACD !important; /* Tím sang */
-  color: #e0e0e0;            /* Chữ bạc nhạt */
+  color: #e0e0e0;
   font-size: 18px;
   font-weight: 600;
-  padding: 14px 26px;
+  padding: 14px 28px;
   border-radius: 50px;
   text-decoration: none;
   border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
 }
 
 .schedule-button:hover {
-  background-color: #5a4db8; /* Hover tím đậm hơn */
+  background-color: #5a4db8 !important;
   transform: scale(1.05);
+}
+
+.schedule-button img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 
 
@@ -358,13 +372,7 @@ img, video {
   max-width: 100%;
   height: auto;
 }
-#cta-button {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
-}
+
 .floating-icons a.zalo {
   text-indent: -9999px; /* Ẩn chữ nhưng vẫn giữ liên kết */
   overflow: hidden;
