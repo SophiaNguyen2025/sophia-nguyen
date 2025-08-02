@@ -96,23 +96,50 @@ h2 {
 .button:hover {
   background-color: #ad1457;
 }
-
-footer {
+.site-footer {
   text-align: center;
   padding: 2rem 1rem;
-  background-color:#b6e1e5;
-  color: #555;
-}
-.footer-menu {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  background-color: #b6e1e5 !important;  /* ép đổi màu nền */
+  color: #0a4a5a !important;             /* màu chữ nhẹ nhàng phù hợp tone xanh */
+  margin-top: auto;
+  position: relative;
 }
 
-.menu-item {
-  flex: 1;
-  text-align: center;
+.site-footer .footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  position: static !important;
 }
+
+.footer-logo {
+  height: 150px !important;
+  width: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.footer-nav a {
+  margin: 0 6px;
+  color: #0a4a5a; /* hoặc #444 nếu muốn dịu hơn */
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-slogan {
+  font-style: italic;
+  margin-bottom: 14px;
+  font-size: 18px;
+}
+
+.footer-social img {
+  height: 36px;
+  margin: 0 4px;
+}
+
+
 
 /* ==== MENU ==== */
 nav ul {
@@ -533,53 +560,7 @@ nav ul li a.active::after {
   background-color: #0a4a5a;
   color: #005b99;
 }
-.site-footer {
-  background-color: #b6e1e5;
-  padding: 20px 10px;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-  color: #444;
-}
 
-.footer-logo {
-  height: 150px !important;   /* Tăng size rõ rệt + ép luôn nếu bị đè */
-  width: auto;
-  display: block;
-  margin: 0 auto 10px auto;
-}
-.footer-nav {
-  margin-bottom: 10px;
-}
-.footer-nav a {
-  margin: 0 6px;
-  color: #d86b82;
-  text-decoration: none;
-  font-size: 14px;
-}
-.footer-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-  position: static !important;
-}
-
-.footer-slogan {
-  font-style: italic;
-  margin-bottom: 14px;
-  font-size: 18px;
-}
-
-.footer-social img {
-  height: 36px;        /* Icon nhỏ lại nè */
-  margin: 0 4px;
-}
-.site-footer .footer-nav {
-  position: static !important;
-  top: auto !important;
-  z-index: auto !important;
-}
 
 .navbar a.active {
   background-color: #0a4a5a;
@@ -600,9 +581,6 @@ body {
   flex-direction: column;
 }
 
-.site-footer {
-  margin-top: auto;
-  position: relative;
 }
 .explore-button {
   display: inline-block;
