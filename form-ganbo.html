@@ -1,251 +1,164 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Trắc nghiệm Phong cách Gắn bó</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #fffdf8;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfcfe;
       color: #333;
       margin: 0;
       padding: 20px;
-    }
-
-    .container {
       max-width: 800px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      margin: auto;
     }
-
     h1 {
       text-align: center;
-      color: #b76e79;
+      color: #7f4ca5;
     }
-
-    label {
-      font-weight: 600;
-      display: block;
-      margin-top: 20px;
-      margin-bottom: 8px;
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
     }
-
-    input[type="text"],
-    input[type="email"] {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
+    .logo img {
+      max-width: 120px;
     }
-
-    .question {
-      margin-top: 25px;
-      padding: 15px;
-      background: #fdf5f6;
+    form {
+      background: #ffffff;
+      padding: 20px;
       border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-
-    .question h3 {
-      margin-bottom: 10px;
-      color: #444;
+    .question {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-left: 4px solid #b892f0;
+      background: #faf9ff;
     }
-
     .question label {
-      font-weight: 400;
       display: block;
-      margin-left: 10px;
-      margin-bottom: 5px;
+      margin-top: 5px;
     }
-
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
     button {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      margin-top: 30px;
-      background-color: #b76e79;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #b892f0;
       color: white;
       font-size: 16px;
-      border: none;
-      border-radius: 10px;
       cursor: pointer;
     }
-
-    .result {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: #e8f5e9;
-      border: 1px solid #c8e6c9;
-      border-radius: 10px;
+    button:hover {
+      background: #8c5ec9;
+    }
+    #result {
+      margin-top: 25px;
+      padding: 15px;
+      border-left: 6px solid #52b3b8;
+      background: #e8f7f8;
+      border-radius: 8px;
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="logo">
-      <img src="hinhremovenen.png" alt="Logo Sophia">
-    </div>
 
-    <h1>Trắc nghiệm Phong cách Gắn bó</h1>
-    <form id="quiz-form" action="https://formspree.io/f/mkgzvjwy" method="POST">
-      <label for="name">Họ và tên:</label>
-      <input type="text" id="name" name="Họ và tên" required>
+<div class="logo">
+  <img src="logo.png" alt="Logo Sophia">
+</div>
 
-      <label for="Số điện thoại">Số điện thoại:</label>
-      <input type="number" id="phone" name="Số điện thoại" required>
+<h1>Bài trắc nghiệm: Phong cách gắn bó</h1>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="Email" required>
+<form id="quizForm" action="https://formspree.io/f/mkgzvjwy" method="POST">
+  <!-- 20 CÂU ĐÚNG / SAI -->
+  <div id="questions"></div>
 
-  <script>
-    const questions = [
-      {
-        text: "Tôi cảm thấy khó khăn khi tin tưởng người khác.",
-        options: ["A. Rất đúng", "B. Hơi đúng", "C. Hơi sai", "D. Rất sai"]
-      },
-      {
-        text: "Tôi cần sự gần gũi và khẳng định từ người yêu.",
-        options: ["C. Rất đúng", "A. Hơi đúng", "B. Hơi sai", "D. Rất sai"]
-      },
-      {
-        text: "Tôi không thích quá phụ thuộc vào ai đó.",
-        options: ["B. Rất đúng", "D. Hơi đúng", "A. Hơi sai", "C. Rất sai"]
-      },
-      {
-        text: "Tôi cảm thấy thoải mái khi chia sẻ cảm xúc.",
-        options: ["D. Rất đúng", "C. Hơi đúng", "B. Hơi sai", "A. Rất sai"]
-      },
-      {
-        text: "Tôi hay lo người ấy sẽ rời bỏ mình.",
-        options: ["A. Rất đúng", "C. Hơi đúng", "D. Hơi sai", "B. Rất sai"]
-      },
-      {
-        text: "Tôi giữ khoảng cách trong các mối quan hệ.",
-        options: ["B. Rất đúng", "A. Hơi đúng", "C. Hơi sai", "D. Rất sai"]
-      },
-      {
-        text: "Tôi thấy mình đáng yêu và dễ gắn bó.",
-        options: ["D. Rất đúng", "B. Hơi đúng", "A. Hơi sai", "C. Rất sai"]
-      },
-      {
-        text: "Tôi thường nghi ngờ sự quan tâm của người khác.",
-        options: ["C. Rất đúng", "D. Hơi đúng", "B. Hơi sai", "A. Rất sai"]
-      },
-      {
-        text: "Tôi hay cảm thấy mình không đủ tốt.",
-        options: ["A. Rất đúng", "D. Hơi đúng", "C. Hơi sai", "B. Rất sai"]
-      },
-      {
-        text: "Tôi dễ dàng mở lòng và tin tưởng.",
-        options: ["D. Rất đúng", "C. Hơi đúng", "B. Hơi sai", "A. Rất sai"]
-      }
-    ];
-[
-  {
-    text: "Tôi thấy khó mở lòng với người mới quen.",
-    options: ["B. Rất đúng", "A. Hơi đúng", "D. Hơi sai", "C. Rất sai"]
-  },
-  {
-    text: "Tôi thường cần thời gian một mình để cảm thấy dễ chịu.",
-    options: ["C. Rất đúng", "B. Hơi đúng", "A. Hơi sai", "D. Rất sai"]
-  },
-  {
-    text: "Tôi cảm thấy mình không đáng để được yêu thương.",
-    options: ["A. Rất đúng", "D. Hơi đúng", "C. Hơi sai", "B. Rất sai"]
-  },
-  {
-    text: "Tôi thường xuyên nghĩ về việc mình sẽ bị từ chối.",
-    options: ["B. Rất đúng", "C. Hơi đúng", "D. Hơi sai", "A. Rất sai"]
-  },
-  {
-    text: "Tôi cảm thấy an toàn khi có ai đó luôn ở bên cạnh.",
-    options: ["D. Rất đúng", "A. Hơi đúng", "B. Hơi sai", "C. Rất sai"]
-  },
-  {
-    text: "Tôi thấy khó chịu nếu ai đó thể hiện tình cảm quá mức.",
-    options: ["C. Rất đúng", "B. Hơi đúng", "A. Hơi sai", "D. Rất sai"]
-  },
-  {
-    text: "Tôi thường phân vân không biết người khác có thật lòng với mình hay không.",
-    options: ["A. Rất đúng", "C. Hơi đúng", "D. Hơi sai", "B. Rất sai"]
-  },
-  {
-    text: "Tôi cảm thấy dễ bị tổn thương trong tình cảm.",
-    options: ["B. Rất đúng", "A. Hơi đúng", "D. Hơi sai", "C. Rất sai"]
-  },
-  {
-    text: "Tôi tin rằng mình có thể tự vượt qua mọi khó khăn mà không cần ai giúp.",
-    options: ["D. Rất đúng", "B. Hơi đúng", "C. Hơi sai", "A. Rất sai"]
-  },
-  {
-    text: "Tôi luôn mong muốn một mối quan hệ ổn định và lâu dài.",
-    options: ["C. Rất đúng", "D. Hơi đúng", "A. Hơi sai", "B. Rất sai"]
-  }
-]
+  <div class="buttons">
+    <button type="button" onclick="calculateScore()">XEM KẾT QUẢ</button>
+    <button type="submit">GỬI KẾT QUẢ</button>
+  </div>
 
-    <script>
-  let formSubmitted = false;
+  <div id="result"></div>
+</form>
 
-  // Bắt sự kiện gửi form
-  document.getElementById("quiz-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+<script>
+  const questions = [
+    "Tôi cảm thấy không thoải mái khi người khác đến quá gần.",
+    "Tôi lo lắng người yêu sẽ không thật sự muốn ở bên tôi.",
+    "Tôi thấy dễ dàng để dựa vào người khác.",
+    "Tôi thường muốn thân mật hơn trong mối quan hệ, nhưng người kia lại giữ khoảng cách.",
+    "Tôi không lo lắng nếu người yêu cần khoảng không gian riêng.",
+    "Tôi thường cảm thấy người yêu không đủ quan tâm đến tôi.",
+    "Tôi cảm thấy khó tin tưởng hoàn toàn vào người khác.",
+    "Tôi sợ bị bỏ rơi, nên thường kiểm soát mối quan hệ.",
+    "Tôi thoải mái thể hiện cảm xúc và nhu cầu với người yêu.",
+    "Tôi cảm thấy bất an nếu người yêu không phản hồi tin nhắn ngay.",
+    "Tôi thường tránh né nói về cảm xúc thật của mình.",
+    "Tôi luôn cần được người yêu khẳng định tình cảm.",
+    "Tôi thích độc lập và giữ khoảng cách trong mối quan hệ.",
+    "Tôi cảm thấy tổn thương sâu sắc nếu người yêu phớt lờ tôi.",
+    "Tôi không muốn bị ai đó dựa dẫm quá mức vào mình.",
+    "Tôi hay ghen hoặc nghi ngờ khi người yêu nói chuyện với người khác.",
+    "Tôi cảm thấy yên tâm và được yêu thương trong mối quan hệ.",
+    "Tôi cảm thấy mệt mỏi với việc phải duy trì sự thân mật.",
+    "Tôi sợ người yêu sẽ rời bỏ tôi bất cứ lúc nào.",
+    "Tôi tin rằng mình xứng đáng được yêu thương."
+  ];
 
-    const form = e.target;
+  const questionsContainer = document.getElementById("questions");
 
-    fetch(form.action, {
-      method: "POST",
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-      if (response.ok) {
-        formSubmitted = true;
-        alert("🟢 Gửi thông tin thành công! Bây giờ bạn có thể xem kết quả.");
-      } else {
-        alert("❌ Gửi thông tin thất bại. Vui lòng thử lại.");
-      }
-    })
-    .catch(error => {
-      alert("⚠️ Lỗi kết nối. Vui lòng thử lại sau.");
-    });
+  questions.forEach((q, i) => {
+    const qDiv = document.createElement("div");
+    qDiv.classList.add("question");
+    qDiv.innerHTML = `
+      <p><strong>Câu ${i + 1}:</strong> ${q}</p>
+      <label><input type="radio" name="q${i+1}" value="1" required> ĐÚNG</label>
+      <label><input type="radio" name="q${i+1}" value="0"> SAI</label>
+    `;
+    questionsContainer.appendChild(qDiv);
   });
 
-  // Hàm tính kết quả
-  function submitQuiz() {
-    if (!formSubmitted) {
-      alert("⚠️ Bạn cần gửi thông tin trước khi xem kết quả.");
-      return;
+  function calculateScore() {
+    const form = document.forms['quizForm'];
+    let score = 0;
+
+    for (let i = 1; i <= 20; i++) {
+      const val = form[`q${i}`].value;
+      score += parseInt(val);
     }
 
-    let score = { A: 0, B: 0, C: 0, D: 0 };
-    for (let i = 1; i <= 10; i++) {
-      let answer = document.querySelector(`input[name="Q${i}"]:checked`);
-      if (answer) score[answer.value]++;
+    let style = "";
+    let description = "";
+
+    if (score >= 16) {
+      style = "Gắn bó an toàn (Secure)";
+      description = "Bạn cảm thấy yên tâm, tin tưởng và thoải mái trong mối quan hệ. Đây là phong cách gắn bó lý tưởng.";
+    } else if (score >= 12) {
+      style = "Gắn bó lo âu (Anxious)";
+      description = "Bạn thường cảm thấy bất an và sợ mất đi người mình yêu. Bạn cần sự khẳng định và gần gũi liên tục.";
+    } else if (score >= 8) {
+      style = "Gắn bó né tránh (Avoidant)";
+      description = "Bạn có xu hướng giữ khoảng cách và tránh chia sẻ cảm xúc, thường lo sợ sự phụ thuộc.";
+    } else {
+      style = "Gắn bó hỗn loạn (Fearful)";
+      description = "Bạn vừa khao khát vừa sợ hãi sự thân mật. Điều này có thể bắt nguồn từ những tổn thương trong quá khứ.";
     }
 
-    let max = Math.max(score.A, score.B, score.C, score.D);
-    let result = '';
-
-    if (score.A === max)
-      result = "💚 <strong>Gắn bó An toàn:</strong> Bạn có khả năng yêu thương lành mạnh, thoải mái và tin tưởng trong tình cảm";
-    else if (score.B === max)
-      result = "💛 <strong>Gắn bó Lo âu:</strong> Bạn thường lo lắng, cần sự khẳng định liên tục, cần cảm giác an toàn thường xuyên.";
-    else if (score.C === max)
-      result = "💙 <strong>Gắn bó Tránh né:</strong> Bạn có xu hướng giữ khoảng cách, ngại thân mật và khó mở lòng trong các mối quan hệ.";
-    else if (score.D === max)
-      result = "❤️ <strong>Gắn bó hỗn loạn:</strong> Bạn nhạy cảm, dễ tổn thương và vừa khao khát vừa sợ gần gũi.";
-
-    document.getElementById("output").innerHTML = result;
-    document.getElementById("result").style.display = 'block';
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    document.getElementById("result").innerHTML = `
+      <h3>Kết quả của bạn: <span style="color:#7f4ca5">${style}</span></h3>
+      <p><strong>Điểm số:</strong> ${score}/20</p>
+      <p>${description}</p>
+    `;
   }
 </script>
-  </div>
-<html>
-        
+
+</body>
+</html>
