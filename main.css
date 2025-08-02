@@ -889,3 +889,10 @@ body.pastel-theme header .welcome-message,
 body.pastel-theme .navbar a {
   color: white !important;
 }
+body {
+  background-color: #d4f1f4 !important;
+}
+
+header {
+  background-color: #0a4a5a !important;
+}
