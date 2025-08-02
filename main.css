@@ -169,13 +169,21 @@ nav ul li a:hover {
   margin: 0 auto;
   padding: 20px;
 }
+.special-service-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fdfdfd;
+  padding: 40px 20px;
+}
+
 .special-service-box {
   position: relative;
   padding: 40px 32px;
   border-radius: 20px;
-  width: 90%;
-  max-width: 880px;
-  background-color: #b39ddb; /* Tím pastel sang trọng */
+  width: 100%;
+  max-width: 900px;
+  background: #b39ddb !important; /* Tím pastel nổi bật */
   color: #2e004f;
   border: 2px solid #7e57c2;
   text-align: center;
@@ -183,7 +191,6 @@ nav ul li a:hover {
   box-shadow: 0 0 20px rgba(126, 87, 194, 0.5);
   z-index: 1;
 
-  /* ✨ Nhấp nháy rõ ràng */
   animation: glowBox 2.5s ease-in-out infinite;
 }
 
