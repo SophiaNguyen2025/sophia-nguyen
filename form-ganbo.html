@@ -1,229 +1,191 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trắc nghiệm Phong cách Gắn bó</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #fffdf8;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
       max-width: 800px;
-      margin: auto;
+      margin: 0 auto;
+      background: #ffffff;
       padding: 30px;
-      background: #f9f9f9;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     }
-    h1, h2 {
+
+    h1 {
       text-align: center;
+      color: #b76e79;
     }
+
     label {
+      font-weight: 600;
       display: block;
-      margin: 8px 0;
+      margin-top: 20px;
+      margin-bottom: 8px;
     }
-    .question {
-      margin-bottom: 20px;
-      background: #fff;
-      padding: 15px;
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
       border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      border: 1px solid #ccc;
+      font-size: 16px;
     }
-    .hidden { display: none; }
-    .submit-btn, .result-btn {
-      background-color: #4CAF50;
+
+    .question {
+      margin-top: 25px;
+      padding: 15px;
+      background: #fdf5f6;
+      border-radius: 12px;
+    }
+
+    .question h3 {
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .question label {
+      font-weight: 400;
+      display: block;
+      margin-left: 10px;
+      margin-bottom: 5px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 30px;
+      background-color: #b76e79;
       color: white;
-      padding: 12px 18px;
+      font-size: 16px;
       border: none;
-      border-radius: 6px;
+      border-radius: 10px;
       cursor: pointer;
     }
-    .submit-btn:hover, .result-btn:hover {
-      background-color: #45a049;
-    }
+
     .result {
       margin-top: 30px;
       padding: 20px;
-      background-color: #e7f3fe;
-      border-left: 6px solid #2196F3;
+      background-color: #e8f5e9;
+      border: 1px solid #c8e6c9;
+      border-radius: 10px;
     }
   </style>
 </head>
+
 <body>
+  <div class="container">
+    <h1>Trắc nghiệm Phong cách Gắn bó</h1>
 
-  <h1>Trắc nghiệm Phong cách Gắn bó</h1>
-  <form id="survey-form" onsubmit="handleSubmit(event)">
-    <label>Họ tên:
-      <input type="text" name="name" required>
-    </label>
-    <label>Email:
-      <input type="email" name="email" required>
-    </label>
+    <form id="attachmentForm">
+      <label for="name">Họ và tên:</label>
+      <input type="text" id="name" name="name" required>
 
-    <div id="questions"></div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
 
-    <button type="submit" class="submit-btn">Xem kết quả</button>
-  </form>
+      <div id="questions"></div>
 
-  <div id="result" class="result hidden"></div>
+      <button type="submit">Gửi & Xem kết quả</button>
+    </form>
+
+    <div class="result" id="result" style="display:none"></div>
+  </div>
 
   <script>
     const questions = [
       {
-        q: "1. Khi xảy ra mâu thuẫn với người yêu hoặc bạn thân, bạn thường:",
-        answers: [
-          { text: "Muốn họ ở gần để được vỗ về và giải thích", type: "B" },
-          { text: "Không muốn đối mặt, thường chọn cách né tránh", type: "D" },
-          { text: "Giữ bình tĩnh và cố gắng lắng nghe", type: "A" },
-          { text: "Nổi nóng hoặc cảm thấy không được yêu thương", type: "C" },
-        ]
+        text: "Tôi cảm thấy khó khăn khi tin tưởng người khác.",
+        options: ["A. Rất đúng", "B. Hơi đúng", "C. Hơi sai", "D. Rất sai"]
       },
       {
-        q: "2. Khi người kia không trả lời tin nhắn, bạn thường:",
-        answers: [
-          { text: "Thấy bình thường, vì tin vào sự tin tưởng lẫn nhau", type: "A" },
-          { text: "Nghĩ họ giận hoặc không còn yêu mình", type: "C" },
-          { text: "Lo lắng, kiểm tra tin nhắn liên tục", type: "B" },
-          { text: "Giả vờ không quan tâm và tỏ ra lạnh nhạt", type: "D" },
-        ]
+        text: "Tôi cần sự gần gũi và khẳng định từ người yêu.",
+        options: ["C. Rất đúng", "A. Hơi đúng", "B. Hơi sai", "D. Rất sai"]
       },
       {
-        q: "3. Khi bắt đầu một mối quan hệ mới, bạn thường:",
-        answers: [
-          { text: "Thận trọng, mất nhiều thời gian để mở lòng", type: "D" },
-          { text: "Cởi mở và thoải mái thể hiện bản thân", type: "A" },
-          { text: "Nghi ngờ tình cảm của người kia", type: "C" },
-          { text: "Dễ dính chặt và mong người đó quan tâm liên tục", type: "B" },
-        ]
+        text: "Tôi không thích quá phụ thuộc vào ai đó.",
+        options: ["B. Rất đúng", "D. Hơi đúng", "A. Hơi sai", "C. Rất sai"]
       },
       {
-        q: "4. Khi người mình yêu cần thời gian riêng, bạn:",
-        answers: [
-          { text: "Cảm thấy bị bỏ rơi, bất an và buồn bã", type: "B" },
-          { text: "Thấy tổn thương và cho rằng họ không cần mình", type: "C" },
-          { text: "Tôn trọng và ủng hộ không gian cá nhân của họ", type: "A" },
-          { text: "Lùi lại, đôi khi có xu hướng tránh né thêm", type: "D" },
-        ]
+        text: "Tôi cảm thấy thoải mái khi chia sẻ cảm xúc.",
+        options: ["D. Rất đúng", "C. Hơi đúng", "B. Hơi sai", "A. Rất sai"]
       },
       {
-        q: "5. Khi cảm thấy bị tổn thương, bạn thường:",
-        answers: [
-          { text: "Nói ra thẳng thắn và mong được thấu hiểu", type: "A" },
-          { text: "Im lặng và rút lui vào thế giới riêng", type: "D" },
-          { text: "Trở nên gắt gỏng hoặc kiểm soát đối phương", type: "C" },
-          { text: "Khóc, gọi điện hoặc nhắn tin liên tục", type: "B" },
-        ]
+        text: "Tôi hay lo người ấy sẽ rời bỏ mình.",
+        options: ["A. Rất đúng", "C. Hơi đúng", "D. Hơi sai", "B. Rất sai"]
       },
       {
-        q: "6. Khi yêu ai đó sâu đậm, bạn thường:",
-        answers: [
-          { text: "Lo sợ bị bỏ rơi, luôn muốn được khẳng định tình cảm", type: "B" },
-          { text: "Thường xuyên thấy ghen tuông và nghi ngờ", type: "C" },
-          { text: "Yêu thương nhưng vẫn giữ ranh giới lành mạnh", type: "A" },
-          { text: "Giữ khoảng cách và đề phòng tổn thương", type: "D" },
-        ]
+        text: "Tôi giữ khoảng cách trong các mối quan hệ.",
+        options: ["B. Rất đúng", "A. Hơi đúng", "C. Hơi sai", "D. Rất sai"]
       },
       {
-        q: "7. Khi người yêu giận dữ hoặc rút lui, bạn:",
-        answers: [
-          { text: "Cố gắng dỗ dành và làm hòa ngay", type: "B" },
-          { text: "Tránh mặt và không muốn nói chuyện", type: "D" },
-          { text: "Đối thoại và tìm cách giải quyết vấn đề", type: "A" },
-          { text: "Phản ứng gay gắt và quy chụp lỗi lầm", type: "C" },
-        ]
+        text: "Tôi thấy mình đáng yêu và dễ gắn bó.",
+        options: ["D. Rất đúng", "B. Hơi đúng", "A. Hơi sai", "C. Rất sai"]
       },
       {
-        q: "8. Trong các mối quan hệ, bạn thường thấy mình:",
-        answers: [
-          { text: "Cảm thấy khó tin tưởng ai hoàn toàn", type: "D" },
-          { text: "Lo lắng bị tổn thương nhưng vẫn yêu hết lòng", type: "B" },
-          { text: "Thấu hiểu, biết cách lắng nghe và chia sẻ", type: "A" },
-          { text: "Thường đòi hỏi sự quan tâm và cảm thấy không đủ", type: "C" },
-        ]
+        text: "Tôi thường nghi ngờ sự quan tâm của người khác.",
+        options: ["C. Rất đúng", "D. Hơi đúng", "B. Hơi sai", "A. Rất sai"]
       },
       {
-        q: "9. Khi kết thúc một mối quan hệ, bạn thường:",
-        answers: [
-          { text: "Cố gắng giữ lại, dù biết không còn phù hợp", type: "B" },
-          { text: "Tự trách bản thân, nghĩ rằng mình không xứng đáng", type: "C" },
-          { text: "Buồn nhưng chấp nhận và rút ra bài học", type: "A" },
-          { text: "Không nói rõ lý do và âm thầm rời đi", type: "D" },
-        ]
+        text: "Tôi hay cảm thấy mình không đủ tốt.",
+        options: ["A. Rất đúng", "D. Hơi đúng", "C. Hơi sai", "B. Rất sai"]
       },
       {
-        q: "10. Bạn mong muốn điều gì nhất trong tình yêu?",
-        answers: [
-          { text: "Sự bình yên, tin tưởng và tôn trọng", type: "A" },
-          { text: "Sự chăm sóc, chú ý và gần gũi liên tục", type: "B" },
-          { text: "Không bị kiểm soát, vẫn giữ được tự do cá nhân", type: "D" },
-          { text: "Được yêu cuồng nhiệt và thể hiện cảm xúc mạnh mẽ", type: "C" },
-        ]
+        text: "Tôi dễ dàng mở lòng và tin tưởng.",
+        options: ["D. Rất đúng", "C. Hơi đúng", "B. Hơi sai", "A. Rất sai"]
       }
     ];
 
-    const form = document.getElementById("survey-form");
-    const questionsDiv = document.getElementById("questions");
-    const resultDiv = document.getElementById("result");
+    const questionContainer = document.getElementById("questions");
 
-    questions.forEach((q, i) => {
-      const qDiv = document.createElement("div");
-      qDiv.classList.add("question");
-      const label = document.createElement("label");
-      label.textContent = q.q;
-      qDiv.appendChild(label);
-
-      q.answers.forEach((ans, index) => {
-        const id = `q${i}_a${index}`;
-        const radio = document.createElement("input");
-        radio.type = "radio";
-        radio.name = `q${i}`;
-        radio.value = ans.type;
-        radio.id = id;
-        radio.required = true;
-
-        const answerLabel = document.createElement("label");
-        answerLabel.setAttribute("for", id);
-        answerLabel.innerText = ` ${String.fromCharCode(65 + index)}. ${ans.text}`;
-        answerLabel.prepend(radio);
-        qDiv.appendChild(answerLabel);
-      });
-
-      questionsDiv.appendChild(qDiv);
+    questions.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<h3>Câu ${index + 1}: ${q.text}</h3>` +
+        q.options.map((opt, i) => {
+          return `<label><input type="radio" name="q${index}" value="${opt.charAt(0)}" required> ${opt}</label>`;
+        }).join("");
+      questionContainer.appendChild(div);
     });
 
-    function handleSubmit(event) {
-      event.preventDefault();
+    const form = document.getElementById("attachmentForm");
+    const resultDiv = document.getElementById("result");
 
-      const formData = new FormData(form);
-      const score = { A: 0, B: 0, C: 0, D: 0 };
-      for (let [key, value] of formData.entries()) {
-        if (["A", "B", "C", "D"].includes(value)) score[value]++;
-      }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-      const maxType = Object.keys(score).reduce((a, b) => score[a] > score[b] ? a : b);
+      const counts = { A: 0, B: 0, C: 0, D: 0 };
+      questions.forEach((_, i) => {
+        const answer = form[`q${i}`].value;
+        counts[answer]++;
+      });
 
-      const resultMap = {
-        A: "💚 **Phong cách Gắn bó An toàn:** Bạn có khả năng yêu thương lành mạnh, biết tin tưởng và duy trì ranh giới tích cực.",
-        B: "💛 **Phong cách Gắn bó Lo âu:** Bạn thường lo lắng bị bỏ rơi, khao khát được yêu thương và cần cảm giác an toàn thường xuyên.",
-        C: "❤️ **Phong cách Gắn bó Bất an - Lẫn lộn:** Bạn nhạy cảm, dễ tổn thương và thường có phản ứng cảm xúc mạnh, mâu thuẫn giữa cần và sợ yêu.",
-        D: "💙 **Phong cách Gắn bó Tránh né:** Bạn có xu hướng giữ khoảng cách, sợ bị kiểm soát và khó mở lòng trong các mối quan hệ.",
+      const maxType = Object.keys(counts).reduce((a, b) => counts[a] >= counts[b] ? a : b);
+
+      const types = {
+        A: "Gắn bó lo âu – thường lo lắng và cần sự khẳng định liên tục.",
+        B: "Gắn bó né tránh – giữ khoảng cách và ngại thân mật.",
+        C: "Gắn bó hỗn loạn – vừa khao khát vừa sợ gần gũi.",
+        D: "Gắn bó an toàn – thoải mái và tin tưởng trong tình cảm."
       };
 
-      const name = formData.get("name") || "";
-      const email = formData.get("email") || "";
-
-      resultDiv.classList.remove("hidden");
-      resultDiv.innerHTML = `<h2>Kết quả của bạn, ${name}:</h2><p>${resultMap[maxType]}</p>`;
-
-      // Gửi về Formspree nếu muốn
-      fetch("https://formspree.io/f/moqgvlge", {
-        method: "POST",
-        headers: { 'Accept': 'application/json' },
-        body: JSON.stringify({
-          Họ_tên: name,
-          Email: email,
-          Phong_cách: resultMap[maxType].replace(/<[^>]*>?/gm, '')
-        })
-      });
-    }
+      resultDiv.innerHTML = `<h3>Kết quả của bạn:</h3><p><strong>${types[maxType]}</strong></p>`;
+      resultDiv.style.display = "block";
+    });
   </script>
-
 </body>
+
 </html>
