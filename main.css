@@ -100,7 +100,7 @@ h2 {
 footer {
   text-align: center;
   padding: 2rem 1rem;
-  background-color:#d4f1f4;
+  background-color:#b6e1e5;
   color: #555;
 }
 .footer-menu {
@@ -534,7 +534,7 @@ nav ul li a.active::after {
   color: #005b99;
 }
 .site-footer {
-  background-color: #f8d6df;
+  background-color: #b6e1e5;
   padding: 20px 10px;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
