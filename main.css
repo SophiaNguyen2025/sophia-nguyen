@@ -321,6 +321,35 @@ nav ul li a:hover {
   margin-right: 10px;
 }
 
+.special-service-box {
+  position: relative;
+  padding: 40px 32px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 880px;
+  background-color: #e0f7fa;
+  color: #1a1a1a;
+  border: 3px solid #6ec6ca;
+  box-shadow: 0 0 20px rgba(110, 198, 202, 0.3);
+  text-align: center;
+  font-weight: 600;
+  z-index: 1;
+
+  /* ✨ Hiệu ứng nhấp nháy nhẹ */
+  animation: softPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes softPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(110, 198, 202, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(110, 198, 202, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(110, 198, 202, 0.3);
+  }
+}
 
 /* ==== HIỆU ỨNG PULSE ==== */
 @keyframes pulse {
