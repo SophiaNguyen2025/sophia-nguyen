@@ -291,7 +291,7 @@ nav ul li a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #6A5ACD; /* Tím sang */
+  background-color: #6A5ACD !important; /* Tím sang */
   color: #e0e0e0;            /* Chữ bạc nhạt */
   font-size: 18px;
   font-weight: 600;
