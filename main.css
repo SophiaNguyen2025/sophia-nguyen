@@ -139,8 +139,6 @@ h2 {
   margin: 0 4px;
 }
 
-
-
 /* ==== MENU ==== */
 nav ul {
   display: flex;
@@ -289,10 +287,34 @@ nav ul li a:hover {
 }
 
 /* ==== NÚT "ĐẶT LỊCH CÙNG SOPHIA" GIỮA MÀN HÌNH ==== */
+.schedule-button {
+  background-color: #e67e22; /* Cam đất nổi bật */
+  color: white;
+  padding: 16px 30px;
+  border: none;
+  border-radius: 50px; /* Bo tròn nút */
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
 .schedule-button:hover {
-  background-color: #e91e63;
+  background-color: #cf711c;
+  transform: scale(1.05);
 }
+
+/* Icon Zalo trong nút */
+.schedule-button img {
+  height: 24px;
+  width: 24px;
+}
+
+
 
 /* ==== HIỆU ỨNG PULSE ==== */
 @keyframes pulse {
@@ -315,31 +337,6 @@ nav ul li a:hover {
 }
 
 /* ==== NÚT ĐẶT LỊCH Ở CUỐI TRANG ==== */
-.schedule-button {
-  display: block;
-  width: fit-content;
-  margin: 2rem auto;
-  background-color: #ff4081;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  animation: pulse 2s infinite;
-  transition: background 0.3s;
-  position: relative; /* Hoặc xóa dòng này nếu không cần */
-}
-
-.schedule-button:hover {
-  background-color: #e91e63;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(255, 64, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 64, 129, 0); }
-}
 
 /* ==== FIX GIAO DIỆN MOBILE ==== */
 body {
