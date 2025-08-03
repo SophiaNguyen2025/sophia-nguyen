@@ -18,8 +18,7 @@
   “Bạn không cần phải mạnh mẽ suốt cả hành trình.”<br>
   “Dù bạn đang ổn hay không ổn – tôi ở đây, lắng nghe bằng cả sự hiện diện và thấu cảm.”</p>
        <nav>
-   <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
-  <ul class="navbar" id="main-menu">
+    <ul class="navbar">
          <li><a href="index.html">Trang chủ</a></li>
           <li><a href="about.html">Giới thiệu</a></li>
           <li class="dropdown">
@@ -395,22 +394,5 @@ function showThanks(event) {
     effect: 'fade'
   });
 </script>
-  <script>
-  function toggleMenu() {
-    document.getElementById("main-menu").classList.toggle("show");
-  }
-
-  // Xử lý dropdown trên mobile (bấm mới hiện)
-  document.querySelectorAll('.dropdown > a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault(); // chặn click chuyển trang
-        this.parentElement.classList.toggle('open');
-      }
-    });
-  });
-</script>
-
-
 </body>
 </html>
