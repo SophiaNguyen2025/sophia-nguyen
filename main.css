@@ -570,22 +570,22 @@ nav ul li a.active::after {
 /* Màu nền và chữ khi hover hoặc active */
 .navbar li a:hover,
 .navbar li a.active {
-  background-color: #f0f0f0; /* Nền khi hover hoặc đang active */
-  color: #0077cc; /* Màu chữ khi hover hoặc đang active */
+  background-color: #cceef5; /* Nền khi hover hoặc đang active */
+  color: #00788c; /* Màu chữ khi hover hoặc đang active */
   font-weight: bold;
   transition: 0.3s ease;
 }
 
 /* Cho dropdown menu: active ở thẻ cha */
 .navbar li.dropdown > a.active {
-  background-color: #0a4a5a;
-  color: #005b99;
+  background-color:#cceef5;
+  color: #00788c;
 }
 
 
 .navbar a.active {
-  background-color: #0a4a5a;
-  color: #0a4a5a;
+  background-color: #00788c;
+  color: #0077cc;
   border-bottom: 4px solid #00bcd4;
   padding: 6px 12px;
   border-radius: 6px 6px 0 0;
