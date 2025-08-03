@@ -983,4 +983,44 @@ header {
 .blog-link:hover {
   text-decoration: underline;
 }
+/* Nút menu hamburger – chỉ hiện trên mobile */
+.menu-toggle {
+  display: none;
+  background: #0a4a5a;
+  color: white;
+  font-size: 24px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* Ẩn menu khi chưa bấm */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+/* Mobile view: Ẩn menu ban đầu, chỉ hiện nút ☰ */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #0a4a5a;
+    padding: 10px;
+  }
+
+  nav.show-menu {
+    display: flex;
+  }
+
+  nav a {
+    color: white;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+}
 
