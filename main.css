@@ -929,32 +929,58 @@ header {
     grid-template-columns: 1fr; /* 1 cột khi xem điện thoại */
   }
 }
-.test-promo {
-  background: #cc66ff;
+.test-blog-section {
   padding: 40px 20px;
-  text-align: center;
-  margin-top: 40px;
-  border-radius: 16px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  background-color: #fefefe;
 }
-.test-promo h2 {
-  color: #00796b;
-  font-size: 24px;
+
+.test-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  align-items: center;
+}
+
+.test-box, .blog-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+
+.test-box h2 {
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
-.test-promo p {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 20px;
-}
+
 .test-btn {
-  background: #00796b;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #a5e1dc;
+  color: #333;
   text-decoration: none;
+  border-radius: 8px;
   font-weight: bold;
+  transition: background-color 0.3s ease;
 }
+
 .test-btn:hover {
-  background: #004d40;
+  background-color: #7cd8cf;
 }
+
+.blog-box img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.blog-link {
+  font-weight: bold;
+  color: #6d4caf;
+  text-decoration: none;
+}
+
+.blog-link:hover {
+  text-decoration: underline;
+}
+
