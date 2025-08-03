@@ -13,37 +13,37 @@
   </head>
 <body>
  <div class="page-wrapper">
-  <p class="welcome-message">
-  “Bạn không cần phải mạnh mẽ suốt cả hành trình.”<br>
-  “Dù bạn đang ổn hay không ổn – tôi ở đây, lắng nghe bằng cả sự hiện diện và thấu cảm.”</p>
+  <header class="site-header">
+  <div class="quote-box">
+    <p><em>“Bạn không cần phải mạnh mẽ suốt cả hành trình.”</em></p>
+    <p><em>“Dù bạn đang ổn hay không ổn – tôi ở đây, lắng nghe bằng cả sự hiện diện và thấu cảm.”</em></p>
+  </div>
 
-  <header>
-  <nav>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <ul class="navbar" id="main-menu">
+  <nav class="navbar-container">
+    <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+    <ul class="navbar">
       <li><a href="index.html">Trang chủ</a></li>
       <li><a href="about.html">Giới thiệu</a></li>
       <li class="dropdown">
         <a href="service.html">Dịch vụ</a>
         <ul class="dropdown-content">
-          <li><a href="tam-ly.html">Tư vấn tâm lý – Tình cảm – Hôn nhân – Gia đình</a></li>
-          <li><a href="dinh-huong.html">Định hướng nghề nghiệp & Phát triển cá nhân</a></li>
-          <li><a href="dao-tao.html">Đào tạo kỹ năng mềm – Kỹ năng sống</a></li>
-          <li><a href="sinh-trac.html">Tư vấn công cụ sinh trắc vân tay</a></li>
+          <li><a href="tam-ly.html">Tư vấn tâm lý</a></li>
+          <li><a href="dinh-huong.html">Định hướng cá nhân</a></li>
+          <li><a href="dao-tao.html">Đào tạo kỹ năng</a></li>
+          <li><a href="sinh-trac.html">Sinh trắc vân tay</a></li>
         </ul>
       </li>
       <li class="dropdown">
         <a href="sharing.html">Góc chia sẻ</a>
         <ul class="dropdown-content">
-          <li><a href="sharing-daotao.html">Đào tạo kỹ năng</a></li>
-          <li><a href="sharing-tamly.html">Tâm lý – Tình cảm</a></li>
-          <li><a href="sharing-dinhhuong.html">Định hướng – Nghề nghiệp – Học tập</a></li>
-          <li><a href="sharing-sinhtrac.html">Sinh trắc vân tay</a></li>
-          <li><a href="sharing-qatonghop.html">Hỏi – Đáp (Q&A)</a></li>
+          <li><a href="sharing-daotao.html">Đào tạo</a></li>
+          <li><a href="sharing-tamly.html">Tâm lý</a></li>
+          <li><a href="sharing-dinhhuong.html">Nghề nghiệp</a></li>
+          <li><a href="sharing-qatonghop.html">Hỏi – Đáp</a></li>
         </ul>
       </li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="survey.html">Các bài test</a></li>
+      <li><a href="test.html">Các bài test</a></li>
       <li><a href="contact.html">Liên hệ</a></li>
     </ul>
   </nav>
@@ -374,9 +374,14 @@ function showThanks(event) {
 }
 </script>
 <script>
-  function toggleMenu() {
-    document.getElementById("main-menu").classList.toggle("active");
-  }
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".navbar");
+
+  toggle.addEventListener("click", function () {
+    menu.classList.toggle("show");
+  });
+});
 </script>
 
  </body>
