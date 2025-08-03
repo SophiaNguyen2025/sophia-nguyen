@@ -929,3 +929,32 @@ header {
     grid-template-columns: 1fr; /* 1 cột khi xem điện thoại */
   }
 }
+.test-promo {
+  background: #e0f7fa;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+.test-promo h2 {
+  color: #00796b;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.test-promo p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.test-btn {
+  background: #00796b;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.test-btn:hover {
+  background: #004d40;
+}
