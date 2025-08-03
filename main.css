@@ -138,6 +138,23 @@ h2 {
   height: 36px;
   margin: 0 4px;
 }
+@media (max-width: 768px) {
+  .footer-nav {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 10px 0;
+  }
+
+  .footer-nav a {
+    display: block !important;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 16px;
+  }
+}
 
 /* ==== MENU ==== */
 nav ul {
