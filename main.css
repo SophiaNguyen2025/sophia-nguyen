@@ -984,5 +984,52 @@ header {
 .blog-link:hover {
   text-decoration: underline;
 }
+/* --- MENU TOGGLE (NÚT ☰) --- */
+.menu-toggle {
+  display: none;
+  background: #0a4a5a;
+  color: white;
+  font-size: 24px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 10px auto;
+  text-align: center;
+}
+
+/* --- NAV TRÊN DESKTOP --- */
+nav#main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* --- NAV TRÊN MOBILE --- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav#main-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #0a4a5a;
+    padding: 10px;
+    text-align: center;
+  }
+
+  nav#main-nav.show-menu {
+    display: flex;
+  }
+
+  nav#main-nav a {
+    color: white;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
 
 
