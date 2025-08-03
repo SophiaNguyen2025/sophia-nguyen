@@ -1029,5 +1029,21 @@ nav {
     font-weight: bold;
   }
 }
+/* FOOTER MENU – RESPONSIVE CHO ĐIỆN THOẠI */
+@media (max-width: 768px) {
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .footer-nav a {
+    display: block;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    text-align: center;
+  }
+}
 
 
