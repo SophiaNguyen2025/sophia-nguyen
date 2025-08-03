@@ -1013,30 +1013,43 @@ header {
   display: block;
 }
 
-/* Nút toggle chỉ hiện trên mobile */
+/* Nút menu (☰) gọn và đẹp hơn */
 .menu-toggle {
   display: none;
-  background: #0a4a5a;
+  background: #d86b82;
   color: white;
-  padding: 10px 16px;
   font-size: 18px;
   border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
   cursor: pointer;
-  margin: 10px auto;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Trên mobile */
+/* Menu xổ xuống */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
+    text-align: center;
+  }
+
+  nav {
+    text-align: center;
+    margin-top: 12px;
   }
 
   .navbar {
     display: none;
     flex-direction: column;
-    text-align: center;
-    background-color: #0a4a5a;
-    padding: 10px;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 10px 0;
+    width: 90%;
+    max-width: 320px;
+    margin: 10px auto;
   }
 
   .navbar.show {
@@ -1044,15 +1057,22 @@ header {
   }
 
   .navbar li {
-    margin: 10px 0;
+    margin: 6px 0;
   }
 
   .navbar a {
-    color: white;
-    text-decoration: none;
+    color: #0a4a5a;
     font-weight: bold;
-    padding: 10px 0;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
   }
+
+  .navbar a:hover {
+    background-color: #d4f1f4;
+  }
+}
 
   .dropdown-content {
     position: static;
