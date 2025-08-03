@@ -517,6 +517,9 @@ nav ul {
   justify-content: center; /* Canh giữa menu */
   gap: 20px;
 }
+.navbar a {
+  color: white !important;
+}
 
 nav ul li {
   position: relative;
