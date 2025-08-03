@@ -499,6 +499,13 @@ nav {
   background-color: #00788c;  /* xanh nhạt hơn khi hover */
   color: white;
 }
+.dropdown {
+  position: relative;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 
 /* === MENU STICKY DÍNH TRÊN ĐẦU === */
