@@ -18,7 +18,8 @@
   “Bạn không cần phải mạnh mẽ suốt cả hành trình.”<br>
   “Dù bạn đang ổn hay không ổn – tôi ở đây, lắng nghe bằng cả sự hiện diện và thấu cảm.”</p>
        <nav>
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+   <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+  <ul class="navbar" id="main-menu">
          <ul class="navbar">
           <li><a href="index.html">Trang chủ</a></li>
           <li><a href="about.html">Giới thiệu</a></li>
@@ -397,10 +398,11 @@ function showThanks(event) {
 </script>
 <script>
   function toggleMenu() {
-    const menu = document.getElementById('main-nav');
-    menu.classList.toggle('show-menu');
+    var menu = document.getElementById("main-menu");
+    menu.classList.toggle("show");
   }
 </script>
+
 
 </body>
 </html>
