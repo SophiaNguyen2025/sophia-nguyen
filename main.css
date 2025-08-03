@@ -988,7 +988,7 @@ header {
   list-style: none;
   display: flex;
   justify-content: center;
-  background-color: #0a4a5a;
+  background-color: #006666;
   padding: 10px 0;
   flex-wrap: wrap;
   margin: 0;
@@ -1009,7 +1009,7 @@ header {
 .navbar .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #0a4a5a;
+  background-color: #99FF99;
   min-width: 200px;
   top: 100%;
   left: 0;
@@ -1028,7 +1028,7 @@ header {
 /* ----------------- MENU MOBILE ----------------- */
 .menu-toggle {
   display: none;
-  background-color: #0a4a5a;
+  background-color: #339900;
   color: white;
   font-size: 22px;
   padding: 8px 14px;
