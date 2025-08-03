@@ -983,7 +983,7 @@ header {
 .blog-link:hover {
   text-decoration: underline;
 }
-/* Nút menu hamburger – chỉ hiện trên mobile */
+/* --- MENU TOGGLE (NÚT ☰) --- */
 .menu-toggle {
   display: none;
   background: #0a4a5a;
@@ -992,25 +992,29 @@ header {
   border: none;
   padding: 10px 15px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
-/* Ẩn menu khi chưa bấm */
+/* --- NAV TRÊN DESKTOP --- */
 nav {
   display: flex;
+  justify-content: center;  /* Canh giữa menu ngang */
+  align-items: center;
   gap: 20px;
 }
 
-/* Mobile view: Ẩn menu ban đầu, chỉ hiện nút ☰ */
+/* --- NAV TRÊN MOBILE --- */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 
   nav {
-    display: none;
+    display: none; /* Ẩn ban đầu trên mobile */
     flex-direction: column;
     background-color: #0a4a5a;
     padding: 10px;
+    text-align: center;
   }
 
   nav.show-menu {
@@ -1021,6 +1025,9 @@ nav {
     color: white;
     padding: 10px 0;
     border-bottom: 1px solid #ccc;
+    text-decoration: none;
+    font-weight: bold;
   }
 }
+
 
