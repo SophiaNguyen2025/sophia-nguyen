@@ -14,8 +14,7 @@
 <body>
  <div class="page-wrapper">
  <header>
-   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-<p class="welcome-message">
+ <p class="welcome-message">
   “Bạn không cần phải mạnh mẽ suốt cả hành trình.”<br>
   “Dù bạn đang ổn hay không ổn – tôi ở đây, lắng nghe bằng cả sự hiện diện và thấu cảm.”</p>
        <nav>
@@ -381,23 +380,5 @@ function showThanks(event) {
   });
 }
 </script>
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('main-menu');
-    menu.classList.toggle('show');
-  }
-
-  // Dropdown mở ra khi bấm (trên mobile)
-  document.querySelectorAll('.dropdown > a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const parentLi = this.parentElement;
-        parentLi.classList.toggle('open');
-      }
-    });
-  });
-</script>
-
 </body>
 </html>
