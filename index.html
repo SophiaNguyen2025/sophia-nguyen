@@ -382,18 +382,23 @@ function showThanks(event) {
   });
 }
 </script>
-<!-- SwiperJS scripts -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  const swiper = new Swiper('.true-stories-swiper', {
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    speed: 800,
-    effect: 'fade'
+  function toggleMenu() {
+    const menu = document.getElementById('main-menu');
+    menu.classList.toggle('show');
+  }
+
+  // Dropdown mở ra khi bấm (trên mobile)
+  document.querySelectorAll('.dropdown > a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parentLi = this.parentElement;
+        parentLi.classList.toggle('open');
+      }
+    });
   });
 </script>
+
 </body>
 </html>
