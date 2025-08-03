@@ -140,10 +140,13 @@ h2 {
 }
 @media (max-width: 768px) {
   .footer-nav {
+    display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 10px !important;
-    padding: 10px 0;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 12px 0;
+    width: 100%;
   }
 
   .footer-nav a {
@@ -151,10 +154,13 @@ h2 {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    color: #ffffff !important;
     font-size: 16px;
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
   }
 }
+
 
 /* ==== MENU ==== */
 nav ul {
