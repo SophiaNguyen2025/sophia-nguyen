@@ -1075,6 +1075,9 @@ header {
 .story-box:hover {
   transform: translateY(-5px);
 }
+.story-box {
+  color: #222 !important; /* hoặc #333 hay #4b0082 tuỳ tone chọn */
+}
 
 /* Các màu đặc trưng */
 .box-yellow { background-color: #fffbe6; }
