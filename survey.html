@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="main.css?v4">
   </head>
 <body>
+  <button class="menu-toggle" id="menuToggle">☰</button>
    <header>
     <p class="welcome-message">
   “Bạn không cần phải mạnh mẽ suốt cả hành trình.”<br>
@@ -385,5 +386,17 @@ function showThanks(event) {
   });
 }
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("menuToggle");
+    const navbar = document.querySelector("nav ul.navbar");
+    if (toggle && navbar) {
+      toggle.addEventListener("click", function () {
+        navbar.classList.toggle("show");
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
