@@ -1044,5 +1044,57 @@ header {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.stories-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stories-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.story-box {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.story-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Các màu đặc trưng */
+.box-yellow { background-color: #fffbe6; }
+.box-green { background-color: #e6fff2; }
+.box-pink { background-color: #ffe6f0; }
+
+.read-more-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #ff7bac;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #ff558a;
+}
 
 
