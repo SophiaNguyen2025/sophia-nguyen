@@ -218,6 +218,7 @@ nav ul li a:hover {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(106, 27, 154, 0.4);
+   text-decoration: none; /* ← thêm dòng này */
 }
 
 .explore-button:hover {
