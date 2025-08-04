@@ -1209,6 +1209,9 @@ header {
     display: block;
   }
 }
+.center-text {
+  text-align: center;
+}
 
 
 
