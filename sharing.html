@@ -7,12 +7,13 @@
   <link rel="stylesheet" href="main.css?v2">
 </head>
 <body>
-  <button class="menu-toggle" id="menuToggle">☰</button>
-  <header>
+    <header>
     <p class="welcome-message">
   “Bạn không cần phải mạnh mẽ suốt cả hành trình.”<br>
   “Dù bạn đang ổn hay không ổn – tôi ở đây, lắng nghe bằng cả sự hiện diện và thấu cảm.”</p>
-     <ul class="navbar">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav class="navbar">
+    <ul class="nav-list">
     <li><a href="index.html">Trang chủ</a></li>
     <li><a href="about.html">Giới thiệu</a></li>
 
@@ -225,6 +226,11 @@ updateCornerClock();
       });
     }
   });
+</script>
+<script>
+  function toggleMenu() {
+    document.querySelector('.navbar').classList.toggle('active');
+  }
 </script>
 
 
