@@ -1420,26 +1420,38 @@ body {
 header {
   margin-bottom: 10px;
 }
-.hero-video {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  max-height: 400px;
-  object-fit: cover;
-}
-.video-box {
-  width: 100%;
-  max-width: 480px;
-  margin: 20px auto;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.video-text-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 960px;
 }
 
-.video-box video {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  border-radius: 16px;
+.video-column {
+  flex: 1 1 45%;
 }
+
+.video-column video {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.text-column {
+  flex: 1 1 45%;
+}
+
+.text-column h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #0a4a5a;
+}
+
+.text-column p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
