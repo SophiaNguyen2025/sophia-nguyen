@@ -583,7 +583,7 @@ nav ul li a.active::after {
 .navbar li a:hover,
 .navbar li a.active {
   background-color: #cceef5; /* Nền khi hover hoặc đang active */
-  color: #00788c; /* Màu chữ khi hover hoặc đang active */
+  color: #008080; /* Màu chữ khi hover hoặc đang active */
   font-weight: bold;
   transition: 0.3s ease;
 }
