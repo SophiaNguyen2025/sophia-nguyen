@@ -1,43 +1,83 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sophia Nguyễn – Đồng hành & Sẻ chia</title>
-  <link rel="stylesheet" href="main.css?v4">
-  </head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bài test tìm hiểu bản thân – Sophia Nguyễn</title>
+  <link rel="stylesheet" href="main.css?v5" />
+</head>
 <body>
-   <header>
+  <header>
     <p class="welcome-message">
-  “Bạn không cần phải mạnh mẽ suốt cả hành trình.”<br>
-  “Dù bạn đang ổn hay không ổn – tôi ở đây, lắng nghe bằng cả sự hiện diện và thấu cảm.”</p>
+      “Bạn không cần phải mạnh mẽ suốt cả hành trình.”<br />
+      “Dù bạn đang ổn hay không ổn – tôi ở đây, lắng nghe bằng cả sự hiện diện và thấu cảm.”
+    </p>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <nav class="navbar">
-    <ul class="nav-list">
-          <li><a href="index.html">Trang chủ</a></li>
-          <li><a href="about.html">Giới thiệu</a></li>
-          <li><a href="service.html">Dịch vụ</a></li>
-          <li><a href="sharing.html">Góc chia sẻ</a> </li>
-           
-          <li class="dropdown">
-            <a href="blog.html">Blog</a>
-            <ul class="dropdown-content">
-              <li><a href="blog-chameconcai.html">Cha mẹ và con cái</a></li>
-              <li><a href="blog-treem.html">Tâm lý trẻ vị thành niên</a></li>
-              <li><a href="blog-nghenghiep.html">Định hướng – Nghề nghiệp – Học tập</a></li>
-              <li><a href="blog-codon.html">Nỗi đau của những người cô đơn</a></li>
-            </ul>
-          </li>
-           <li><a href="survey.html">Bài test</a></li>
-          <li><a href="contact.html">Liên hệ</a></li>
-        </ul>
-      </nav>
-      <h1>Sophia Nguyễn – Đồng hành & Sẻ chia</h1>
-      <div class="contact">Tận Tâm – Lắng Nghe – Thấu Cảm – Không Phán Xét</div>
-    </header>
-    
-<img class="hero-image" src="0003.png" alt="Ảnh nền nhẹ nhàng">
-  </div>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="about.html">Giới thiệu</a></li>
+        <li><a href="service.html" class="active">Dịch vụ</a></li>
+        <li><a href="sharing.html">Góc chia sẻ</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="survey.html">Bài test</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <h1>Khám phá bản thân cùng Sophia</h1>
+    <p class="page-intro">
+      Những bài test tâm lý nhẹ nhàng giúp bạn hiểu hơn về chính mình, từ cách bạn gắn bó, yêu thương, đến định hướng phát triển cá nhân. Mỗi bài là một bước nhỏ trên hành trình chăm sóc tinh thần.
+    </p>
+  </header>
+
+  <section class="survey-group">
+    <h2> Trắc nghiệm đang có</h2>
+    <div class="survey-preview">
+      <img src="img/test-attachment.jpg" alt="Phong cách gắn bó">
+      <div class="survey-text">
+        <h3> Phong cách gắn bó người trưởng thành (1) </h3>
+        <p>Bài test 20 câu giúp bạn nhận biết mình thuộc kiểu gắn bó nào: an toàn – lo âu – né tránh – hỗn loạn. Kèm lời giải thích kỹ sau khi làm bài.</p>
+        <a href="form-ganbo.html">Làm bài ngay</a>
+      </div>
+    </div>
+  </section>
+<div class="survey-preview">
+      <img src="img/test-attachment.jpg" alt="Phong cách gắn bó">
+      <div class="survey-text">
+        <h3> Phong cách gắn bó người trưởng thành (2) </h3>
+        <p>Bài test 20 câu giúp bạn nhận biết mình thuộc kiểu gắn bó nào: an toàn – lo âu – né tránh – hỗn loạn. Kèm lời giải thích kỹ sau khi làm bài.</p>
+        <a href="form-ganbo2.html">Làm bài ngay</a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="survey-group">
+    <h2>Trắc nghiệm sắp ra mắt</h2>
+    <div class="survey-preview">
+      <img src="img/test-selflove.jpg" alt="Tự yêu thương">
+      <div class="survey-text">
+        <h3>Mức độ tự yêu thương</h3>
+        <p>Bài trắc nghiệm gồm các tình huống giúp bạn nhận diện mức độ tự quan tâm, tự chấp nhận và ranh giới cá nhân trong cuộc sống.</p>
+        <a class="coming-soon">Đang hoàn thiện</a>
+      </div>
+    </div>
+
+    <div class="survey-preview">
+      <img src="img/test-career.jpg" alt="Hướng nghiệp">
+      <div class="survey-text">
+        <h3>Bạn phù hợp với kiểu nghề nào?</h3>
+        <p>Khám phá thiên hướng nghề nghiệp cơ bản của bạn dựa trên nhóm tính cách nổi bật và đặc điểm hành vi qua các tình huống giả định.</p>
+        <a class="coming-soon">Sắp ra mắt</a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta-section">
+    <div class="quick-links" style="margin-top: 10px;">
+    <a href="https://zalo.me/0977092182" class="cta-btn">📅 Tư vấn kết quả test</a>
+    <a href="contact.html" class="cta-btn">📩 Gửi tin nhắn cho Sophia</a>
+  </section>
+
   <div class="special-service-wrapper">
     <div class="special-service-box">
       <h2>Sophia Đồng Hành – Sẻ Chia một cách Khác biệt 💛</h2>
@@ -45,100 +85,9 @@
       <a href="https://sophianguyen2025.github.io/sophia-donghanh-sechia/" target="_blank" class="explore-button">Khám phá ngay</a>
     </div>
 </div>
-</div>
- <style>
-    .survey-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-    }
-    .survey-table th, .survey-table td {
-      padding: 12px;
-      border: 1px solid #ccc;
-      text-align: left;
-    }
-    .survey-table th {
-      background-color: #f0f0f0;
-    }
-    .survey-table td:first-child {
-      font-size: 1.5rem;
-    }
-    .survey-button {
-      background-color: #4caf50;
-      color: white;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .survey-button:hover {
-      background-color: #388e3c;
-    }
-    .survey-title {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 2rem;
-      color: #333;
-    }
-  </style>
-</head>
-<body>
-  <h1 class="survey-title">🧪 Khảo sát tâm lý</h1>
-  <table class="survey-table">
-    <thead>
-      <tr>
-        <th>Tên khảo sát</th>
-        <th>Dành cho</th>
-        <th>Nội dung</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Trắc nghiệm phong cách gắn bó (câu trả lời đúng sai)</td>
-        <td>Người trưởng thành</td>
-        <td>Giúp bạn nhìn nhận lại mức độ gắn bó của bản thân đối với người khác</td>
-        <td><a href="form-ganbo.html"><button class="survey-button">Test</button></a></td>
-      </tr>
-      <tr>
-        <td>Trắc nghiệm phong cách gắn bó (câu trả lời diễn đạt)</td>
-        <td>Người trưởng thành</td>
-        <td>Giúp bạn hiểu cách bạn gắn bó trong tình yêu/các mối quan hệ</td>
-        <td><a href="form-ganbo2.html"><button class="survey-button">Test</button></a></td>
-      </tr>
-      <tr>
-        <td>Đánh giá mức độ stress hiện tại</td>
-        <td>Người trưởng thành</td>
-        <td>Khảo sát nhanh mức độ căng thẳng hiện tại</td>
-        <td><a href="form-stress1.html"><button class="survey-button">Test</button></a></td>
-      </tr>
-       <tr>
-        <td>Đánh giá mức độ trầm cảm học đường</td>
-        <td>Trẻ em dưới 18t</td>
-        <td>Khảo sát nhanh mức độ căng thẳng hiện tại</td>
-        <td><a href="form-stresstreem.html"><button class="survey-button">Test</button></a></td>
-      </tr>
-      <tr>
-        <td>Khảo sát nhu cầu của con</td>
-        <td>Phụ huynh</td>
-        <td>Xác định nhu cầu tâm lý chưa được đáp ứng ở trẻ</td>
-        <td><a href="form-nhu-cau.html"><button class="survey-button">Test</button></a></td>
-      </tr>
-      <tr>
-        <td>Mức độ hiểu con của ba mẹ</td>
-        <td>Phụ huynh</td>
-        <td>Xác định nhu cầu tâm lý chưa được đáp ứng ở trẻ</td>
-        <td><a href="form-nhu-cau.html"><button class="survey-button">Test</button></a></td>
-      </tr>
-    </tbody>
-  </table>
-</body>
-</html>
-
-      
-<!-- KẾT THÚC: PHẦN CÂU CHUYỆN THẬT -->
-   </div> <!-- ĐÓNG LẠI page-wrapper -->
-<footer class="site-footer">
+    
+ </section>
+   <footer class="site-footer">
   <div>
     <img src="hinhremovenen.png" alt="Sophia Logo" class="footer-logo">
   </div>
@@ -154,16 +103,20 @@
   </nav>
   <p class="footer-slogan">“Đồng hành để thấu hiểu - Sẻ chia để thành công”</p>
   <div class="footer-social">
-    <a href="https://facebook.com/Sophiadiemhang1982" target="_blank">
-      <img src="OIP3.jpg" alt="Facebook"></a>
+    <a href="https://facebook.com/Sophiadiemhang1982"target="_blank">
+      <img src="OIP3.jpg" alt="Facebook">
+    </a>
     <a href="https://zalo.me/0977092182" target="_blank">
-      <img src="OIP4.jpg" alt="Zalo"></a>
+      <img src="OIP4.jpg" alt="Zalo">
+    </a>
   </div>
-    <div class="marquee">
+        <div class="marquee">
   <p>Cảm ơn bạn đã ghé thăm Sophia. Chúc bạn luôn may mắn, hạnh phúc & bình an.</p>
 </div>
 </footer>
-<script>
+  
+    <!-- BẮT ĐẦU phần đánh dấu menu-->
+  <script>
   document.addEventListener("DOMContentLoaded", function () {
     let current = window.location.pathname;
     if (current === "/" || current === "") {
@@ -185,6 +138,8 @@
     });
   });
 </script>
+    <!-- Kết thúc phần đánh dấu menu -->
+  
   <button id="backToTop" title="Về đầu trang">⬆️</button>
   <script>
   // Hiện nút khi cuộn xuống
@@ -198,7 +153,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 </script>
-   <style>
+    <style>
   .welcome-box {
     padding: 20px;
     background-color: #1a1a1a;
@@ -211,8 +166,7 @@
     margin-bottom: 20px;
   }
 </style>
-
-   <!-- ✨ Đồng hồ chữ nhật nằm góc trên bên phải -->
+<!-- ✨ Đồng hồ chữ nhật nằm góc trên bên phải -->
 <style>
 #corner-clock {
   position: fixed;
@@ -328,47 +282,27 @@ updateCornerClock();
     <div id="thanks-message">💌 Cảm ơn bạn đã gửi lời nhắn!</div>
   </form>
 </div>
-
-<script>
-  function toggleForm() {
-    const popup = document.getElementById('form-popup');
-    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-  }
-
-  function showThanks(event) {
-    event.preventDefault();
-    const form = event.target;
-    const thanksMessage = form.querySelector('#thanks-message');
-    thanksMessage.style.display = 'block';
-    // Gửi form sau 1 chút
-    setTimeout(() => form.submit(), 1000);
-  }
-</script>
-
-
-<script>
-function toggleForm() {
-  var form = document.getElementById('form-popup');
-  form.style.display = (form.style.display === 'none' || form.style.display === '') ? 'block' : 'none';
-}
-function showThanks(event) {
-  event.preventDefault();
-  const form = event.target;
-  fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { 'Accept': 'application/json' }
-  }).then(response => {
-    if (response.ok) {
-      form.reset();
-      document.getElementById('thanks-message').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('form-popup').style.display = 'none';
-        document.getElementById('thanks-message').style.display = 'none';
-      }, 2500);
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let current = window.location.pathname;
+    if (current === "/" || current === "") {
+      current = "/index.html";
     }
+
+    document.querySelectorAll(".navbar a").forEach(function (link) {
+      const linkPath = new URL(link.href).pathname;
+      if (linkPath === current) {
+        link.classList.add("active");
+
+        // Nếu nằm trong dropdown thì tô luôn cha nó
+        const dropdown = link.closest(".dropdown-content");
+        if (dropdown) {
+          const parentLink = dropdown.parentElement.querySelector("a");
+          if (parentLink) parentLink.classList.add("active");
+        }
+      }
+    });
   });
-}
 </script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -381,6 +315,7 @@ function showThanks(event) {
     }
   });
 </script>
+
 <script>
   function toggleMenu() {
     document.querySelector('.navbar').classList.toggle('active');
