@@ -590,14 +590,14 @@ nav ul li a.active::after {
 
 /* Cho dropdown menu: active ở thẻ cha */
 .navbar li.dropdown > a.active {
-  background-color:#cceef5;
-  color: #00788c;
+  background-color:#C0C0C0;
+  color: #008080;
 }
 
 
 .navbar a.active {
-  background-color: #00788c;
-  color: #0077cc;
+  background-color: #C0C0C0;
+  color: #008080;
   border-bottom: 4px solid #00bcd4;
   padding: 6px 12px;
   border-radius: 6px 6px 0 0;
