@@ -1083,6 +1083,8 @@ header {
 .box-yellow { background-color: #fffbe6; }
 .box-green { background-color: #e6fff2; }
 .box-pink { background-color: #ffe6f0; }
+.box-blue { background-color: #AFD788; }
+
 
 .read-more-btn {
   display: inline-block;
