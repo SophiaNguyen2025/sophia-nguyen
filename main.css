@@ -1271,5 +1271,76 @@ header {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+/* ====== ABOUT PAGE – STYLE NHẸ NHÀNG ====== */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  color: #4e3f70;
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+p, li {
+  font-size: 17px;
+  color: #444;
+  margin-bottom: 0.8em;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+  background-color: #f9f9ff;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.cta-section {
+  text-align: center;
+  background-color: #fef6ff;
+}
+
+.cta-btn {
+  display: inline-block;
+  background-color: #c59efc;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  margin: 8px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #9f7aea;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  section {
+    padding: 30px 15px;
+  }
+}
 
 
