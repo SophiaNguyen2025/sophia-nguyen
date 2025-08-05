@@ -1404,5 +1404,21 @@ ul li {
   font-size: 24px;
   margin-bottom: 20px;
 }
+/* Giảm khoảng cách trên và dưới của các section */
+section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 0;
+}
+
+/* Nếu vẫn còn khoảng cách lạ lạ, chị reset luôn header và body */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin-bottom: 10px;
+}
 
 
