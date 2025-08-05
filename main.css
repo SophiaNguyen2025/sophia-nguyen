@@ -1341,29 +1341,30 @@ ul li {
     padding: 30px 15px;
   }
 }
-/* ====== PHẦN INTRO Ở TRANG INDEX ====== */
+
+/* ====== STYLE CHO PHẦN .intro THEO GU CHỊ ====== */
 
 .intro {
+  background-color: #d4f1f4;
   padding: 40px 20px;
   max-width: 900px;
-  margin: auto;
-  background-color: #fff8f9;
-  border-radius: 12px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  margin: 30px auto;
+  border-radius: 16px;
   text-align: center;
-  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .intro p {
+  color: #0a4a5a;
   font-size: 18px;
-  color: #444;
-  margin-bottom: 16px;
+  line-height: 1.6;
 }
 
 .tagline {
-  font-style: italic;
-  color: #aa5588;
   font-weight: bold;
+  font-style: italic;
+  color: #0a4a5a;
+  margin-bottom: 20px;
 }
 
 .quick-links {
@@ -1373,17 +1374,17 @@ ul li {
 .quick-links a {
   display: inline-block;
   margin: 5px 10px;
-  padding: 10px 20px;
-  background-color: #c59efc;
+  padding: 12px 24px;
+  background-color: #0a4a5a;
   color: white;
-  border-radius: 30px;
   text-decoration: none;
+  border-radius: 30px;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
 .quick-links a:hover {
-  background-color: #9f7aea;
+  background-color: #0c5d6d;
 }
 
 
