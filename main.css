@@ -1427,3 +1427,19 @@ header {
   max-height: 400px;
   object-fit: cover;
 }
+.video-box {
+  width: 100%;
+  max-width: 480px;
+  margin: 20px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-box video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
