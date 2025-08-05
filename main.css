@@ -470,7 +470,7 @@ nav {
 
 .navbar a {
   text-decoration: none;
-  color: #000080;
+  color:black;
   font-weight: bold;
   padding: 8px 12px;
 }
@@ -533,7 +533,7 @@ nav ul {
   gap: 20px;
 }
 .navbar a {
-  color: white !important;
+  color: #000080 !important;
 }
 
 nav ul li {
