@@ -286,7 +286,7 @@ nav ul li a:hover {
 .schedule-button {
   display: inline-flex;
   align-items: center;
-  background-color: #6A5ACD !important; /* Tím sang */
+  background-color: #0a4a5a !important; /* Tím sang */
   color: #e0e0e0;
   font-size: 18px;
   font-weight: 600;
