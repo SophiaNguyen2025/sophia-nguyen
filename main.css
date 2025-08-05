@@ -1281,13 +1281,24 @@ body {
   padding: 0;
 }
 
-h1, h2, h3 {
-  color: #4e3f70;
+h1, h2 {
+  color: #EC870E;
   font-weight: bold;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
-
+h2 {
+  color: #00B2BF;
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+h3 {
+  color:#00AE72;
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
 p, li {
   font-size: 17px;
   color: #444;
