@@ -816,43 +816,7 @@ marquee {
     transform: translateY(0);
   }
 }
-.story-box {
-  padding: 20px;
-  border-radius: 16px;
-  color: #fff;
-  font-weight: 500;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
 
-.story-box:hover {
-  transform: translateY(-5px);
-}
-
-/* 3 MÀU NỀN KHÁC NHAU */
-.box-pink    { background: #CC99FF; }
-.box-yellow  { background: #F6C3C3; }
-.box-green   { background: #0a4a5a;}
-
-.six-box-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Desktop: 3 box mỗi hàng */
-  gap: 20px;
-}
-
-@media (max-width: 992px) {
-  .six-box-grid {
-    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 box mỗi hàng */
-  }
-}
-
-@media (max-width: 576px) {
-  .six-box-grid {
-    grid-template-columns: 1fr; /* Mobile nhỏ: 1 box mỗi hàng */
-  }
-}
 
 .home-image {
   width: 100%;
@@ -1283,7 +1247,7 @@ body {
   padding: 0;
 }
 
-h1, h2 {
+h1 {
   color: #EC870E;
   font-weight: bold;
   margin-top: 1.5em;
@@ -1297,6 +1261,12 @@ h2 {
 }
 h3 {
   color:#00AE72;
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+h4 {
+  color:#FFFFFF;
   font-weight: bold;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
